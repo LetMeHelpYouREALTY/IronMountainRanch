@@ -6,16 +6,10 @@ import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone }
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Las Vegas Real Estate Market Report January 2026 | Berkshire Hathaway HomeServices",
+  title: "Iron Mountain Ranch Market Report | Las Vegas 89131",
   description:
-    "Get the latest Las Vegas real estate market statistics for January 2026. Median prices, days on market, inventory levels, and expert analysis from Berkshire Hathaway HomeServices Nevada Properties.",
-  keywords: [
-    "Las Vegas real estate market",
-    "Las Vegas home prices 2026",
-    "Henderson real estate market",
-    "Nevada housing market",
-    "Berkshire Hathaway market report",
-  ],
+    "Iron Mountain Ranch and northwest Las Vegas real estate market data. Median prices, inventory, and expert analysis from Dr. Jan Duffy.",
+  alternates: { canonical: "/market-report" },
 };
 
 // Report Schema

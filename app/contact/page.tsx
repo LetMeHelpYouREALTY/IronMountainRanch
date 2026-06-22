@@ -5,18 +5,15 @@ import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield 
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
+import GbpActionLinks from "@/components/shared/GbpActionLinks";
+import { getGbpDirectionsUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
-  title: "Contact Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
+  title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
   description:
-    "Contact Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Schedule an appointment, get directions, or call (702) 500-1942. Las Vegas, Henderson, Summerlin real estate expert.",
-  keywords: [
-    "contact real estate agent Las Vegas",
-    "Berkshire Hathaway contact",
-    "Dr. Jan Duffy phone",
-    "Las Vegas realtor contact",
-    "schedule real estate appointment",
-  ],
+    "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. 6628 Sky Pointe Dr., Las Vegas NV 89131. Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com.",
+  alternates: { canonical: "/contact" },
 };
 
 const contactSchema = {
@@ -24,21 +21,27 @@ const contactSchema = {
   "@type": "ContactPage",
   mainEntity: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
+    name: "Dr. Jan Duffy - Iron Mountain Ranch | Homes by Dr. Jan Duffy",
     telephone: "+17025001942",
-    email: "homes@heyberkshire.com",
+    email: "DrDuffy@IronMountainRanchLasVegas.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
+      streetAddress: "6628 Sky Pointe Dr.",
       addressLocality: "Las Vegas",
       addressRegion: "NV",
-      postalCode: "89134",
+      postalCode: "89131",
       addressCountry: "US",
     },
   },
 };
 
 export default function ContactPage() {
+  const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(officeInfo.address.full)}&output=embed`;
+  const directionsUrl = getGbpDirectionsUrl(
+    officeInfo.coordinates.lat,
+    officeInfo.coordinates.lng,
+  );
+
   return (
     <>
       <script
@@ -54,12 +57,11 @@ export default function ContactPage() {
               Berkshire Hathaway HomeServices Nevada Properties
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Contact Dr. Jan Duffy
+              Contact {agentInfo.name}
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Questions about Las Vegas real estate? Your{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> expert is here to help. 
-              Schedule an appointment or reach out directly.
+              Questions about Iron Mountain Ranch real estate? Reach {siteConfig.name} at{" "}
+              {officeInfo.address.full}.
             </p>
           </div>
 
@@ -81,10 +83,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Phone (Call or Text)</h3>
                     <a
-                      href="tel:+17025001942"
+                      href={agentInfo.phoneTel}
                       className="text-2xl font-bold text-blue-600 hover:text-blue-700"
                     >
-                      (702) 500-1942
+                      {agentInfo.phoneFormatted}
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
                       Available 7 days a week, 9am-6pm
@@ -97,10 +99,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Email</h3>
                     <a
-                      href="mailto:homes@heyberkshire.com"
-                      className="text-blue-600 hover:text-blue-700 font-medium"
+                      href={`mailto:${agentInfo.email}`}
+                      className="text-blue-600 hover:text-blue-700 font-medium break-all"
                     >
-                      Homes@HeyBerkshire.com
+                      {agentInfo.email}
                     </a>
                     <p className="text-sm text-slate-500 mt-1">
                       Typically respond within 2 hours
@@ -113,10 +115,11 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Office Address</h3>
                     <address className="not-italic text-slate-700">
-                      Berkshire Hathaway HomeServices<br />
-                      Nevada Properties<br />
-                      9406 W Lake Mead Blvd, Suite 100<br />
-                      Las Vegas, NV 89134
+                      {agentInfo.brokerage}
+                      <br />
+                      {officeInfo.address.street}
+                      <br />
+                      {officeInfo.address.city}, {officeInfo.address.state} {officeInfo.address.zip}
                     </address>
                   </div>
                 </div>
@@ -139,22 +142,26 @@ export default function ContactPage() {
               {/* Google Map Embed */}
               <div className="rounded-xl overflow-hidden shadow-md mb-4">
                 <iframe
-                  src="https://maps.google.com/maps?q=9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src={mapEmbed}
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Berkshire Hathaway HomeServices Nevada Properties - Office Location"
+                  title={`${siteConfig.name} - Office Location`}
                   className="w-full"
                 />
+              </div>
+
+              <div className="mb-8">
+                <GbpActionLinks />
               </div>
               
               {/* Map Action Buttons */}
               <div className="flex gap-3 mb-8">
                 <a
-                  href="https://www.google.com/maps/dir//9406+W+Lake+Mead+Blvd+Suite+100,+Las+Vegas,+NV+89134"
+                  href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"

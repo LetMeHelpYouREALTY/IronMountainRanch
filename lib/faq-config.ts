@@ -109,6 +109,39 @@ export const FAQ_BY_PAGE_TYPE: Record<string, FAQ[]> = {
 
 export const FAQ_DOMAIN_OVERRIDES: Record<string, FAQ[]> = {
 
+  "ironmountainranchlasvegas.com": [
+    {
+      question: "What is the median home price in Iron Mountain Ranch?",
+      answer:
+        "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Call Dr. Jan at (702) 500-1942 for a live comp pull on the village and floor plan you want.",
+    },
+    {
+      question: "Is Iron Mountain Ranch gated?",
+      answer:
+        "Yes — Iron Mountain Ranch includes multiple gated villages with controlled access. HOA fees and amenities vary by village. Dr. Jan explains gate access and dues before you tour.",
+    },
+    {
+      question: "What zip code is Iron Mountain Ranch?",
+      answer:
+        "Most Iron Mountain Ranch addresses are in 89131, with some areas in 89143. School assignments depend on your exact address — Dr. Jan verifies this for every listing.",
+    },
+    {
+      question: "How is the commute from Iron Mountain Ranch?",
+      answer:
+        "Iron Mountain Ranch sits near the 215 Beltway and US-95, with straightforward access to Centennial Hills shopping, downtown Las Vegas, and the Strip. Red Rock Canyon is about 15 minutes away.",
+    },
+    {
+      question: "Are there HOA fees in Iron Mountain Ranch?",
+      answer:
+        "Yes. HOA dues vary by village and cover common areas, gates, and community amenities. Dr. Jan provides the exact monthly amount and what it covers before you make an offer.",
+    },
+    {
+      question: "Why work with Dr. Jan Duffy for Iron Mountain Ranch?",
+      answer:
+        "Dr. Jan Duffy, REALTOR® (S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties, specializes in exclusive gated northwest Las Vegas communities including Iron Mountain Ranch and Silverstone Ranch.",
+    },
+  ],
+
   "heritagestoneridgevalue.com": [
     { question: "How do I get an accurate Heritage Stonebridge home valuation?",
       answer: "Dr. Jan pulls live Heritage Stonebridge comps — every sale in the past 6 months, adjusted for upgrades, floor plan, and lot position. She does this free with no obligation. Call 702-222-1964 for your personalized valuation." },

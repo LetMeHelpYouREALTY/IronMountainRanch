@@ -24,17 +24,27 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'heyberkshire.com',
-          },
-        ],
-        destination: 'https://www.heyberkshire.com/:path*',
+        source: "/:path*",
+        has: [{ type: "host", value: "ironmountainranchlasvegas.com" }],
+        destination: "https://www.ironmountainranchlasvegas.com/:path*",
         permanent: true,
       },
-    ]
+      { source: "/buyers", destination: "/buy", permanent: true },
+      { source: "/buyers/:path*", destination: "/buy", permanent: true },
+      { source: "/sellers", destination: "/sell", permanent: true },
+      { source: "/sellers/:path*", destination: "/sell", permanent: true },
+      {
+        source: "/neighborhoods/iron-mountain-ranch",
+        destination: "/sub-communities",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "heyberkshire.com" }],
+        destination: "https://www.heyberkshire.com/:path*",
+        permanent: true,
+      },
+    ];
   },
 
   // Python API rewrites

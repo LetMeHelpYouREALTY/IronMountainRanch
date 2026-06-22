@@ -11,6 +11,10 @@
 .yarn/build-state.yml
 .yarn/install-state.gz
 
+# pnpm only — do not commit npm lockfile alongside pnpm-lock.yaml
+package-lock.json
+npm-shrinkwrap.json
+
 # ===================
 # Testing
 # ===================
@@ -36,14 +40,19 @@
 /.vercel/output
 
 # ===================
-# Environment Files
+# Environment Files (never commit secrets)
 # ===================
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-.env*.local
+.env.*
+!.env.example
+!.env.*.example
+
+# ===================
+# Cloudflare Workers
+# ===================
+.wrangler/
+.dev.vars
+.mf/
 
 # ===================
 # IDE & Editor
@@ -110,7 +119,7 @@ ENV/
 *.p12
 secrets.json
 credentials.json
-# MCP config may contain Notion integration token — use .cursor/mcp.json.example as template
+# MCP config may contain integration tokens — use .cursor/mcp.json.example as template
 .cursor/mcp.json
 
 # ===================
@@ -118,6 +127,32 @@ credentials.json
 # ===================
 .sentryclirc
 .sentry-*
+
+# ===================
+# Realtor / MLS — local data (never commit)
+# ===================
+/data/
+/exports/
+/listings-export/
+*.idx
+.fub-cache/
+.realscout-cache/
+mls-snapshots/
+
+# ===================
+# Performance & audit artifacts (regenerate in CI)
+# ===================
+audit-report.json
+.lighthouseci/
+lighthouse-report*.html
+
+# ===================
+# AI agent tool caches (keep .cursor/rules for team; ignore duplicates)
+# ===================
+.agent/
+.agents/
+.claude/
+.windsurf/
 
 # ===================
 # Misc
@@ -128,9 +163,10 @@ credentials.json
 *.temp
 
 # ===================
-# Large Media (use Git LFS if needed)
+# Large Media
 # ===================
-# Uncomment if you want to ignore large files
-# *.mp4
-# *.mov
-# *.avi
+# Legacy FAQ-generator demo — host tours under public/videos/ (Git LFS)
+/demo.mp4
+# Raw unoptimized uploads (optimize before committing to public/)
+/public/uploads/
+/public/**/raw/

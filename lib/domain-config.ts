@@ -83,22 +83,52 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
   "waterfallhomesnorthlasvegas.com": { domain: "waterfallhomesnorthlasvegas.com", neighborhood: "Waterfall Homes", tagline: "Waterfall Homes North Las Vegas", description: "Waterfall Homes community in North Las Vegas. Expert real estate guidance from Dr. Jan Duffy.", heroHeadline: "Waterfall Homes North Las Vegas", heroSubheadline: "Beautiful North Las Vegas community with distinctive waterfall features.", keywords: ["Waterfall Homes North Las Vegas", "North Las Vegas community", "North LV homes for sale"], pageType: "community", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "North LV Specialist", ctaHeadline: "Find Your Waterfall Homes Property", ctaSubheadline: "Great value, great community — let me show you what is available." },
   "zoomintohomes.com": { domain: "zoomintohomes.com", neighborhood: "Las Vegas", tagline: "Zoom Into Las Vegas Homes", description: "Virtual home tours and in-depth Las Vegas real estate guidance from Dr. Jan Duffy.", heroHeadline: "Zoom Into Las Vegas Homes", heroSubheadline: "Virtual tours, 3D walkthroughs, and live video showings — home buying on your schedule.", keywords: ["virtual home tours Las Vegas", "zoom home tour Las Vegas", "remote home buying Las Vegas"], pageType: "search", realscoutAgentId: REALSCOUT_AGENT_ID, ctaBadge: "Virtual Tour Expert", ctaHeadline: "Tour Homes From Anywhere", ctaSubheadline: "Cannot visit in person? I will do a live video tour of any Las Vegas home. Call 702-222-1964." },
 
+  "ironmountainranchlasvegas.com": {
+    domain: "ironmountainranchlasvegas.com",
+    neighborhood: "Iron Mountain Ranch",
+    tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
+    description:
+      "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community specialist Dr. Jan Duffy at 6628 Sky Pointe Dr. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 500-1942.",
+    heroHeadline: "Iron Mountain Ranch Homes for Sale",
+    heroSubheadline:
+      "Gated northwest Las Vegas living — wooded parks, ponds, and scenic paths. Homes by Dr. Jan Duffy.",
+    keywords: [
+      "Iron Mountain Ranch homes for sale",
+      "Iron Mountain Ranch Las Vegas",
+      "Homes by Dr Jan Duffy",
+      "89131 homes for sale",
+      "gated community Las Vegas",
+    ],
+    pageType: "community",
+    realscoutAgentId: REALSCOUT_AGENT_ID,
+    ctaBadge: "Iron Mountain Ranch Specialist",
+    ctaHeadline: "Find Your Iron Mountain Ranch Home",
+    ctaSubheadline:
+      "Browse sub-communities or call (702) 500-1942 — Dr. Jan answers her own phone.",
+  },
 };
 
 // Default config for any domain not specifically listed
 export const DEFAULT_CONFIG: DomainConfig = {
-  domain: "default",
-  neighborhood: "Las Vegas",
-  tagline: "Las Vegas Homes for Sale",
-  description: "Search Las Vegas homes for sale. Expert real estate guidance from Dr. Jan Duffy, BHHS Nevada Properties.",
-  heroHeadline: "Las Vegas Homes for Sale",
-  heroSubheadline: "Expert real estate guidance from Dr. Jan Duffy — 30+ years, 500+ families helped.",
-  keywords: ["Las Vegas homes for sale", "Las Vegas real estate", "Dr Jan Duffy"],
-  pageType: "search",
+  domain: "ironmountainranchlasvegas.com",
+  neighborhood: "Iron Mountain Ranch",
+  tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
+  description:
+    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community homes with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+  heroHeadline: "Iron Mountain Ranch Homes for Sale",
+  heroSubheadline:
+    "Homes by Dr. Jan Duffy — gated northwest Las Vegas community expert at 6628 Sky Pointe Dr.",
+  keywords: [
+    "Iron Mountain Ranch homes for sale",
+    "Homes by Dr Jan Duffy",
+    "89131 real estate",
+    "Iron Mountain Ranch Las Vegas",
+  ],
+  pageType: "community",
   realscoutAgentId: REALSCOUT_AGENT_ID,
-  ctaBadge: "Las Vegas Expert",
-  ctaHeadline: "Find Your Las Vegas Home",
-  ctaSubheadline: "Call or text Dr. Jan at 702-222-1964 — I answer my own phone.",
+  ctaBadge: "Iron Mountain Ranch Expert",
+  ctaHeadline: "Search Iron Mountain Ranch Listings",
+  ctaSubheadline: "Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {
