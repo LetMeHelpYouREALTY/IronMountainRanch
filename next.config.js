@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const { withBotId } = require("botid/next/config");
+
 const nextConfig = {
   // Standalone output for Docker/Vercel optimization
   output: 'standalone',
@@ -47,17 +49,18 @@ const nextConfig = {
     ];
   },
 
-  // Python API rewrites
+  // Python API rewrites (local dev only — production uses Next.js route handlers)
   rewrites: async () => {
+    if (process.env.NODE_ENV !== "development") {
+      return [];
+    }
+
     return [
       {
-        source: '/api/:path*',
-        destination:
-          process.env.NODE_ENV === 'development'
-            ? 'http://127.0.0.1:5328/api/:path*'
-            : '/api/',
+        source: "/api/:path*",
+        destination: "http://127.0.0.1:5328/api/:path*",
       },
-    ]
+    ];
   },
 
   // Enhanced security headers including CSP for RealScout widget
@@ -131,7 +134,7 @@ const nextConfig = {
 const { withSentryConfig } = require("@sentry/nextjs");
 
 module.exports = withSentryConfig(
-  nextConfig,
+  withBotId(nextConfig),
   {
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options

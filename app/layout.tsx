@@ -10,8 +10,10 @@ import {
   getSiteUrl,
 } from "@/lib/site-url";
 import SiteJsonLd from "@/components/seo/SiteJsonLd";
+import { botIdProtectedRoutes } from "@/lib/botid-routes";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import { BotIdClient } from "botid/client";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
@@ -62,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
+        <BotIdClient protect={[...botIdProtectedRoutes]} />
         <link rel="me" href={absoluteUrl("/")} />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"

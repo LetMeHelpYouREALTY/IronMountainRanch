@@ -12,6 +12,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { FollowUpBossClient } from '@/lib/fub/client';
 import { leadFormLimiter, getClientId, checkRateLimit, getRateLimitHeaders } from '@/lib/rate-limit';
+import { verifyBotRequest } from '@/lib/verify-bot';
 
 export interface LeadCaptureRequest {
   // Required
@@ -76,6 +77,9 @@ async function verifyTurnstileToken(token: string): Promise<boolean> {
 }
 
 export async function POST(request: NextRequest) {
+  const botResponse = await verifyBotRequest();
+  if (botResponse) return botResponse;
+
   try {
     const data: LeadCaptureRequest = await request.json();
 

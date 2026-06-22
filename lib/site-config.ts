@@ -63,3 +63,153 @@ export const primaryNav = [
 
 // Market Statistics (Updated January 2026)
 export const marketStats = {
+  lastUpdated: "January 2026",
+  lasVegas: {
+    medianPrice: 450000,
+    medianPriceFormatted: "$450,000",
+    yearOverYearChange: "+4.2%",
+    daysOnMarket: 28,
+    activeListings: 4850,
+    closedSales: 2340,
+    inventoryMonths: 2.1,
+  },
+  ironMountainRanch: {
+    medianPrice: 550000,
+    medianPriceFormatted: "$550,000",
+    yearOverYearChange: "+3.8%",
+    daysOnMarket: 32,
+    priceRange: "$300,000 – $800,000",
+  },
+  henderson: {
+    medianPrice: 485000,
+    medianPriceFormatted: "$485,000",
+    yearOverYearChange: "+5.1%",
+    daysOnMarket: 24,
+    activeListings: 1280,
+  },
+  summerlin: {
+    medianPrice: 625000,
+    medianPriceFormatted: "$625,000",
+    yearOverYearChange: "+6.8%",
+    daysOnMarket: 22,
+    luxuryMedian: 1200000,
+    luxuryMedianFormatted: "$1.2M",
+  },
+  luxury: {
+    medianPrice: 1200000,
+    medianPriceFormatted: "$1.2M",
+    activeListings: 890,
+    daysOnMarket: 45,
+    pricePerSqFt: 385,
+  },
+};
+
+export const agentStats = {
+  servingSince: 2008,
+  transactionsClosed: 500,
+  volumeClosed: "$127M+",
+  averageRating: 4.9,
+  reviewCount: 200,
+};
+
+export const valuePropositions = {
+  main: "When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength—the same principles that built Warren Buffett's empire.",
+  trust:
+    "Berkshire Hathaway HomeServices is the only real estate brand backed by Warren Buffett's Berkshire Hathaway Inc. This means unmatched financial stability, ethical standards, and a global referral network of 50,000+ agents.",
+  expertise:
+    "Serving Las Vegas since 2008 with $127M+ in closed transactions, Dr. Jan Duffy combines deep local market knowledge with the resources of a global brand.",
+};
+
+export const neighborhoods = [
+  {
+    name: "Iron Mountain Ranch",
+    slug: "iron-mountain-ranch",
+    description:
+      "Gated master-planned community in northwest Las Vegas with parks, ponds, and walking paths",
+    medianPrice: "$550,000",
+    highlights: ["Gated villages", "89131 zip", "Near 215 Beltway", "Red Rock access"],
+  },
+  {
+    name: "Summerlin",
+    slug: "summerlin",
+    description: "Master-planned community with parks, trails, and top-rated schools",
+    medianPrice: "$625,000",
+    highlights: ["Red Rock views", "150+ parks", "Top schools", "Golf courses"],
+  },
+  {
+    name: "Centennial Hills",
+    slug: "centennial-hills",
+    description: "Northwest Las Vegas community with mountain proximity",
+    medianPrice: "$495,000",
+    highlights: ["Mountain access", "Parks", "Shopping", "Family-friendly"],
+  },
+  {
+    name: "Skye Canyon",
+    slug: "skye-canyon",
+    description: "Newer master-planned community in northwest Las Vegas",
+    medianPrice: "$550,000",
+    highlights: ["New homes", "Mountain views", "Modern amenities", "Great schools"],
+  },
+];
+
+export const services = [
+  {
+    name: "Home Buying",
+    slug: "buyers",
+    description: "Expert guidance through every step of the home buying process",
+    icon: "Home",
+  },
+  {
+    name: "Home Selling",
+    slug: "sellers",
+    description: "Maximize your home's value with professional marketing and negotiation",
+    icon: "TrendingUp",
+  },
+  {
+    name: "Home Valuation",
+    slug: "home-valuation",
+    description: "Free property valuations using current market data",
+    icon: "Calculator",
+  },
+  {
+    name: "Market Analysis",
+    slug: "market-report",
+    description: "In-depth Las Vegas real estate market insights",
+    icon: "BarChart",
+  },
+];
+
+export const expertQuotes = {
+  market: `"Iron Mountain Ranch offers strong value in northwest Las Vegas — gated living, family-friendly villages, and proximity to Red Rock without Summerlin price tags."`,
+  buyers: `"My job isn't just to show you houses—it's to make sure you don't overpay, that you understand what you're buying, and that you're protected through every step of the transaction."`,
+  sellers: `"Pricing your home correctly from day one is the single most important factor in getting top dollar. Overpriced homes sit, and every day on market costs you money."`,
+};
+
+export const commonFAQs = {
+  general: [
+    {
+      question: "Who is the best realtor for Iron Mountain Ranch?",
+      answer:
+        "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Iron Mountain Ranch and northwest Las Vegas gated communities. Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com.",
+    },
+    {
+      question: "What is the zip code for Iron Mountain Ranch?",
+      answer:
+        "Iron Mountain Ranch is primarily in zip code 89131, with some areas in 89143. School assignments depend on your specific address.",
+    },
+  ],
+  buying: [
+    {
+      question: "How long does the home buying process take in Iron Mountain Ranch?",
+      answer:
+        "Typically 30–45 days from offer acceptance to closing. Cash purchases can close in as little as 7–14 days depending on financing and inspections.",
+    },
+  ],
+  selling: [
+    {
+      question: "What is my Iron Mountain Ranch home worth?",
+      answer:
+        "Home values vary by village, upgrades, and lot position. Dr. Jan provides free CMAs using current MLS data for Iron Mountain Ranch comps.",
+    },
+  ],
+};
