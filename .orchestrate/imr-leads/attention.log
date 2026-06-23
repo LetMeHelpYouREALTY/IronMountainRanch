@@ -1,0 +1,24 @@
+[imr-leads] Root planner orientation log
+
+INFRA BLOCKER (mechanical fan-out unavailable):
+- `bun` is not on PATH in this cloud-agent VM (only node/npm/pnpm). scripts/cli.ts requires bun.
+- `CURSOR_API_KEY` is not set, so the Cursor SDK cannot spawn cloud-agent workers/verifiers.
+- Consequence: the orchestrate loop (`run --root`) cannot route tasks to isolated worker agents here.
+
+DECISION:
+- The operator goal explicitly requires production-ready changes on main. A "planner only / publish-and-wait"
+  posture would yield zero output in this environment. Therefore the root planner authored plan.json as the
+  decomposition artifact AND executed each worker scope directly on branch
+  cursor/iron-mountain-ranch-lead-optimization-0148, committing per logical change.
+- If a future run has bun + CURSOR_API_KEY, the same plan.json can drive a real fan-out via
+  `bun scripts/cli.ts run --root .orchestrate/imr-leads`.
+
+RESEARCH:
+- Parallel Search MCP server is not connected (no parallel/web_search MCP tools). Used built-in web_search as
+  the equivalent for the two material decisions (Calendly UTM mechanism; RealScout widget tag verification).
+
+SCOPE NOTES:
+- /neighborhoods/iron-mountain-ranch 301-redirects to /sub-communities (next.config.js), so the live IMR
+  community pages are /sub-communities and /sub-communities/[slug]; lead CTAs target those.
+- RealScout stays primary for property-search leads; Calendly secondary for scheduling; no generic HTML
+  lead-capture forms were added.

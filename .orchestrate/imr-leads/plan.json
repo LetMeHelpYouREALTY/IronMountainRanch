@@ -1,0 +1,81 @@
+{
+  "$schema": "/home/ubuntu/.cursor/plugins/cache/cursor-public/9333/e46364b8be46000b7df0f260550cd712afbb8d36/skills/orchestrate/schemas/plan.schema.json",
+  "goal": "Optimize the Iron Mountain Ranch site for leads and implement best practices for lead engagement. Use Parallel Search MCP for research before implementation.",
+  "summary": "IMR lead optimization: unify Calendly+UTM, fix NAP bugs, IMR-specific RealScout, add Search/Schedule/Call CTAs.",
+  "rootSlug": "imr-leads",
+  "baseBranch": "main",
+  "repoUrl": "https://github.com/LetMeHelpYouREALTY/IronMountainRanch",
+  "executionNote": "bun and CURSOR_API_KEY are unavailable in this cloud-agent VM, so scripts/cli.ts cannot fan out real cloud-agent workers. Per the operator goal (production-ready changes on main), the root planner executed the worker scopes directly on branch cursor/iron-mountain-ranch-lead-optimization-0148. Task entries below document the decomposition and acceptance criteria that were satisfied. See attention.log.",
+  "portfolioConstraints": {
+    "agent": "Dr. Jan Duffy (NEVER Janet), License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties",
+    "leadStack": "RealScout PRIMARY for property-search leads; Calendly SECONDARY for appointments; NO generic HTML contact forms for lead capture; Follow Up Boss is CRM sink via native RealScout + Calendly integrations.",
+    "nap": "Office NAP from lib/site-config.ts must match paired GBP exactly (6628 Sky Pointe Dr., Las Vegas NV 89131 / (702) 500-1942 / DrDuffy@IronMountainRanchLasVegas.com).",
+    "deploy": "Vercel production on main after substantive changes."
+  },
+  "research": {
+    "tool": "Parallel Search MCP unavailable in this VM; used built-in web_search as equivalent.",
+    "findings": [
+      "Calendly attribution: append utm_source/utm_medium/utm_campaign/utm_content/utm_term to the scheduling URL, or pass a utm object to initPopupWidget/initInlineWidget. Each value <=255 chars. (Calendly Help)",
+      "RealScout: verified web components are realscout-office-listings and realscout-simple-search (registered by realscout-web-components.umd.js); home-value and advanced-search are dashboard-generated embeds, not standalone source tags. Do not fabricate a realscout-home-value element.",
+      "Hyperlocal SEO: community-specific content + FAQ schema + GBP-aligned NAP drives high-intent buyer/seller leads.",
+      "Conversion stack: visible Search + Schedule + Call CTAs with UTM attribution improves lead capture."
+    ]
+  },
+  "tasks": [
+    {
+      "name": "conversion-stack-calendly",
+      "type": "worker",
+      "scopedGoal": "Create lib/calendly.ts as the single source of truth for Dr. Jan Duffy's Calendly scheduling URLs plus a buildCalendlyUrl() UTM helper, and refactor CalendlyButton/CalendlyWidget/CalendlyBadge to consume it and pass UTM through Calendly init calls. Normalize shorthand url props so an invalid value cannot silently break the widget.",
+      "pathsAllowed": ["lib/calendly.ts", "components/calendly/**"],
+      "acceptance": [
+        "lib/calendly.ts exports canonical event URLs and buildCalendlyUrl with utm support",
+        "Calendly components accept optional UTM attribution and never render an invalid data-url",
+        "No generic HTML lead-capture forms introduced"
+      ],
+      "verify": "grep buildCalendlyUrl in components/calendly; type-check passes"
+    },
+    {
+      "name": "nap-brand-fixes",
+      "type": "worker",
+      "scopedGoal": "Fix per-site NAP/brand violations: contact page 'View on Google Maps' hardcodes a wrong address (9406 W Lake Mead Blvd) and the quick-email uses homes@heyberkshire.com; replace with the IMR office NAP from site-config and agentInfo.email. Fix the broken home-valuation Calendly widget (url=\"showing\") to use the canonical valuation scheduling URL with UTM.",
+      "pathsAllowed": ["app/contact/page.tsx", "app/home-valuation/page.tsx"],
+      "acceptance": [
+        "No heyberkshire or 9406 W Lake Mead references remain on IMR pages",
+        "Contact map link and email match lib/site-config NAP",
+        "Home-valuation Calendly widget loads a valid scheduling URL"
+      ],
+      "verify": "grep -ri 'heyberkshire\\|9406 W Lake Mead' app/ returns nothing; type-check passes"
+    },
+    {
+      "name": "realscout-imr-listings",
+      "type": "worker",
+      "scopedGoal": "Make components/realscout/RealScoutListings configurable (title, subtitle, priceMin, priceMax, agentEncodedId, viewAllUrl) preserving current defaults, and pass Iron Mountain Ranch-specific values ($300k-$800k, IMR copy) on IMR community pages.",
+      "pathsAllowed": ["components/realscout/**", "app/sub-communities/**", "app/neighborhoods/iron-mountain-ranch/**"],
+      "acceptance": [
+        "RealScoutListings renders verified realscout-office-listings web component",
+        "IMR pages show IMR-specific price band and copy",
+        "RealScout remains the primary property-search lead path"
+      ],
+      "verify": "type-check passes; IMR pages reference IMR price band"
+    },
+    {
+      "name": "lead-cta-community-pages",
+      "type": "worker",
+      "scopedGoal": "Build a reusable LeadCTA section (Search via RealScout + Schedule via Calendly + Call) with per-page UTM attribution and add it to the Iron Mountain Ranch community pages (/sub-communities and /sub-communities/[slug]).",
+      "pathsAllowed": ["components/sections/LeadCTA.tsx", "app/sub-communities/**"],
+      "acceptance": [
+        "LeadCTA exposes Search, Schedule, and Call actions with tel: link to (702) 500-1942",
+        "Calendly link carries UTM attribution identifying the community page",
+        "Added to sub-communities index and village detail pages"
+      ],
+      "verify": "type-check passes; LeadCTA imported on sub-communities pages"
+    },
+    {
+      "name": "verify-build",
+      "type": "verifier",
+      "verifies": "lead-cta-community-pages",
+      "scopedGoal": "Verify type-check and lint pass and the lead-conversion changes do not regress NAP/schema.",
+      "verify": "pnpm type-check && pnpm lint"
+    }
+  ]
+}
