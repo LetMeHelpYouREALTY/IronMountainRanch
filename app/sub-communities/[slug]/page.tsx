@@ -6,9 +6,10 @@ import LeadCTA from "@/components/sections/LeadCTA";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getSubCommunity, subCommunities } from "@/lib/iron-mountain-ranch";
+import { getSubCommunity, ironMountainRanch, subCommunities } from "@/lib/iron-mountain-ranch";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
+import { AGENT_ID } from "@/lib/schema-blueprint";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -45,6 +46,11 @@ export default async function SubCommunityPage({ params }: PageProps) {
     name: village.name,
     description: village.description,
     url: absoluteUrl(`/sub-communities/${slug}`),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: ironMountainRanch.geo.latitude,
+      longitude: ironMountainRanch.geo.longitude,
+    },
     containedInPlace: {
       "@type": "Neighborhood",
       name: "Iron Mountain Ranch",
@@ -53,8 +59,15 @@ export default async function SubCommunityPage({ params }: PageProps) {
         addressLocality: "Las Vegas",
         addressRegion: "NV",
         postalCode: "89131",
+        addressCountry: "US",
       },
     },
+    additionalProperty: {
+      "@type": "PropertyValue",
+      name: "Price range",
+      value: ironMountainRanch.priceRange,
+    },
+    broker: { "@id": AGENT_ID },
   };
 
   return (
