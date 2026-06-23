@@ -2,6 +2,7 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import LeadCTA from "@/components/sections/LeadCTA";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -87,7 +88,12 @@ export default async function SubCommunityPage({ params }: PageProps) {
           </div>
           <GbpActionLinks className="mb-12" />
 
-          <RealScoutListings />
+          <RealScoutListings
+            title={`${village.name} Listings`}
+            subtitle="Iron Mountain Ranch homes for sale in northwest Las Vegas 89131"
+            priceMin={300000}
+            priceMax={800000}
+          />
 
           <p className="text-center text-slate-600 mt-10">
             Questions about {village.name}? Email{" "}
@@ -97,6 +103,13 @@ export default async function SubCommunityPage({ params }: PageProps) {
             or call {agentInfo.phoneFormatted}.
           </p>
         </div>
+
+        <LeadCTA
+          className="mt-16"
+          heading={`Find Your Home in ${village.name}`}
+          subheading="Search live Iron Mountain Ranch listings, book a private tour, or talk with Dr. Jan Duffy directly."
+          calendlyUtm={{ campaign: `sub-community-${village.slug}` }}
+        />
       </main>
       <Footer />
     </>
