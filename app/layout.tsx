@@ -5,27 +5,31 @@ import { headers } from "next/headers";
 import { getDomainConfig } from "@/lib/domain-config";
 import { siteConfig } from "@/lib/site-config";
 import {
+  buildDefaultSiteTitle,
+  buildRootOpenGraph,
+  buildRootTwitter,
+} from "@/lib/metadata-social";
+import {
   absoluteUrl,
   getGoogleSearchConsoleVerification,
   getSiteUrl,
 } from "@/lib/site-url";
-import SiteJsonLd from "@/components/seo/SiteJsonLd";
 import { botIdProtectedRoutes } from "@/lib/botid-routes";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
+import SiteJsonLd from "@/components/seo/SiteJsonLd";
 import { BotIdClient } from "botid/client";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
   const config = getDomainConfig(domain);
   const siteUrl = getSiteUrl();
-  const title = `${siteConfig.name} | ${config.neighborhood} Real Estate`;
   const verification = getGoogleSearchConsoleVerification();
 
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: title,
+      default: buildDefaultSiteTitle(config),
       template: `%s | ${siteConfig.name}`,
     },
     description: config.description,
@@ -33,19 +37,8 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "/",
     },
-    openGraph: {
-      title: config.heroHeadline,
-      description: config.description,
-      type: "website",
-      url: siteUrl,
-      siteName: siteConfig.fullName,
-      locale: "en_US",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: config.heroHeadline,
-      description: config.description,
-    },
+    openGraph: buildRootOpenGraph(config, siteUrl),
+    twitter: buildRootTwitter(config),
     robots: {
       index: true,
       follow: true,
