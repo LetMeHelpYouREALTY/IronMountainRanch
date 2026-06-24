@@ -3,9 +3,8 @@
  * @see docs/conversion-touchpoints-realscout.md
  */
 
-/** Iron Mountain Ranch GA4 property — override via NEXT_PUBLIC_GA_MEASUREMENT_ID on Vercel. */
-export const GA_MEASUREMENT_ID =
-  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "G-7Z86DE17G8";
+/** Iron Mountain Ranch GA4 property (www.ironmountainranchlasvegas.com). */
+export const GA_MEASUREMENT_ID = "G-7Z86DE17G8";
 
 export type ConversionIntent = "buyer" | "seller" | "general";
 
