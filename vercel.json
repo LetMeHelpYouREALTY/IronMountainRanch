@@ -1,11 +1,11 @@
 {
-  "buildCommand": "npm run build",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
-  "devCommand": "npm run dev",
-  "outputDirectory": ".next",
+  "installCommand": "corepack enable && pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm run build",
   "regions": ["iad1"],
   "functions": {
-    "app/**/*.tsx": {
+    "app/api/**/*.ts": {
       "maxDuration": 10
     }
   },
@@ -71,6 +71,17 @@
     {
       "source": "/home",
       "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ironmountainranchlasvegas.com"
+        }
+      ],
+      "destination": "https://www.ironmountainranchlasvegas.com/:path*",
       "permanent": true
     }
   ]
