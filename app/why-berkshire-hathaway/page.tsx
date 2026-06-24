@@ -4,19 +4,14 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Why Choose Berkshire Hathaway HomeServices | Las Vegas Real Estate",
-  description:
-    "Discover why Berkshire Hathaway HomeServices is the most trusted name in real estate. Backed by Warren Buffett, with 50,000+ agents worldwide. Work with BHHS Nevada Properties today.",
-  keywords: [
-    "Berkshire Hathaway HomeServices",
-    "why choose BHHS",
-    "Warren Buffett real estate",
-    "trusted real estate brand",
-    "BHHS Nevada Properties",
-  ],
-};
+  description: "Discover why Berkshire Hathaway HomeServices is the most trusted name in real estate. Backed by Warren Buffett, with 50,000+ agents worldwide. Work with BHHS Nevada Properties today.",
+  path: "/why-berkshire-hathaway",
+  keywords: ["Berkshire Hathaway HomeServices","why choose BHHS","Warren Buffett real estate","trusted real estate brand","BHHS Nevada Properties"],
+});
 
 // Organization Schema
 const organizationSchema = {
@@ -274,11 +269,11 @@ export default function WhyBerkshireHathawayPage() {
               Ready to work with the most trusted name in real estate? Contact Dr. Jan Duffy today.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17029963758"
               className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 996-3758
             </a>
             <p className="mt-4 text-slate-400 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

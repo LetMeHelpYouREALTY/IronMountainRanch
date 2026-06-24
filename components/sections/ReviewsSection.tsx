@@ -44,32 +44,28 @@ export const defaultReviews: Review[] = [
   },
 ];
 
-// Aggregate rating stats
-export const aggregateRating = {
-  ratingValue: 4.9,
-  reviewCount: 500,
-  bestRating: 5,
-  worstRating: 1,
+export type ReviewsAggregateRating = {
+  ratingValue: number;
+  reviewCount: number;
 };
 
 interface ReviewsSectionProps {
-  /** Custom reviews to display */
   reviews?: Review[];
-  /** Custom title */
   title?: string;
-  /** Custom subtitle */
   subtitle?: string;
-  /** Google Business Profile URL */
+  /** GBP reviews URL — omit when reviews CTAs are disabled */
   googleReviewsUrl?: string;
-  /** Custom class name */
+  /** Only set when NEXT_PUBLIC_GBP_AGGREGATE_RATING_* env vars are configured */
+  aggregateRating?: ReviewsAggregateRating | null;
   className?: string;
 }
 
 export default function ReviewsSection({
   reviews = defaultReviews,
   title = "What Our Clients Say",
-  subtitle = "Real testimonials from satisfied clients across Las Vegas and Henderson",
-  googleReviewsUrl = "https://g.page/r/heyberkshire/review",
+  subtitle = "Real testimonials from Iron Mountain Ranch and northwest Las Vegas clients",
+  googleReviewsUrl,
+  aggregateRating = null,
   className = "",
 }: ReviewsSectionProps) {
   return (
@@ -80,27 +76,26 @@ export default function ReviewsSection({
             {title}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">{subtitle}</p>
-          {/* Aggregate Rating Display */}
-          <div className="flex items-center justify-center gap-2 mt-4">
-            <div className="flex">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className={`h-6 w-6 ${
-                    i < Math.floor(aggregateRating.ratingValue)
-                      ? "text-yellow-400 fill-yellow-400"
-                      : "text-slate-300"
-                  }`}
-                />
-              ))}
+          {aggregateRating ? (
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`h-6 w-6 ${
+                      i < Math.floor(aggregateRating.ratingValue)
+                        ? "text-yellow-400 fill-yellow-400"
+                        : "text-slate-300"
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="text-lg font-semibold text-slate-900">
+                {aggregateRating.ratingValue}
+              </span>
+              <span className="text-slate-600">({aggregateRating.reviewCount} Google reviews)</span>
             </div>
-            <span className="text-lg font-semibold text-slate-900">
-              {aggregateRating.ratingValue}
-            </span>
-            <span className="text-slate-600">
-              ({aggregateRating.reviewCount}+ reviews)
-            </span>
-          </div>
+          ) : null}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -149,27 +144,24 @@ export default function ReviewsSection({
           ))}
         </div>
 
-        {/* Google Reviews CTA */}
-        <div className="text-center mt-12">
-          <a
-            href={googleReviewsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
-          >
-            Read More Reviews on Google
-            <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-          </a>
-        </div>
+        {googleReviewsUrl ? (
+          <div className="text-center mt-12">
+            <a
+              href={googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
+            >
+              Read reviews on Google
+              <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+            </a>
+          </div>
+        ) : null}
       </div>
     </section>
   );
 }
 
-/**
- * Helper to convert reviews to schema format for ReviewSchema component
- * Use with: <ReviewSchema reviews={getReviewSchemaData(reviews)} aggregateRating={aggregateRating} />
- */
 export function getReviewSchemaData(reviews: Review[]) {
   return reviews.map((review) => ({
     author: review.name,

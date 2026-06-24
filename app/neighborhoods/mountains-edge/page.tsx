@@ -4,19 +4,14 @@ import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import { Phone, Mountain, TreePine, DollarSign, Home as HomeIcon } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Berkshire Hathaway HomeServices Mountains Edge | Southwest Las Vegas",
-  description:
-    "Find Mountains Edge homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this southwest Las Vegas community. Median price $475K. Call (702) 500-1942.",
-  keywords: [
-    "Berkshire Hathaway HomeServices Mountains Edge",
-    "Mountains Edge homes for sale",
-    "Mountains Edge Las Vegas",
-    "southwest Las Vegas homes",
-    "affordable Las Vegas",
-  ],
-};
+  description: "Find Mountains Edge homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in this southwest Las Vegas community. Median price $475K. Call (702) 996-3758.",
+  path: "/neighborhoods/mountains-edge",
+  keywords: ["Berkshire Hathaway HomeServices Mountains Edge","Mountains Edge homes for sale","Mountains Edge Las Vegas","southwest Las Vegas homes","affordable Las Vegas"],
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -375,11 +370,11 @@ export default function MountainsEdgePage() {
               for expert guidance in finding exceptional value in southwest Las Vegas.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17029963758"
               className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Call (702) 500-1942
+              Call (702) 996-3758
             </a>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties

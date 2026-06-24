@@ -3,21 +3,17 @@ import Footer from "@/components/layouts/Footer";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { ironMountainRanch, subCommunities } from "@/lib/iron-mountain-ranch";
 import { generateNeighborhoodSchema } from "@/lib/schema-blueprint";
 import { siteConfig } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Sub-Communities | Villages in 89131",
-  description:
-    "Explore Iron Mountain Ranch sub-communities and gated villages in northwest Las Vegas 89131. Village guides from Dr. Jan Duffy.",
-  alternates: { canonical: "/sub-communities" },
-  openGraph: {
-    title: "Iron Mountain Ranch Sub-Communities",
-    url: absoluteUrl("/sub-communities"),
-  },
-};
+  description: "Explore Iron Mountain Ranch sub-communities and gated villages in northwest Las Vegas 89131. Village guides from Dr. Jan Duffy.",
+  path: "/sub-communities",
+});
 
 export default function SubCommunitiesPage() {
   const neighborhoodSchema = generateNeighborhoodSchema();

@@ -1,0 +1,406 @@
+{
+  "generatedAt": "2026-06-24T10:41:57.011Z",
+  "routeCount": 56,
+  "pageCount": 48,
+  "issueCount": 109,
+  "audits": [
+    {
+      "route": "/55-plus-communities/del-webb-lake-las-vegas",
+      "file": "app/55-plus-communities/del-webb-lake-las-vegas/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/heritage-stonebridge",
+      "file": "app/55-plus-communities/heritage-stonebridge/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities",
+      "file": "app/55-plus-communities/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/solera-anthem",
+      "file": "app/55-plus-communities/solera-anthem/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/sun-city-aliante",
+      "file": "app/55-plus-communities/sun-city-aliante/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/sun-city-anthem",
+      "file": "app/55-plus-communities/sun-city-anthem/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/sun-city-summerlin",
+      "file": "app/55-plus-communities/sun-city-summerlin/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/55-plus-communities/trilogy-summerlin",
+      "file": "app/55-plus-communities/trilogy-summerlin/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/about",
+      "file": "app/about/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/buy",
+      "file": "app/buy/page.tsx",
+      "issues": [
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/buyers/california-relocator",
+      "file": "app/buyers/california-relocator/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/buyers/first-time-buyers",
+      "file": "app/buyers/first-time-buyers/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/buyers/luxury-homes-las-vegas",
+      "file": "app/buyers/luxury-homes-las-vegas/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/buyers",
+      "file": "app/buyers/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/contact",
+      "file": "app/contact/page.tsx",
+      "issues": [
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/faq",
+      "file": "app/faq/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/google-business",
+      "file": "app/google-business/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/home-valuation",
+      "file": "app/home-valuation/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/investment-properties",
+      "file": "app/investment-properties/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/luxury-homes",
+      "file": "app/luxury-homes/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/market-insights",
+      "file": "app/market-insights/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/market-report",
+      "file": "app/market-report/page.tsx",
+      "issues": [
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/market-update",
+      "file": "app/market-update/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/centennial-hills",
+      "file": "app/neighborhoods/centennial-hills/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/green-valley",
+      "file": "app/neighborhoods/green-valley/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/henderson",
+      "file": "app/neighborhoods/henderson/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/inspirada",
+      "file": "app/neighborhoods/inspirada/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/iron-mountain-ranch",
+      "file": "app/neighborhoods/iron-mountain-ranch/page.tsx",
+      "issues": [
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/mountains-edge",
+      "file": "app/neighborhoods/mountains-edge/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/north-las-vegas",
+      "file": "app/neighborhoods/north-las-vegas/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods",
+      "file": "app/neighborhoods/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/skye-canyon",
+      "file": "app/neighborhoods/skye-canyon/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/southern-highlands",
+      "file": "app/neighborhoods/southern-highlands/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/neighborhoods/summerlin",
+      "file": "app/neighborhoods/summerlin/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/neighborhoods/the-ridges",
+      "file": "app/neighborhoods/the-ridges/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/new-construction",
+      "file": "app/new-construction/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/",
+      "file": "app/page.tsx",
+      "issues": [
+        "missing-metadata"
+      ]
+    },
+    {
+      "route": "/relocation",
+      "file": "app/relocation/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/security-policy",
+      "file": "app/security-policy/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/sell",
+      "file": "app/sell/page.tsx",
+      "issues": [
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/sellers/divorce-probate",
+      "file": "app/sellers/divorce-probate/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/sellers/downsizing",
+      "file": "app/sellers/downsizing/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/sellers/move-up",
+      "file": "app/sellers/move-up/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/sellers",
+      "file": "app/sellers/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    },
+    {
+      "route": "/sellers/relocation",
+      "file": "app/sellers/relocation/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-jsonld",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/services",
+      "file": "app/services/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/sub-communities",
+      "file": "app/sub-communities/page.tsx",
+      "issues": [
+        "missing-twitter-metadata"
+      ]
+    },
+    {
+      "route": "/why-berkshire-hathaway",
+      "file": "app/why-berkshire-hathaway/page.tsx",
+      "issues": [
+        "missing-canonical",
+        "missing-twitter-metadata",
+        "faq-without-schema"
+      ]
+    }
+  ],
+  "sitemapGap": []
+}

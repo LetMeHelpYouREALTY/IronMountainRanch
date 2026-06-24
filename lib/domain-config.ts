@@ -88,7 +88,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Iron Mountain Ranch",
     tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
     description:
-      "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community specialist Dr. Jan Duffy at 6628 Sky Pointe Dr. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 500-1942.",
+      "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community specialist Dr. Jan Duffy at 6628 Sky Pointe Dr. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 996-3758.",
     heroHeadline: "Iron Mountain Ranch Homes for Sale",
     heroSubheadline:
       "Gated northwest Las Vegas living — wooded parks, ponds, and scenic paths. Homes by Dr. Jan Duffy.",
@@ -104,7 +104,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     ctaBadge: "Iron Mountain Ranch Specialist",
     ctaHeadline: "Find Your Iron Mountain Ranch Home",
     ctaSubheadline:
-      "Browse sub-communities or call (702) 500-1942 — Dr. Jan answers her own phone.",
+      "Browse sub-communities or call (702) 996-3758 — Dr. Jan answers her own phone.",
   },
 };
 
@@ -128,7 +128,7 @@ export const DEFAULT_CONFIG: DomainConfig = {
   realscoutAgentId: REALSCOUT_AGENT_ID,
   ctaBadge: "Iron Mountain Ranch Expert",
   ctaHeadline: "Search Iron Mountain Ranch Listings",
-  ctaSubheadline: "Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com",
+  ctaSubheadline: "Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {

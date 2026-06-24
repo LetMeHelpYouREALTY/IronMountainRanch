@@ -14,19 +14,14 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Divorce & Probate Home Sales Las Vegas | Berkshire Hathaway HomeServices",
-  description:
-    "Sensitive real estate situations handled with discretion. Dr. Jan Duffy helps with divorce sales, probate, estate liquidation, and court-ordered sales. Call (702) 500-1942.",
-  keywords: [
-    "divorce home sale Las Vegas",
-    "probate real estate Las Vegas",
-    "estate sale Las Vegas",
-    "court ordered sale Nevada",
-    "Berkshire Hathaway HomeServices divorce",
-  ],
-};
+  description: "Sensitive real estate situations handled with discretion. Dr. Jan Duffy helps with divorce sales, probate, estate liquidation, and court-ordered sales. Call (702) 996-3758.",
+  path: "/sellers/divorce-probate",
+  keywords: ["divorce home sale Las Vegas","probate real estate Las Vegas","estate sale Las Vegas","court ordered sale Nevada","Berkshire Hathaway HomeServices divorce"],
+});
 
 export default function DivorceProbatePage() {
   return (
@@ -59,11 +54,11 @@ export default function DivorceProbatePage() {
               with discretion, expertise, and compassion.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17029963758"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Confidential Consultation → (702) 500-1942
+              Confidential Consultation → (702) 996-3758
             </a>
           </div>
 
@@ -508,11 +503,11 @@ export default function DivorceProbatePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17029963758"
                 className="inline-flex items-center justify-center bg-white text-slate-900 px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-100 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 996-3758
               </a>
               <Link
                 href="/contact"

@@ -4,21 +4,16 @@ import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Search, Key, Shield } from "lucide-react";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { generateListingServiceSchema } from "@/lib/schema-blueprint";
-import { absoluteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Buy a Home in Iron Mountain Ranch | Northwest Las Vegas 89131",
-  description:
-    "Buy an Iron Mountain Ranch home in northwest Las Vegas. Gated community MLS search, buyer representation, and village guidance from Dr. Jan Duffy. Call (702) 500-1942.",
-  alternates: { canonical: "/buy" },
-  openGraph: {
-    title: "Buy Iron Mountain Ranch Homes",
-    url: absoluteUrl("/buy"),
-  },
-};
+  description: "Buy an Iron Mountain Ranch home in northwest Las Vegas. Gated community MLS search, buyer representation, and village guidance from Dr. Jan Duffy. Call (702) 996-3758.",
+  path: "/buy",
+});
 
 const listingSchema = generateListingServiceSchema();
 

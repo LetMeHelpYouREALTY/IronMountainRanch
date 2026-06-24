@@ -113,7 +113,7 @@ export const FAQ_DOMAIN_OVERRIDES: Record<string, FAQ[]> = {
     {
       question: "What is the median home price in Iron Mountain Ranch?",
       answer:
-        "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Call Dr. Jan at (702) 500-1942 for a live comp pull on the village and floor plan you want.",
+        "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Call Dr. Jan at (702) 996-3758 for a live comp pull on the village and floor plan you want.",
     },
     {
       question: "Is Iron Mountain Ranch gated?",

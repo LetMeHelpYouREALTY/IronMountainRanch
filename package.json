@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@9.15.4",
   "scripts": {
-    "flask-dev": "FLASK_DEBUG=1 pip3 install -r requirements.txt && python3 -m flask --app api/index run -p 5328",
+    "flask-dev": "FLASK_DEBUG=1 pip3 install -r api/requirements.txt && python3 -m flask --app api/index run -p 5328",
     "next-dev": "next dev",
     "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
     "build": "next build",
@@ -31,7 +31,12 @@
     "cloudflare:deploy": "wrangler deploy",
     "cloudflare:pages": "npx @cloudflare/next-on-pages",
     "cloudflare:build": "npm run cloudflare:pages",
-    "build:cloudflare": "npx @cloudflare/next-on-pages"
+    "build:cloudflare": "npx @cloudflare/next-on-pages",
+    "seo-weekly": "node scripts/seo-weekly/run.mjs",
+    "seo-weekly:routes": "node scripts/seo-weekly/generate-routes.mjs",
+    "seo-weekly:research": "node scripts/seo-weekly/parallel-research.mjs",
+    "seo-weekly:audit": "node scripts/seo-weekly/audit-pages.mjs",
+    "seo:apply-metadata": "node scripts/apply-page-metadata.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.0",

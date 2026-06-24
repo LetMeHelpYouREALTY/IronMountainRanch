@@ -14,19 +14,14 @@ import {
   Sun,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
-  description:
-    "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 500-1942.",
-  keywords: [
-    "downsizing Las Vegas",
-    "sell large home Las Vegas",
-    "55 plus communities Las Vegas",
-    "empty nester Las Vegas",
-    "Berkshire Hathaway HomeServices downsizing",
-  ],
-};
+  description: "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 996-3758.",
+  path: "/sellers/downsizing",
+  keywords: ["downsizing Las Vegas","sell large home Las Vegas","55 plus communities Las Vegas","empty nester Las Vegas","Berkshire Hathaway HomeServices downsizing"],
+});
 
 export default function DownsizingPage() {
   return (
@@ -58,11 +53,11 @@ export default function DownsizingPage() {
               Extract your equity. Embrace low-maintenance living. Start your next chapter.
             </p>
             <a
-              href="tel:+17025001942"
+              href="tel:+17029963758"
               className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
             >
               <Phone className="h-5 w-5 mr-2" />
-              Let's Talk About Your Options → (702) 500-1942
+              Let's Talk About Your Options → (702) 996-3758
             </a>
           </div>
 
@@ -453,11 +448,11 @@ export default function DownsizingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17029963758"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 996-3758
               </a>
               <Link
                 href="/home-valuation"

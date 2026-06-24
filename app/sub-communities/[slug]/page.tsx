@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${village.name} Homes for Sale | Iron Mountain Ranch Las Vegas`,
-    description: `${village.description} Search listings with Dr. Jan Duffy. Call (702) 500-1942.`,
+    description: `${village.description} Search listings with Dr. Jan Duffy. Call (702) 996-3758.`,
     alternates: { canonical: `/sub-communities/${slug}` },
     openGraph: {
       title: `${village.name} | Iron Mountain Ranch`,

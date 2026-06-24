@@ -19,22 +19,14 @@ import {
   Globe,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
-  description:
-    "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 500-1942.",
-  keywords: [
-    "relocating to Las Vegas",
-    "moving to Las Vegas",
-    "Las Vegas relocation services",
-    "moving to Henderson Nevada",
-    "California to Las Vegas",
-    "Las Vegas relocation agent",
-    "moving from California to Nevada",
-    "Las Vegas real estate relocation",
-  ],
-};
+  description: "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 996-3758.",
+  path: "/relocation",
+  keywords: ["relocating to Las Vegas","moving to Las Vegas","Las Vegas relocation services","moving to Henderson Nevada","California to Las Vegas","Las Vegas relocation agent","moving from California to Nevada","Las Vegas real estate relocation"],
+});
 
 const relocationSchema = {
   "@context": "https://schema.org",
@@ -43,7 +35,7 @@ const relocationSchema = {
   provider: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
-    telephone: "+17025001942",
+    telephone: "+17029963758",
   },
   areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
   serviceType: "Relocation Services",
@@ -427,11 +419,11 @@ export default function RelocationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17029963758"
                 className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 996-3758
               </a>
               <Link
                 href="/contact"

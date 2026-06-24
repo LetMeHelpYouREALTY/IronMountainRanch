@@ -5,21 +5,14 @@ import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import { Phone, CheckCircle, Home, TrendingUp, MapPin, Calculator, Clock, DollarSign } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
-  description:
-    "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 500-1942.",
-  keywords: [
-    "home valuation Las Vegas",
-    "what is my home worth Las Vegas",
-    "free home value estimate",
-    "CMA Las Vegas",
-    "Berkshire Hathaway home valuation",
-    "Summerlin home value",
-    "Henderson home value",
-  ],
-};
+  description: "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 996-3758.",
+  path: "/home-valuation",
+  keywords: ["home valuation Las Vegas","what is my home worth Las Vegas","free home value estimate","CMA Las Vegas","Berkshire Hathaway home valuation","Summerlin home value","Henderson home value"],
+});
 
 // FAQ Schema for SEO
 const faqSchema = {
@@ -179,11 +172,11 @@ export default function HomeValuationPage() {
               <div className="text-center">
                 <p className="text-slate-600 mb-4">Prefer to talk? Call Dr. Jan directly:</p>
                 <a
-                  href="tel:+17025001942"
+                  href="tel:+17029963758"
                   className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-bold transition-colors"
                 >
                   <Phone className="h-5 w-5 mr-2" />
-                  (702) 500-1942
+                  (702) 996-3758
                 </a>
               </div>
             </div>
@@ -467,11 +460,11 @@ export default function HomeValuationPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+17025001942"
+                href="tel:+17029963758"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
-                Call (702) 500-1942
+                Call (702) 996-3758
               </a>
               <Link
                 href="/sellers"

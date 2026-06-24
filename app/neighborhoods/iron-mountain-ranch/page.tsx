@@ -5,32 +5,17 @@ import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import FAQSection from "@/components/sections/FAQSection";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 import { ironMountainRanch, ironMountainRanchFaqs } from "@/lib/iron-mountain-ranch";
 import { absoluteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Homes for Sale | Northwest Las Vegas 89131",
-  description:
-    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community with parks, ponds, and walking paths. Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 500-1942.",
-  keywords: [
-    "Iron Mountain Ranch homes for sale",
-    "Iron Mountain Ranch Las Vegas",
-    "89131 homes",
-    "gated community Las Vegas",
-    "northwest Las Vegas real estate",
-  ],
-  alternates: {
-    canonical: "/neighborhoods/iron-mountain-ranch",
-  },
-  openGraph: {
-    title: "Iron Mountain Ranch Homes for Sale | Las Vegas NV",
-    description:
-      "Search Iron Mountain Ranch gated community homes with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
-    url: absoluteUrl("/neighborhoods/iron-mountain-ranch"),
-    type: "website",
-  },
-};
+  description: "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community with parks, ponds, and walking paths. Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 996-3758.",
+  path: "/neighborhoods/iron-mountain-ranch",
+  keywords: ["Iron Mountain Ranch homes for sale","Iron Mountain Ranch Las Vegas","89131 homes","gated community Las Vegas","northwest Las Vegas real estate"],
+});
 
 const placeSchema = {
   "@context": "https://schema.org",

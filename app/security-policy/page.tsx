@@ -1,13 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = {
-  title: 'Security Policy',
-  description: 'Security policy and responsible disclosure information for heyberkshire.com',
+  ...buildPageMetadata({
+    title: "Security Policy | Iron Mountain Ranch Las Vegas",
+    description:
+      "Security policy and responsible disclosure for ironmountainranchlasvegas.com — operated by Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    path: "/security-policy",
+  }),
   robots: {
     index: true,
     follow: true,
   },
-}
+};
 
 export default function SecurityPolicyPage() {
   return (

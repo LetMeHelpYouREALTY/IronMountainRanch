@@ -27,9 +27,9 @@ export const agentInfo = {
   name: "Dr. Jan Duffy",
   title: "REALTOR®",
   license: "S.0197614.LLC",
-  phone: "(702) 500-1942",
-  phoneFormatted: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 996-3758",
+  phoneFormatted: "(702) 996-3758",
+  phoneTel: "tel:+17029963758",
   email: "DrDuffy@IronMountainRanchLasVegas.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
@@ -47,8 +47,8 @@ export const officeInfo = {
     lat: 36.2905,
     lng: -115.2658,
   },
-  phone: "(702) 500-1942",
-  phoneTel: "tel:+17025001942",
+  phone: "(702) 996-3758",
+  phoneTel: "tel:+17029963758",
 };
 
 /** Primary site navigation — URL architecture for Google + users */
@@ -190,7 +190,7 @@ export const commonFAQs = {
     {
       question: "Who is the best realtor for Iron Mountain Ranch?",
       answer:
-        "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Iron Mountain Ranch and northwest Las Vegas gated communities. Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com.",
+        "Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, specializes in Iron Mountain Ranch and northwest Las Vegas gated communities. Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com.",
     },
     {
       question: "What is the zip code for Iron Mountain Ranch?",

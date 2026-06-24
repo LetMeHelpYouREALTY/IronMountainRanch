@@ -5,16 +5,16 @@ import { Phone, Mail, MapPin, Clock, Calendar, CheckCircle, Star, Users, Shield 
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import { getGbpDirectionsUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
-  description:
-    "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. 6628 Sky Pointe Dr., Las Vegas NV 89131. Call (702) 500-1942 or email DrDuffy@IronMountainRanchLasVegas.com.",
-  alternates: { canonical: "/contact" },
-};
+  description: "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. 6628 Sky Pointe Dr., Las Vegas NV 89131. Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com.",
+  path: "/contact",
+});
 
 const contactSchema = {
   "@context": "https://schema.org",
@@ -22,7 +22,7 @@ const contactSchema = {
   mainEntity: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Iron Mountain Ranch | Homes by Dr. Jan Duffy",
-    telephone: "+17025001942",
+    telephone: "+17029963758",
     email: "DrDuffy@IronMountainRanchLasVegas.com",
     address: {
       "@type": "PostalAddress",
@@ -269,13 +269,13 @@ export default function ContactPage() {
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <a
-                href="tel:+17025001942"
+                href="tel:+17029963758"
                 className="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white p-6 rounded-xl transition-colors"
               >
                 <Phone className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Call Now</div>
-                  <div className="text-blue-100">(702) 500-1942</div>
+                  <div className="text-blue-100">(702) 996-3758</div>
                 </div>
               </a>
               <a
@@ -308,7 +308,7 @@ export default function ContactPage() {
                 },
                 {
                   q: "How quickly can you respond to inquiries?",
-                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 500-1942 is the fastest way to reach me.",
+                  a: "I typically respond to calls, texts, and emails within 2 hours during business hours (9am-6pm daily). For urgent matters, calling or texting (702) 996-3758 is the fastest way to reach me.",
                 },
                 {
                   q: "Do you charge for consultations?",

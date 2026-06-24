@@ -104,7 +104,7 @@ export const ironMountainRanchFaqs = [
   {
     question: "What is the median home price in Iron Mountain Ranch?",
     answer:
-      "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 500-1942 for a live comp report.",
+      "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 996-3758 for a live comp report.",
   },
   {
     question: "Is Iron Mountain Ranch a gated community?",
@@ -124,7 +124,7 @@ export const ironMountainRanchFaqs = [
   {
     question: "Who is the realtor for Iron Mountain Ranch homes?",
     answer:
-      "Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties. Contact DrDuffy@IronMountainRanchLasVegas.com or call (702) 500-1942.",
+      "Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties. Contact DrDuffy@IronMountainRanchLasVegas.com or call (702) 996-3758.",
   },
   {
     question: "How do I search Iron Mountain Ranch listings?",

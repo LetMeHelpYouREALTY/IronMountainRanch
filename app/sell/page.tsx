@@ -3,20 +3,16 @@ import Footer from "@/components/layouts/Footer";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Camera, TrendingUp, BarChart } from "lucide-react";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Sell Your Iron Mountain Ranch Home | Las Vegas 89131",
-  description:
-    "Sell your Iron Mountain Ranch home for top dollar. Free CMA, professional marketing, and gated-community pricing expertise from Dr. Jan Duffy. Call (702) 500-1942.",
-  alternates: { canonical: "/sell" },
-  openGraph: {
-    title: "Sell Iron Mountain Ranch Homes",
-    url: absoluteUrl("/sell"),
-  },
-};
+  description: "Sell your Iron Mountain Ranch home for top dollar. Free CMA, professional marketing, and gated-community pricing expertise from Dr. Jan Duffy. Call (702) 996-3758.",
+  path: "/sell",
+});
 
 const sellServiceSchema = {
   "@context": "https://schema.org",

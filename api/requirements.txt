@@ -1,0 +1,12 @@
+# Legacy Flask API — local dev only (pnpm run flask-dev). Not used on Vercel production.
+# AI chat uses Next.js route handlers; keep this file under api/ so Vercel skips Python install.
+
+Flask==3.0.0
+Werkzeug==3.0.1
+redis==5.0.1
+openai==1.12.0
+PyGithub==2.2.0
+markdown-it-py==3.0.0
+python-dotenv==1.0.0
+urllib3==2.1.0
+numpy>=1.26.0

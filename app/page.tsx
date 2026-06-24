@@ -9,7 +9,11 @@ import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { getFaqsForDomain } from "@/lib/faq-config";
-import { agentInfo } from "@/lib/site-config";
+import { agentInfo, marketStats } from "@/lib/site-config";
+import {
+  getGbpBrowseReviewsUrl,
+  getVisibleGbpAggregateRating,
+} from "@/lib/gbp-public";
 
 // Maps pageType → human-readable FAQ section title/subtitle
 const FAQ_SECTION_COPY: Record<
@@ -44,6 +48,55 @@ const FAQ_SECTION_COPY: Record<
 
 export default async function Home() {
   const config = await getPageDomainConfig();
+  const googleReviewsUrl = getGbpBrowseReviewsUrl();
+  const aggregateRating = getVisibleGbpAggregateRating();
+
+  const isIronMountainRanch = config.neighborhood === "Iron Mountain Ranch";
+  const marketStatCards = isIronMountainRanch
+    ? [
+        {
+          value: marketStats.ironMountainRanch.medianPriceFormatted,
+          label: "Median Price",
+          sub: `${marketStats.ironMountainRanch.yearOverYearChange} YoY`,
+        },
+        {
+          value: String(marketStats.ironMountainRanch.daysOnMarket),
+          label: "Avg Days on Market",
+          sub: "",
+        },
+        {
+          value: marketStats.ironMountainRanch.priceRange,
+          label: "Typical Price Range",
+          sub: "",
+        },
+        {
+          value: marketStats.lasVegas.inventoryMonths.toString(),
+          label: "Valley Inventory (mo.)",
+          sub: "MLS-wide context",
+        },
+      ]
+    : [
+        {
+          value: marketStats.lasVegas.medianPriceFormatted,
+          label: "Median Price",
+          sub: `${marketStats.lasVegas.yearOverYearChange} YoY`,
+        },
+        {
+          value: String(marketStats.lasVegas.daysOnMarket),
+          label: "Avg Days on Market",
+          sub: "",
+        },
+        {
+          value: marketStats.lasVegas.activeListings.toLocaleString(),
+          label: "Active Listings",
+          sub: "",
+        },
+        {
+          value: String(marketStats.lasVegas.inventoryMonths),
+          label: "Months Inventory",
+          sub: "",
+        },
+      ];
 
   // ── Domain-aware FAQs ────────────────────────────────────────────────────
   const faqs = getFaqsForDomain(config.pageType, config.domain);
@@ -164,12 +217,7 @@ export default async function Home() {
               <p className="text-slate-400">Current data — updated regularly</p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              {[
-                { value: "$450K", label: "Median Price", sub: "+4.2% YoY" },
-                { value: "28", label: "Avg Days on Market", sub: "" },
-                { value: "4,850", label: "Active Listings", sub: "" },
-                { value: "2.1", label: "Months Inventory", sub: "" },
-              ].map(({ value, label, sub }) => (
+              {marketStatCards.map(({ value, label, sub }) => (
                 <div key={label} className="text-center">
                   <div className="text-4xl font-bold text-blue-400 mb-1">{value}</div>
                   <div className="text-slate-300 text-sm">{label}</div>
@@ -187,7 +235,10 @@ export default async function Home() {
 
         <DeferredRealScoutListings />
         <WhyChooseUs />
-        <ReviewsSection />
+        <ReviewsSection
+          googleReviewsUrl={googleReviewsUrl}
+          aggregateRating={aggregateRating}
+        />
 
         {/* Domain-Aware FAQ with FAQPage schema already injected above */}
         <FAQSection

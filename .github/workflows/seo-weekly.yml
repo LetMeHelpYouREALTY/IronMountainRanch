@@ -1,0 +1,57 @@
+name: SEO Weekly
+
+on:
+  schedule:
+    # Mondays 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+    inputs:
+      loop_until_live:
+        description: "Retry until production responds 200"
+        type: boolean
+        default: true
+  repository_dispatch:
+    types: [seo-weekly]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-weekly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  seo-weekly:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: https://www.ironmountainranchlasvegas.com
+      SEO_WEEKLY_GIT_PUSH: "true"
+      SEO_WEEKLY_LOOP_UNTIL_LIVE: "true"
+      SEO_WEEKLY_MAX_LOOPS: "3"
+      PARALLEL_API_KEY: ${{ secrets.PARALLEL_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate route inventory
+        run: node scripts/seo-weekly/generate-routes.mjs
+
+      - name: Run weekly SEO automation
+        run: node scripts/seo-weekly/run.mjs
+
+      - name: Typecheck (post-change)
+        run: pnpm run type-check
