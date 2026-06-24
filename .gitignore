@@ -145,6 +145,7 @@ mls-snapshots/
 audit-report.json
 .lighthouseci/
 lighthouse-report*.html
+reports/psi-*.json
 
 # ===================
 # AI agent tool caches (keep .cursor/rules for team; ignore duplicates)

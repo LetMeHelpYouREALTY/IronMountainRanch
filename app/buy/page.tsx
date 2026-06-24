@@ -1,3 +1,4 @@
+import ImrRegionalMarketSection from "@/components/sections/ImrRegionalMarketSection";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
@@ -52,6 +53,7 @@ export default function BuyPage({
         </IronMountainPageHero>
         <ZipQueryBanner zip={zip} variant="buy" />
         <div className="container mx-auto px-4 max-w-5xl py-16">
+          <ImrRegionalMarketSection className="mb-12" />
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               {

@@ -17,27 +17,36 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { absoluteUrl } from "@/lib/site-url";
+import { REGIONAL_MARKET_LAST_UPDATED } from "@/lib/lv-regional-market";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Las Vegas Real Estate Market Insights 2026 | Berkshire Hathaway HomeServices",
-  description: "Technology trends, economic forecasts, and market analysis shaping Las Vegas real estate in 2026. AI, data centers, California migration, and what it means for buyers and sellers. Call (702) 996-3758.",
+  title: "Iron Mountain Ranch Market Insights | Northwest Las Vegas 2026",
+  description:
+    "2026 market trends for Iron Mountain Ranch and northwest Las Vegas gated villages—plus valley context for buyers and sellers in 89131. Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/market-insights",
-  keywords: ["Las Vegas real estate trends 2026","Las Vegas market forecast","Nevada economic outlook","California to Las Vegas migration","Las Vegas tech hub","Berkshire Hathaway market insights"],
+  keywords: [
+    "Iron Mountain Ranch market trends",
+    "89131 real estate forecast",
+    "northwest Las Vegas housing 2026",
+    "Iron Mountain Ranch buyer guide",
+    "gated community market Las Vegas",
+  ],
 });
 
 const reportSchema = {
   "@context": "https://schema.org",
   "@type": "Report",
-  name: "Las Vegas Real Estate Market Insights 2026",
+  name: `Iron Mountain Ranch Market Insights - ${REGIONAL_MARKET_LAST_UPDATED}`,
   author: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
     worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
   },
-  datePublished: "2026-01-23",
+  datePublished: "2026-06-01",
   about: {
     "@type": "Place",
-    name: "Las Vegas, Nevada",
+    name: "Iron Mountain Ranch, Las Vegas, Nevada",
   },
 };
 
@@ -52,8 +61,8 @@ export default function MarketInsightsPage() {
       <main>
         <IronMountainPageHero
           path="/market-insights"
-          title="Las Vegas Market Insights"
-          subtitle="Technology trends, economic forces, and market dynamics shaping Las Vegas real estate in 2026 and beyond."
+          title="Iron Mountain Ranch Market Insights"
+          subtitle="Valley-wide forces that affect northwest 89131 gated villages—paired with village-level MLS context for Iron Mountain Ranch buyers and sellers."
         />
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}

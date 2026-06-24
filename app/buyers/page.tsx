@@ -23,22 +23,29 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Home Buying Guide Las Vegas | Berkshire Hathaway HomeServices",
-  description: "Looking to buy a home in Las Vegas? Dr. Jan Duffy with Berkshire Hathaway HomeServices Nevada Properties guides you through every step. Free buyer consultation. Call (702) 996-3758.",
+  title: "Buy in Iron Mountain Ranch | Northwest Las Vegas Buyer Guide",
+  description:
+    "Buyer guide for Iron Mountain Ranch gated villages in 89131 and 89143. Village-level MLS search, HOA review, and representation from Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/buyers",
-  keywords: ["buy home Las Vegas","Las Vegas home buyer","Berkshire Hathaway buyer agent","Henderson homes for sale","first time home buyer Las Vegas","California relocation Las Vegas","55+ communities Las Vegas"],
+  keywords: [
+    "buy Iron Mountain Ranch",
+    "Iron Mountain Ranch buyer agent",
+    "89131 gated community buyer",
+    "Iron Mountain Ranch villages",
+    "northwest Las Vegas home buyer",
+  ],
 });
 
 const buyerSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Home Buying Services Las Vegas",
+  name: "Iron Mountain Ranch Buyer Representation",
   provider: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     telephone: "+17029963758",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
+  areaServed: "Iron Mountain Ranch, Las Vegas NV 89131, 89143",
   serviceType: "Buyer Representation",
 };
 
@@ -76,12 +83,12 @@ const buyingSteps = [
 ];
 
 const neighborhoods = [
-  { name: "Summerlin", price: "$625K", description: "Master-planned community with Red Rock views" },
-  { name: "Henderson", price: "$485K", description: "Family-friendly with low crime rates" },
-  { name: "Green Valley", price: "$520K", description: "Established with mature landscaping" },
-  { name: "The Ridges", price: "$2.5M", description: "Ultra-luxury guard-gated estates" },
-  { name: "North Las Vegas", price: "$385K", description: "Affordable new construction" },
-  { name: "Southern Highlands", price: "$750K", description: "Golf course community" },
+  { name: "Iron Mountain Ranch", price: "$550K", description: "Gated KB villages in 89131 & 89143 — primary focus" },
+  { name: "Centennial Hills", price: "$525K", description: "Northwest neighbor master plans" },
+  { name: "Summerlin", price: "$625K", description: "Premium west-side comparison" },
+  { name: "Skye Canyon", price: "$550K", description: "Newer northwest Las Vegas" },
+  { name: "North Las Vegas", price: "$385K", description: "Entry-level valley comparison" },
+  { name: "Southern Highlands", price: "$750K", description: "Luxury golf community comparison" },
 ];
 
 export default function BuyersPage() {
@@ -95,8 +102,8 @@ export default function BuyersPage() {
       <main>
         <IronMountainPageHero
           path="/buyers"
-          title="Buy Your Las Vegas Home with Confidence"
-          subtitle="When you work with a Berkshire Hathaway HomeServices buyer's agent, you're backed by the most trusted name in real estate—and it costs you nothing. The seller pays the commission, but the representation is yours."
+          title="Buy in Iron Mountain Ranch Gated Villages"
+          subtitle="Village-level MLS search in 89131 and 89143—Wolf Creek, Meadow Ridge, Iron Mountain Estates, and every numbered village. Buyer representation is typically paid from listing-side commission at closing."
         >
           <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
             <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Free Buyer Representation</span>
@@ -111,20 +118,20 @@ export default function BuyersPage() {
               <div>
                 <h2 className="text-3xl font-bold mb-4">Why You Need a Buyer's Agent</h2>
                 <p className="text-slate-300 mb-6">
-                  Here's what many buyers don't know: having your own agent costs you nothing. The
-                  seller pays the commission, but the representation is yours.{" "}
-                  <strong>Berkshire Hathaway HomeServices</strong> agents protect your interests,
-                  not the seller's. In a competitive market like Las Vegas, having expert 
-                  representation can mean the difference between winning your dream home and losing out.
+                  Iron Mountain Ranch buyers need subdivision-level MLS filtering—HOA/LMA dues, gate
+                  access, and village comps differ between Village 4 and Iron Mountain Estates.{" "}
+                  <strong>Berkshire Hathaway HomeServices</strong> buyer representation protects your
+                  interests through inspection, appraisal, and contract negotiation in northwest Las
+                  Vegas.
                 </p>
                 <ul className="space-y-2">
                   {[
-                    "Full MLS access + off-market opportunities",
-                    "Expert negotiation on your behalf",
-                    "Contract and disclosure review",
-                    "Inspection coordination and repair negotiation",
-                    "Lender and service provider referrals",
-                    "Local market expertise since 2008",
+                    "MLS filtered by Iron Mountain Ranch village",
+                    "HOA/LMA document review before you tour",
+                    "Expert negotiation on gated-community contracts",
+                    "Inspection and appraisal coordination",
+                    "Lender referrals familiar with 89131 resale",
+                    "Comparison context vs Centennial Hills & Summerlin",
                   ].map((item) => (
                     <li key={item} className="flex items-center">
                       <CheckCircle className="h-5 w-5 text-green-400 mr-2 flex-shrink-0" />

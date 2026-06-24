@@ -22,22 +22,29 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Sell Your Las Vegas Home | Berkshire Hathaway HomeServices",
-  description: "Sell your Las Vegas or Henderson home for top dollar with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Free home valuation. World-class marketing. Call (702) 996-3758.",
+  title: "Sell Your Iron Mountain Ranch Home | 89131 Seller Guide",
+  description:
+    "Sell your Iron Mountain Ranch home with village-level comps and gated-community marketing from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Free CMA. Call (702) 996-3758.",
   path: "/sellers",
-  keywords: ["sell home Las Vegas","Las Vegas listing agent","Berkshire Hathaway sell house","Henderson home selling","what is my home worth Las Vegas","Las Vegas real estate agent","Summerlin home selling"],
+  keywords: [
+    "sell Iron Mountain Ranch home",
+    "Iron Mountain Ranch listing agent",
+    "89131 home valuation",
+    "Iron Mountain Ranch seller",
+    "gated community home sale Las Vegas",
+  ],
 });
 
 const sellerSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  name: "Home Selling Services Las Vegas",
+  name: "Iron Mountain Ranch Seller Representation",
   provider: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     telephone: "+17029963758",
   },
-  areaServed: "Las Vegas, Henderson, Summerlin, Clark County NV",
+  areaServed: "Iron Mountain Ranch, Las Vegas NV 89131, 89143",
   serviceType: "Seller Representation",
 };
 
@@ -127,8 +134,8 @@ export default function SellersPage() {
       <main>
         <IronMountainPageHero
           path="/sellers"
-          title="Sell Your Las Vegas Home for Top Dollar"
-          subtitle="When you list with Berkshire Hathaway HomeServices, you get world-class marketing, expert pricing, and a name that buyers trust. Dr. Jan Duffy has been serving Las Vegas since 2008—helping sellers achieve top-dollar results with proven marketing strategies and skilled negotiation."
+          title="Sell Your Iron Mountain Ranch Home"
+          subtitle="Village-specific comps, gated-community marketing, and net-proceeds planning for 89131 and 89143 from Berkshire Hathaway HomeServices Nevada Properties."
         >
           <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
             <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Free Home Valuation</span>

@@ -66,10 +66,10 @@ export default function ContactPage({
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h2>
               <p className="text-slate-700 mb-8">
-                Whether you're buying your first home, selling a luxury property, or exploring
-                investment opportunities, I'm here to provide expert guidance backed by the trusted{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> brand. Serving Las Vegas since 2008 
-                with $127M+ in closed transactions.
+                Questions about a specific Iron Mountain Ranch village—gates, HOA/LMA dues, Wolf
+                Creek vs Iron Mountain Estates pricing, or school assignments in 89131 and 89143?
+                Dr. Jan Duffy provides village-level MLS guidance backed by{" "}
+                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>.
               </p>
 
               {/* NAP Information */}

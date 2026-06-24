@@ -16,22 +16,31 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { absoluteUrl } from "@/lib/site-url";
+import { REGIONAL_MARKET_LAST_UPDATED } from "@/lib/lv-regional-market";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Berkshire Hathaway HomeServices Las Vegas Market Update | January 2026",
-  description: "Weekly Las Vegas real estate market update from Berkshire Hathaway HomeServices Nevada Properties. Get the latest stats, notable sales, and expert analysis from Dr. Jan Duffy. Call (702) 996-3758.",
+  title: "Iron Mountain Ranch Market Update | Northwest 89131",
+  description:
+    "Weekly northwest Las Vegas and Iron Mountain Ranch market pulse—village resale context for 89131 and 89143 from Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/market-update",
-  keywords: ["Berkshire Hathaway HomeServices Las Vegas market update","Las Vegas real estate market","Las Vegas housing market 2026","Henderson real estate market","Las Vegas home prices"],
+  keywords: [
+    "Iron Mountain Ranch market update",
+    "89131 housing market",
+    "northwest Las Vegas real estate",
+    "Iron Mountain Ranch home prices",
+    "gated community market update",
+  ],
 });
 
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  headline: "Las Vegas Real Estate Market Update - Week of January 20, 2026",
+  headline: `Iron Mountain Ranch Market Update - ${REGIONAL_MARKET_LAST_UPDATED}`,
   description:
-    "Weekly market analysis from Berkshire Hathaway HomeServices Nevada Properties covering Las Vegas Valley real estate trends, statistics, and expert insights.",
-  datePublished: "2026-01-20",
-  dateModified: "2026-01-24",
+    "Northwest Las Vegas and Iron Mountain Ranch village market analysis from Berkshire Hathaway HomeServices Nevada Properties.",
+  datePublished: "2026-06-01",
+  dateModified: "2026-06-23",
   author: {
     "@type": "Person",
     name: "Dr. Jan Duffy",
@@ -44,7 +53,7 @@ const articleSchema = {
   publisher: {
     "@type": "Organization",
     name: "Berkshire Hathaway HomeServices Nevada Properties",
-    url: "https://heyberkshire.com",
+    url: absoluteUrl("/"),
   },
 };
 
@@ -59,10 +68,10 @@ export default function MarketUpdatePage() {
       <main>
         <IronMountainPageHero
           path="/market-update"
-          title="Berkshire Hathaway HomeServices Las Vegas Market Update"
-          subtitle="Your weekly insider report on Las Vegas Valley real estate from Berkshire Hathaway HomeServices Nevada Properties"
+          title="Iron Mountain Ranch Market Update"
+          subtitle="Northwest Las Vegas and Iron Mountain Ranch village resale pulse from Berkshire Hathaway HomeServices Nevada Properties"
         >
-          <p className="text-sm text-white/75">By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties · Week of January 20, 2026</p>
+          <p className="text-sm text-white/75">By Dr. Jan Duffy, REALTOR® · {REGIONAL_MARKET_LAST_UPDATED}</p>
         </IronMountainPageHero>
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
