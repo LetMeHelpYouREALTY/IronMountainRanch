@@ -41,3 +41,25 @@ export function getGoogleSearchConsoleVerification():
   const token = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
   return token ? { google: token } : undefined;
 }
+
+/** Emit only when both env vars are set and GBP is verified (5+ reviews). */
+export function getGbpAggregateRating():
+  | {
+      "@type": "AggregateRating";
+      ratingValue: string;
+      reviewCount: string;
+      bestRating: string;
+    }
+  | undefined {
+  const ratingValue = process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_VALUE?.trim();
+  const reviewCountRaw = process.env.NEXT_PUBLIC_GBP_AGGREGATE_RATING_COUNT?.trim();
+  if (!ratingValue || !reviewCountRaw) return undefined;
+  const reviewCount = Number.parseInt(reviewCountRaw, 10);
+  if (!Number.isFinite(reviewCount) || reviewCount < 1) return undefined;
+  return {
+    "@type": "AggregateRating",
+    ratingValue,
+    reviewCount: String(reviewCount),
+    bestRating: "5",
+  };
+}

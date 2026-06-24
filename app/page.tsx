@@ -8,8 +8,7 @@ import Link from "next/link";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { getFaqsForDomain } from "@/lib/faq-config";
-import { agentInfo, officeInfo } from "@/lib/site-config";
-import { absoluteUrl } from "@/lib/site-url";
+import { agentInfo } from "@/lib/site-config";
 
 // Maps pageType → human-readable FAQ section title/subtitle
 const FAQ_SECTION_COPY: Record<
@@ -55,28 +54,9 @@ export default async function Home() {
       ? `${config.neighborhood} FAQ`
       : faqCopy.title;
 
-  // ── Schema: RealEstateAgent ──────────────────────────────────────────────
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    name: `Dr. Jan Duffy - ${config.neighborhood} Real Estate`,
-    url: absoluteUrl("/"),
-    telephone: agentInfo.phoneTel.replace("tel:", ""),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: officeInfo.address.street,
-      addressLocality: officeInfo.address.city,
-      addressRegion: officeInfo.address.state,
-      postalCode: officeInfo.address.zip,
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-    },
-  };
+  // RealEstateAgent + LocalBusiness: root layout SiteJsonLd (@graph). No duplicate here.
 
-  // ── Schema: FAQPage ──────────────────────────────────────────────────────
+  // ── Schema: FAQPage (domain-specific FAQs; site-wide FAQ lives in SiteJsonLd) ──
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -92,10 +72,6 @@ export default async function Home() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

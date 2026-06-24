@@ -7,7 +7,7 @@
 
 import { ironMountainRanch, ironMountainRanchFaqs } from "./iron-mountain-ranch";
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
-import { absoluteUrl } from "./site-url";
+import { absoluteUrl, getGbpAggregateRating } from "./site-url";
 
 const ORG_ID = `${absoluteUrl("/")}#organization`;
 const AGENT_ID = `${absoluteUrl("/")}#agent`;
@@ -68,6 +68,7 @@ export function generateLocalBusinessSchema() {
 }
 
 export function generateRealEstateAgentSchema() {
+  const aggregateRating = getGbpAggregateRating();
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
@@ -93,12 +94,7 @@ export function generateRealEstateAgentSchema() {
       postalCode: zip,
       addressCountry: "US",
     })),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "200",
-      bestRating: "5",
-    },
+    ...(aggregateRating ? { aggregateRating } : {}),
     sameAs: [
       "https://www.facebook.com/drjanduffy",
       "https://www.instagram.com/drjanduffy",
