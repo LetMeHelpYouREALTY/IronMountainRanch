@@ -10,6 +10,8 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
 import GBPMapCard from "@/components/shared/GBPMapCard";
 import { businessHoursLines } from "@/lib/google-business-profile";
+import ZipQueryBanner from "@/components/maps/ZipQueryBanner";
+import { isValidZipCode } from "@/lib/las-vegas-zip-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
@@ -36,7 +38,13 @@ const contactSchema = {
   },
 };
 
-export default function ContactPage() {
+export default function ContactPage({
+  searchParams,
+}: {
+  searchParams?: { zip?: string };
+}) {
+  const zipParam = searchParams?.zip;
+  const zip = zipParam && isValidZipCode(zipParam) ? zipParam : null;
 
   return (
     <>
@@ -52,6 +60,7 @@ export default function ContactPage() {
           subtitle={`Questions about Iron Mountain Ranch real estate? Reach ${siteConfig.name} at ${officeInfo.address.full}.`}
         />
         <div className="container mx-auto px-4 py-16">
+          <ZipQueryBanner zip={zip} variant="contact" />
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info & Map */}
             <div>

@@ -10,6 +10,8 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Search, Key, Shield } from "lucide-react";
 import { agentInfo } from "@/lib/site-config";
 import { generateListingServiceSchema } from "@/lib/schema-blueprint";
+import ZipQueryBanner from "@/components/maps/ZipQueryBanner";
+import { isValidZipCode } from "@/lib/las-vegas-zip-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Buy a Home in Iron Mountain Ranch | Northwest Las Vegas 89131",
@@ -20,7 +22,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 const listingSchema = generateListingServiceSchema();
 
-export default function BuyPage() {
+export default function BuyPage({
+  searchParams,
+}: {
+  searchParams?: { zip?: string };
+}) {
+  const zipParam = searchParams?.zip;
+  const zip = zipParam && isValidZipCode(zipParam) ? zipParam : null;
+
   return (
     <>
       <script
@@ -41,6 +50,7 @@ export default function BuyPage() {
             </p>
           </div>
         </IronMountainPageHero>
+        <ZipQueryBanner zip={zip} variant="buy" />
         <div className="container mx-auto px-4 max-w-5xl py-16">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[

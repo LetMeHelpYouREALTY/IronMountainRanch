@@ -93,6 +93,10 @@ export default function SubCommunitiesPage() {
           <p className="text-white/80 mb-6">
             ~{ironMountainRanch.homeCount.toLocaleString()} homes · Zip{" "}
             {ironMountainRanch.zipCodes.join(" & ")} · Built {ironMountainRanch.yearBuiltRange}
+            {" · "}
+            <Link href="/las-vegas-zip-code-map" className="underline hover:text-white">
+              Las Vegas zip code map
+            </Link>
           </p>
           <div className="flex justify-center">
             <GbpActionLinks />

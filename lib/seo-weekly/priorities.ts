@@ -10,6 +10,7 @@ export const ROUTE_SEO_DEFAULTS: Record<
   "/market-report": { priority: 0.9, changeFrequency: "weekly" },
   "/contact": { priority: 0.9, changeFrequency: "monthly" },
   "/google-business": { priority: 0.85, changeFrequency: "monthly" },
+  "/las-vegas-zip-code-map": { priority: 0.85, changeFrequency: "monthly" },
   "/faq": { priority: 0.8, changeFrequency: "monthly" },
 };
 

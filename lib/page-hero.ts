@@ -220,6 +220,15 @@ const ROUTE_HEROES: RouteHeroRule[] = [
     },
   },
   {
+    test: (p) => p === "/las-vegas-zip-code-map",
+    hero: {
+      imageKey: "sheep-range",
+      alt: "Las Vegas Valley zip code map — northwest Las Vegas and Iron Mountain Ranch 89131 and 89143",
+      locationBadge: "Las Vegas Valley Zip Codes",
+      locationDetail: "89131 & 89143 · Iron Mountain Ranch",
+    },
+  },
+  {
     test: (p) => p === "/faq",
     hero: {
       imageKey: "community-park",

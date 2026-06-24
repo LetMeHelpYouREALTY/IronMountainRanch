@@ -68,6 +68,11 @@ export default function Footer() {
                   Google Business Profile
                 </Link>
               </li>
+              <li>
+                <Link href="/las-vegas-zip-code-map" className="hover:text-white">
+                  Las Vegas zip code map
+                </Link>
+              </li>
             </ul>
           </div>
 
