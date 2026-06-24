@@ -64,13 +64,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={GeistSans.className}>
       <head>
+        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.realscout.com" />
+        <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
         <BotIdClient protect={[...botIdProtectedRoutes]} />
         <link rel="me" href={absoluteUrl("/")} />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           strategy="afterInteractive"
         />
-        <Script id="widget-tracker" strategy="afterInteractive">{`
+        <Script id="widget-tracker" strategy="lazyOnload">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
           {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
           (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;

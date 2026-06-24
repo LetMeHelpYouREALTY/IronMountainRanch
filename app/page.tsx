@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
+import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
+import HomeHeroBackground from "@/components/sections/HomeHeroBackground";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -80,9 +81,8 @@ export default async function Home() {
       <main>
         {/* Domain-Aware Hero */}
         <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{ backgroundImage: "url('/Image/hero_bg_1.jpg')" }}
+          <HomeHeroBackground
+            alt={`${config.neighborhood} homes in northwest Las Vegas, Nevada`}
           />
           <div className="relative z-10 container mx-auto px-4 text-center">
             {config.ctaBadge && (
@@ -185,7 +185,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <RealScoutListings />
+        <DeferredRealScoutListings />
         <WhyChooseUs />
         <ReviewsSection />
 
