@@ -170,7 +170,9 @@ export default function ContactPage() {
                   Get Directions
                 </a>
                 <a
-                  href="https://maps.google.com/?q=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV"
+                  href={`https://maps.google.com/?q=${encodeURIComponent(
+                    `${agentInfo.brokerage} ${officeInfo.address.full}`,
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
@@ -200,7 +202,11 @@ export default function ContactPage() {
                     or in-person meeting at our office.
                   </p>
                 </div>
-                <CalendlyWidget height="600px" />
+                <CalendlyWidget
+                  url="consultation"
+                  height="600px"
+                  utm={{ source: "ironmountainranch", medium: "website", campaign: "contact" }}
+                />
               </div>
 
               {/* Why Contact BHHS */}
@@ -279,13 +285,13 @@ export default function ContactPage() {
                 </div>
               </a>
               <a
-                href="mailto:homes@heyberkshire.com"
+                href={`mailto:${agentInfo.email}`}
                 className="flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white p-6 rounded-xl transition-colors"
               >
                 <Mail className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@HeyBerkshire.com</div>
+                  <div className="text-slate-300 break-all">{agentInfo.email}</div>
                 </div>
               </a>
             </div>

@@ -3,9 +3,17 @@
 import { useEffect } from "react";
 import Script from "next/script";
 import "./types";
+import {
+  buildCalendlyUrl,
+  toCalendlyUtmObject,
+  type CalendlyUtm,
+} from "@/lib/calendly";
 
 interface CalendlyBadgeProps {
+  /** Calendly event key ("showing" | "consultation"), full URL, or shorthand. */
   url?: string;
+  /** UTM attribution carried through to Calendly / Follow Up Boss. */
+  utm?: CalendlyUtm;
   text?: string;
   color?: string;
   textColor?: string;
@@ -13,22 +21,27 @@ interface CalendlyBadgeProps {
 }
 
 export default function CalendlyBadge({
-  url = "https://calendly.com/drjanduffy/showing",
+  url,
+  utm,
   text = "Schedule time with me",
   color = "#0069ff",
   textColor = "#ffffff",
   branding = true,
 }: CalendlyBadgeProps) {
+  const badgeUrl = buildCalendlyUrl(url, utm);
+  const utmObject = toCalendlyUtmObject(utm);
+
   useEffect(() => {
     // Initialize badge widget when Calendly script is loaded
     const initBadge = () => {
       if (window.Calendly) {
         window.Calendly.initBadgeWidget({
-          url,
+          url: badgeUrl,
           text,
           color,
           textColor,
           branding,
+          utm: utmObject,
         });
       }
     };
@@ -44,7 +57,7 @@ export default function CalendlyBadge({
     return () => {
       window.removeEventListener("calendly-loaded", initBadge);
     };
-  }, [url, text, color, textColor, branding]);
+  }, [badgeUrl, utmObject, text, color, textColor, branding]);
 
   return (
     <>
@@ -58,11 +71,12 @@ export default function CalendlyBadge({
         onLoad={() => {
           if (window.Calendly) {
             window.Calendly.initBadgeWidget({
-              url,
+              url: badgeUrl,
               text,
               color,
               textColor,
               branding,
+              utm: utmObject,
             });
           }
         }}

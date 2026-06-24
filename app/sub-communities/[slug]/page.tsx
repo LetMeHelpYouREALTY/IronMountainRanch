@@ -2,12 +2,14 @@ import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import LeadCTA from "@/components/sections/LeadCTA";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getSubCommunity, subCommunities } from "@/lib/iron-mountain-ranch";
+import { getSubCommunity, ironMountainRanch, subCommunities } from "@/lib/iron-mountain-ranch";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
+import { AGENT_ID } from "@/lib/schema-blueprint";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -44,6 +46,11 @@ export default async function SubCommunityPage({ params }: PageProps) {
     name: village.name,
     description: village.description,
     url: absoluteUrl(`/sub-communities/${slug}`),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: ironMountainRanch.geo.latitude,
+      longitude: ironMountainRanch.geo.longitude,
+    },
     containedInPlace: {
       "@type": "Neighborhood",
       name: "Iron Mountain Ranch",
@@ -52,8 +59,15 @@ export default async function SubCommunityPage({ params }: PageProps) {
         addressLocality: "Las Vegas",
         addressRegion: "NV",
         postalCode: "89131",
+        addressCountry: "US",
       },
     },
+    additionalProperty: {
+      "@type": "PropertyValue",
+      name: "Price range",
+      value: ironMountainRanch.priceRange,
+    },
+    broker: { "@id": AGENT_ID },
   };
 
   return (
@@ -87,7 +101,12 @@ export default async function SubCommunityPage({ params }: PageProps) {
           </div>
           <GbpActionLinks className="mb-12" />
 
-          <RealScoutListings />
+          <RealScoutListings
+            title={`${village.name} Listings`}
+            subtitle="Iron Mountain Ranch homes for sale in northwest Las Vegas 89131"
+            priceMin={300000}
+            priceMax={800000}
+          />
 
           <p className="text-center text-slate-600 mt-10">
             Questions about {village.name}? Email{" "}
@@ -97,6 +116,13 @@ export default async function SubCommunityPage({ params }: PageProps) {
             or call {agentInfo.phoneFormatted}.
           </p>
         </div>
+
+        <LeadCTA
+          className="mt-16"
+          heading={`Find Your Home in ${village.name}`}
+          subheading="Search live Iron Mountain Ranch listings, book a private tour, or talk with Dr. Jan Duffy directly."
+          calendlyUtm={{ campaign: `sub-community-${village.slug}` }}
+        />
       </main>
       <Footer />
     </>

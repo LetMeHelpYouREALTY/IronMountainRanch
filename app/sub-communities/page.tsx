@@ -1,6 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
+import LeadCTA from "@/components/sections/LeadCTA";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { ironMountainRanch, subCommunities } from "@/lib/iron-mountain-ranch";
@@ -64,6 +65,12 @@ export default function SubCommunitiesPage() {
             ))}
           </div>
         </div>
+
+        <LeadCTA
+          className="mt-16"
+          subheading="Search live Iron Mountain Ranch listings across all nine villages, book a private tour, or call Dr. Jan Duffy directly."
+          calendlyUtm={{ campaign: "sub-communities" }}
+        />
       </main>
       <Footer />
     </>

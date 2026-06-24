@@ -17,6 +17,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { agentInfo, officeInfo } from "@/lib/site-config";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   title: "About Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
@@ -40,18 +42,18 @@ const personSchema = {
   jobTitle: "REALTOR®",
   description:
     "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, serving Las Vegas, Henderson, and Summerlin since 2008.",
-  telephone: "+17025001942",
-  email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com/about",
+  telephone: agentInfo.phoneTel.replace("tel:", ""),
+  email: agentInfo.email,
+  url: absoluteUrl("/about"),
   worksFor: {
     "@type": "RealEstateAgent",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
+    name: agentInfo.brokerage,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
     },
   },
   hasCredential: {
@@ -189,17 +191,17 @@ export default function AboutPage() {
                       <span className="font-semibold">(702) 500-1942</span>
                     </a>
                     <a
-                      href="mailto:homes@heyberkshire.com"
+                      href={`mailto:${agentInfo.email}`}
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                      Homes@HeyBerkshire.com
+                      <span className="break-all">{agentInfo.email}</span>
                     </a>
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100<br />
-                        Las Vegas, NV 89134
+                        {officeInfo.address.street}<br />
+                        {officeInfo.address.city}, {officeInfo.address.state} {officeInfo.address.zip}
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">
