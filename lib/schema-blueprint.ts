@@ -5,6 +5,7 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
+import { buildOpeningHoursSpecification } from "./google-business-profile";
 import { ironMountainRanch, ironMountainRanchFaqs } from "./iron-mountain-ranch";
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
 import { absoluteUrl, getGbpAggregateRating } from "./site-url";
@@ -30,14 +31,7 @@ const geo = {
   longitude: officeInfo.coordinates.lng,
 };
 
-const openingHours = [
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Monday", opens: "09:00", closes: "18:00" },
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Tuesday", opens: "09:00", closes: "18:00" },
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Wednesday", opens: "09:00", closes: "18:00" },
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Thursday", opens: "09:00", closes: "18:00" },
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Friday", opens: "09:00", closes: "18:00" },
-  { "@type": "OpeningHoursSpecification" as const, dayOfWeek: "Saturday", opens: "10:00", closes: "16:00" },
-];
+const openingHours = buildOpeningHoursSpecification();
 
 export function generateLocalBusinessSchema() {
   return {

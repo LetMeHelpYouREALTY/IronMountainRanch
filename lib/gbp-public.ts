@@ -1,5 +1,5 @@
-import { officeInfo } from "@/lib/site-config";
-import { getGbpPlaceId } from "@/lib/site-url";
+import { officeInfo, siteConfig } from "@/lib/site-config";
+import { getGbpPlaceId, getGbpReviewUrl } from "@/lib/site-url";
 
 export function isGbpReviewsDisabled(): boolean {
   return process.env.NEXT_PUBLIC_GBP_REVIEWS_DISABLED === "true";
@@ -34,6 +34,16 @@ export function getGbpBrowseReviewsUrl(): string | undefined {
     return `https://search.google.com/local/reviews?placeid=${placeId}`;
   }
 
-  const query = encodeURIComponent(`${officeInfo.name} ${officeInfo.address.full}`);
+  const query = encodeURIComponent(`${siteConfig.name} ${officeInfo.address.full}`);
   return `https://www.google.com/maps/search/?api=1&query=${query}`;
+}
+
+/** Pre-opened review form — set NEXT_PUBLIC_GBP_WRITEREVIEW_URL from GBP dashboard when verified. */
+export function getGbpWriteReviewUrl(): string | undefined {
+  if (isGbpReviewsDisabled()) return undefined;
+
+  const custom = process.env.NEXT_PUBLIC_GBP_WRITEREVIEW_URL?.trim();
+  if (custom) return custom;
+
+  return getGbpReviewUrl();
 }

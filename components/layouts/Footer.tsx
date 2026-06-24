@@ -1,14 +1,9 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Clock } from "lucide-react";
 import { agentInfo, officeInfo, primaryNav, siteConfig } from "@/lib/site-config";
+import { businessHoursDisplay } from "@/lib/google-business-profile";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
-
-const businessHours = [
-  "Mon–Fri: 9:00 AM – 6:00 PM",
-  "Sat: 10:00 AM – 4:00 PM",
-  "Sun: By appointment",
-];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -68,6 +63,11 @@ export default function Footer() {
                   View all sub-communities →
                 </Link>
               </li>
+              <li>
+                <Link href="/google-business" className="hover:text-white">
+                  Google Business Profile
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -93,7 +93,7 @@ export default function Footer() {
               <li className="flex items-start">
                 <Clock className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" />
                 <span className="text-slate-300 text-sm">
-                  {businessHours.map((line) => (
+                  {businessHoursDisplay.map((line) => (
                     <span key={line} className="block">{line}</span>
                   ))}
                 </span>

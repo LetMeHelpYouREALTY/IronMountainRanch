@@ -8,8 +8,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { agentInfo, officeInfo, siteConfig } from "@/lib/site-config";
-import GbpActionLinks from "@/components/shared/GbpActionLinks";
-import { getGbpDirectionsUrl } from "@/lib/site-url";
+import GBPMapCard from "@/components/shared/GBPMapCard";
+import { businessHoursLines } from "@/lib/google-business-profile";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
@@ -22,7 +22,7 @@ const contactSchema = {
   "@type": "ContactPage",
   mainEntity: {
     "@type": "RealEstateAgent",
-    name: "Dr. Jan Duffy - Iron Mountain Ranch | Homes by Dr. Jan Duffy",
+    name: siteConfig.name,
     telephone: "+17029963758",
     email: "DrDuffy@IronMountainRanchLasVegas.com",
     address: {
@@ -37,11 +37,6 @@ const contactSchema = {
 };
 
 export default function ContactPage() {
-  const mapEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(officeInfo.address.full)}&output=embed`;
-  const directionsUrl = getGbpDirectionsUrl(
-    officeInfo.coordinates.lat,
-    officeInfo.coordinates.lng,
-  );
 
   return (
     <>
@@ -120,10 +115,13 @@ export default function ContactPage() {
                   <Clock className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Office Hours</h3>
-                    <p className="text-slate-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM<br />
-                      Saturday - Sunday: 10:00 AM - 4:00 PM
-                    </p>
+                    <div className="text-slate-700">
+                      {businessHoursLines.map((line) => (
+                        <p key={line.day}>
+                          {line.day}: {line.hours}
+                        </p>
+                      ))}
+                    </div>
                     <p className="text-sm text-slate-500 mt-1">
                       Available by appointment outside these hours
                     </p>
@@ -131,45 +129,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Google Map Embed */}
-              <div className="rounded-xl overflow-hidden shadow-md mb-4">
-                <iframe
-                  src={mapEmbed}
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${siteConfig.name} - Office Location`}
-                  className="w-full"
-                />
-              </div>
-
-              <div className="mb-8">
-                <GbpActionLinks />
-              </div>
-              
-              {/* Map Action Buttons */}
-              <div className="flex gap-3 mb-8">
-                <a
-                  href={directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-medium transition-colors"
-                >
-                  <MapPin className="h-4 w-4 mr-2" />
-                  Get Directions
-                </a>
-                <a
-                  href="https://maps.google.com/?q=Berkshire+Hathaway+HomeServices+Nevada+Properties+9406+W+Lake+Mead+Blvd+Las+Vegas+NV"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-3 rounded-lg font-medium transition-colors"
-                >
-                  View on Google Maps
-                </a>
-              </div>
+              <GBPMapCard className="mb-8" title={`${siteConfig.name} — office location`} height={300} />
 
               {/* Credentials */}
               <div className="p-4 bg-blue-50 rounded-lg">
