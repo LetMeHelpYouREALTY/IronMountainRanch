@@ -1,8 +1,9 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
-import GbpActionLinks from "@/components/shared/GbpActionLinks";
-import Link from "next/link";
+import CalendlyWidget from "@/components/calendly/CalendlyWidget";
+import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Camera, TrendingUp, BarChart } from "lucide-react";
@@ -11,7 +12,8 @@ import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Sell Your Iron Mountain Ranch Home | Las Vegas 89131",
-  description: "Sell your Iron Mountain Ranch home for top dollar. Free CMA, professional marketing, and gated-community pricing expertise from Dr. Jan Duffy. Call (702) 996-3758.",
+  description:
+    "Sell your Iron Mountain Ranch home. Schedule an in-person seller consultation with Dr. Jan Duffy — gated 89131 village pricing expertise. Call (702) 996-3758.",
   path: "/sell",
 });
 
@@ -37,6 +39,13 @@ const sellServiceSchema = {
   areaServed: "Iron Mountain Ranch, Las Vegas NV 89131",
 };
 
+const sellUtm = {
+  utmSource: "ironmountainranchlasvegas.com",
+  utmMedium: "website",
+  utmCampaign: "imr-sell",
+  utmContent: "sell-hero",
+} as const;
+
 export default function SellPage() {
   return (
     <>
@@ -49,18 +58,34 @@ export default function SellPage() {
         <IronMountainPageHero
           path="/sell"
           title="Sell Your Iron Mountain Ranch Home"
-          subtitle={`Village-specific pricing, gated-community marketing, and Berkshire Hathaway HomeServices exposure — led by ${agentInfo.name}.`}
+          subtitle={`Schedule an in-person seller consultation with ${agentInfo.name} — village-specific pricing for gated Iron Mountain Ranch homes in 89131.`}
         >
-          <div className="flex justify-center">
-            <GbpActionLinks />
+          <div className="w-full max-w-xl mx-auto rounded-xl overflow-hidden bg-white/95 shadow-lg">
+            <CalendlyWidget
+              id="schedule-consultation"
+              utm={sellUtm}
+              height="520px"
+            />
           </div>
         </IronMountainPageHero>
         <div className="container mx-auto px-4 max-w-5xl py-16">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
-              { icon: BarChart, title: "Free Home Valuation", desc: "Accurate CMA using Iron Mountain Ranch village comps." },
-              { icon: Camera, title: "Professional Marketing", desc: "Photography, syndication, and BHHS global buyer network." },
-              { icon: TrendingUp, title: "Strategic Pricing", desc: "Price right from day one to maximize net proceeds." },
+              {
+                icon: BarChart,
+                title: "Seller Consultation",
+                desc: "In-person meeting to review Iron Mountain Ranch village comps and net proceeds.",
+              },
+              {
+                icon: Camera,
+                title: "Professional Marketing",
+                desc: "Photography, syndication, and BHHS global buyer network.",
+              },
+              {
+                icon: TrendingUp,
+                title: "Strategic Pricing",
+                desc: "Price right from day one to maximize net proceeds in 89131.",
+              },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-slate-50 rounded-xl p-6">
                 <Icon className="h-8 w-8 text-blue-600 mb-3" />
@@ -70,28 +95,12 @@ export default function SellPage() {
             ))}
           </div>
 
-          <div className="bg-blue-600 text-white rounded-2xl p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Ready to list?</h2>
-            <p className="text-blue-100 mb-6">
-              Contact {agentInfo.email} or call {agentInfo.phoneFormatted} for a confidential
-              seller consultation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-white text-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-50"
-              >
-                Schedule Consultation
-              </Link>
-              <a
-                href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center border border-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700"
-              >
-                <Phone className="h-4 w-4 mr-2" />
-                Call Now
-              </a>
-            </div>
-          </div>
+          <CalendlyInlineSection
+            utm={{ ...sellUtm, utmContent: "sell-midpage" }}
+            title="Book Your Seller Consultation"
+            subtitle="Choose a time for an in-person meeting — Iron Mountain Ranch pricing, staging, and BHHS marketing plan."
+            id="schedule-consultation-mid"
+          />
         </div>
       </main>
       <Footer />

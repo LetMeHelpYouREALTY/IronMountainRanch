@@ -1,12 +1,14 @@
 import Navbar from "@/components/layouts/Navbar";
 import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
 import DeferredRealScoutSimpleSearch from "@/components/realscout/DeferredRealScoutSimpleSearch";
+import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
 import PageHero from "@/components/sections/PageHero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react";
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { getFaqsForDomain } from "@/lib/faq-config";
@@ -245,6 +247,15 @@ export default async function Home() {
           subtitle={faqCopy.subtitle}
         />
 
+        <CalendlyInlineSection
+          utm={{
+            utmSource: "ironmountainranchlasvegas.com",
+            utmMedium: "website",
+            utmCampaign: "imr-home",
+            utmContent: "home-midpage",
+          }}
+        />
+
         {/* Domain-Specific CTA */}
         <section className="py-16 md:py-20 bg-blue-600 text-white">
           <div className="container mx-auto px-4 text-center">
@@ -255,25 +266,31 @@ export default async function Home() {
               {config.ctaSubheadline}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/buy"
+              <TrackedLink
+                href="/buy#imr-search"
+                ctaName="Search Iron Mountain Ranch listings"
+                intent="buyer"
+                proximity="footer"
                 className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
               >
                 Search Listings
-              </Link>
+              </TrackedLink>
+              <TrackedLink
+                href="/home-valuation#schedule-consultation"
+                ctaName="Schedule home valuation consultation"
+                intent="seller"
+                proximity="footer"
+                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
+              >
+                Schedule Consultation
+              </TrackedLink>
               <a
                 href={agentInfo.phoneTel}
-                className="inline-flex items-center justify-center bg-white text-blue-600 px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center justify-center bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call {agentInfo.phoneFormatted}
               </a>
-              <Link
-                href="/contact"
-                className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-md font-bold text-lg transition-colors"
-              >
-                Send a Message
-              </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
               Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties

@@ -128,7 +128,8 @@ export const DEFAULT_CONFIG: DomainConfig = {
   realscoutAgentId: REALSCOUT_AGENT_ID,
   ctaBadge: "Iron Mountain Ranch Expert",
   ctaHeadline: "Search Iron Mountain Ranch Listings",
-  ctaSubheadline: "Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com",
+  ctaSubheadline:
+    "Search MLS listings above or schedule an in-person consultation with Dr. Jan Duffy — no contact forms.",
 };
 
 export function getDomainConfig(hostname: string): DomainConfig {

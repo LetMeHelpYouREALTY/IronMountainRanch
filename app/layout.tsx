@@ -18,6 +18,8 @@ import { botIdProtectedRoutes } from "@/lib/botid-routes";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import SiteJsonLd from "@/components/seo/SiteJsonLd";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import CalendlyRoot from "@/components/calendly/CalendlyRoot";
 import { BotIdClient } from "botid/client";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -62,6 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
         <BotIdClient protect={[...botIdProtectedRoutes]} />
         <link rel="me" href={absoluteUrl("/")} />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           strategy="afterInteractive"
@@ -79,6 +82,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <SiteJsonLd />
         {children}
+        <CalendlyRoot />
+        <GoogleAnalytics />
         <Analytics />
       </body>
     </html>

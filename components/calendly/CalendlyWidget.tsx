@@ -1,66 +1,51 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { buildCalendlyUrl, type CalendlyUtmParams } from "@/lib/calendly";
+import { useCalendlyReady } from "./useCalendlyReady";
+import "./types";
 
-interface CalendlyWidgetProps {
-  url?: string;
+type CalendlyWidgetProps = {
+  utm?: CalendlyUtmParams;
   minWidth?: string;
   height?: string;
-}
+  className?: string;
+  id?: string;
+};
 
 export default function CalendlyWidget({
-  url = "https://calendly.com/drjanduffy/showing",
+  utm,
   minWidth = "320px",
   height = "700px",
+  className = "",
+  id,
 }: CalendlyWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
+  const ready = useCalendlyReady();
+  const url = buildCalendlyUrl(utm);
 
   useEffect(() => {
-    // Ensure Calendly script is loaded and widget is initialized
-    const initWidget = () => {
-      if (typeof window !== "undefined" && (window as any).Calendly && widgetRef.current) {
-        // Clear any existing content
-        widgetRef.current.innerHTML = "";
-        
-        // Create the widget div
-        const widgetDiv = document.createElement("div");
-        widgetDiv.className = "calendly-inline-widget";
-        widgetDiv.setAttribute("data-url", url);
-        widgetDiv.style.minWidth = minWidth;
-        widgetDiv.style.height = height;
-        widgetDiv.style.width = "100%";
-        
-        widgetRef.current.appendChild(widgetDiv);
-        
-        // Initialize the widget
-        (window as any).Calendly.initInlineWidget({
-          url: url,
-          parentElement: widgetDiv,
-        });
-      }
-    };
+    if (!ready || !widgetRef.current || !window.Calendly) return;
 
-    // Try to initialize immediately if Calendly is already loaded
-    if ((window as any).Calendly) {
-      initWidget();
-    } else {
-      // Wait for the script to load
-      const checkCalendly = setInterval(() => {
-        if ((window as any).Calendly) {
-          clearInterval(checkCalendly);
-          initWidget();
-        }
-      }, 100);
+    widgetRef.current.innerHTML = "";
+    const widgetDiv = document.createElement("div");
+    widgetDiv.className = "calendly-inline-widget";
+    widgetDiv.setAttribute("data-url", url);
+    widgetDiv.style.minWidth = minWidth;
+    widgetDiv.style.height = height;
+    widgetDiv.style.width = "100%";
 
-      // Clean up interval after 10 seconds
-      setTimeout(() => clearInterval(checkCalendly), 10000);
-    }
-  }, [url, minWidth, height]);
+    widgetRef.current.appendChild(widgetDiv);
+    window.Calendly.initInlineWidget({ url, parentElement: widgetDiv });
+  }, [ready, url, minWidth, height]);
 
   return (
-    <div 
-      ref={widgetRef} 
+    <div
+      id={id}
+      ref={widgetRef}
+      className={className}
       style={{ minWidth, height, width: "100%" }}
+      aria-label="Schedule an in-person real estate consultation with Dr. Jan Duffy"
     />
   );
 }

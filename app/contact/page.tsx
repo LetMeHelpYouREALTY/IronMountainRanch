@@ -192,7 +192,15 @@ export default function ContactPage() {
                     or in-person meeting at our office.
                   </p>
                 </div>
-                <CalendlyWidget height="600px" />
+                <CalendlyWidget
+                  height="600px"
+                  utm={{
+                    utmSource: "ironmountainranchlasvegas.com",
+                    utmMedium: "website",
+                    utmCampaign: "imr-contact",
+                    utmContent: "contact-page",
+                  }}
+                />
               </div>
 
               {/* Why Contact BHHS */}
@@ -271,13 +279,13 @@ export default function ContactPage() {
                 </div>
               </a>
               <a
-                href="mailto:homes@heyberkshire.com"
+                href={`mailto:${agentInfo.email}`}
                 className="flex items-center justify-center bg-slate-700 hover:bg-slate-800 text-white p-6 rounded-xl transition-colors"
               >
                 <Mail className="h-8 w-8 mr-4" />
                 <div className="text-left">
                   <div className="font-bold text-lg">Send Email</div>
-                  <div className="text-slate-300">Homes@HeyBerkshire.com</div>
+                  <div className="text-slate-300">{agentInfo.email}</div>
                 </div>
               </a>
             </div>

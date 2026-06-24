@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Clock } from "lucide-react";
 import { agentInfo, officeInfo, primaryNav, siteConfig } from "@/lib/site-config";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
+import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
 
 const businessHours = [
   "Mon–Fri: 9:00 AM – 6:00 PM",
@@ -13,6 +14,16 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
+    <>
+      <CalendlyInlineSection
+        utm={{
+          utmSource: "ironmountainranchlasvegas.com",
+          utmMedium: "website",
+          utmCampaign: "imr-footer",
+          utmContent: "site-footer",
+        }}
+        variant="dark"
+      />
     <footer className="bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -101,5 +112,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

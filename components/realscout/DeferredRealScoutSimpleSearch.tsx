@@ -1,18 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import RealScoutSimpleSearch from "@/components/realscout/RealScoutSimpleSearch";
+import { REALSCOUT_AGENT_ENCODED_ID } from "@/lib/realscout-config";
 
 type DeferredRealScoutSimpleSearchProps = {
-  agentEncodedId: string;
+  agentEncodedId?: string;
   className?: string;
+  id?: string;
 };
 
 /**
  * Defers RealScout simple-search until after first paint / idle so hero image stays LCP.
  */
 export default function DeferredRealScoutSimpleSearch({
-  agentEncodedId,
+  agentEncodedId = REALSCOUT_AGENT_ENCODED_ID,
   className = "",
+  id = "imr-search",
 }: DeferredRealScoutSimpleSearchProps) {
   const [ready, setReady] = useState(false);
 
@@ -23,10 +27,10 @@ export default function DeferredRealScoutSimpleSearch({
     };
 
     if (typeof window.requestIdleCallback === "function") {
-      const id = window.requestIdleCallback(mount, { timeout: 2000 });
+      const idleId = window.requestIdleCallback(mount, { timeout: 2000 });
       return () => {
         cancelled = true;
-        window.cancelIdleCallback(id);
+        window.cancelIdleCallback(idleId);
       };
     }
 
@@ -40,6 +44,7 @@ export default function DeferredRealScoutSimpleSearch({
   if (!ready) {
     return (
       <div
+        id={id}
         className={`mx-auto h-12 max-w-md animate-pulse rounded-lg bg-white/20 ${className}`}
         aria-hidden="true"
       />
@@ -47,11 +52,11 @@ export default function DeferredRealScoutSimpleSearch({
   }
 
   return (
-    <div
+    <RealScoutSimpleSearch
+      id={id}
+      agentEncodedId={agentEncodedId}
       className={className}
-      dangerouslySetInnerHTML={{
-        __html: `<realscout-simple-search agent-encoded-id="${agentEncodedId}"></realscout-simple-search>`,
-      }}
+      deferred
     />
   );
 }

@@ -56,8 +56,9 @@ export const officeInfo = {
 /** Primary site navigation — URL architecture for Google + users */
 export const primaryNav = [
   { href: "/", label: "Home" },
-  { href: "/buy", label: "Buy" },
-  { href: "/sell", label: "Sell" },
+  { href: "/buy#imr-search", label: "Buy" },
+  { href: "/sell#schedule-consultation", label: "Sell" },
+  { href: "/home-valuation#schedule-consultation", label: "Home Value" },
   { href: "/sub-communities", label: "Sub-Communities" },
   { href: "/market-report", label: "Market Report" },
   { href: "/contact", label: "Contact" },

@@ -18,5 +18,11 @@ declare namespace JSX {
       },
       HTMLElement
     >;
+    "realscout-home-value": React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement> & {
+        "agent-encoded-id": string;
+      },
+      HTMLElement
+    >;
   }
 }

@@ -1,16 +1,19 @@
 import Navbar from "@/components/layouts/Navbar";
 import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
-import RealScoutListings from "@/components/realscout/RealScoutListings";
 import CalendlyWidget from "@/components/calendly/CalendlyWidget";
+import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
+import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { Phone, CheckCircle, Home, TrendingUp, MapPin, Calculator, Clock, DollarSign } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Free Home Valuation Las Vegas | What's Your Home Worth? | Berkshire Hathaway HomeServices",
-  description: "Get a free, accurate home valuation in Las Vegas from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Expert CMA analysis for Summerlin, Henderson, Green Valley & all Las Vegas neighborhoods. Call (702) 996-3758.",
+  description:
+    "What's your Iron Mountain Ranch home worth? Free instant estimate for 89131 gated homes plus expert CMA from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Call (702) 996-3758.",
   path: "/home-valuation",
   keywords: ["home valuation Las Vegas","what is my home worth Las Vegas","free home value estimate","CMA Las Vegas","Berkshire Hathaway home valuation","Summerlin home value","Henderson home value"],
 });
@@ -55,6 +58,13 @@ const faqSchema = {
   ],
 };
 
+const valuationUtm = {
+  utmSource: "ironmountainranchlasvegas.com",
+  utmMedium: "website",
+  utmCampaign: "imr-valuation",
+  utmContent: "valuation-hero",
+} as const;
+
 export default function HomeValuationPage() {
   return (
     <>
@@ -66,38 +76,30 @@ export default function HomeValuationPage() {
       <main>
         <IronMountainPageHero
           path="/home-valuation"
-          title="What's Your Las Vegas Home Worth?"
-          subtitle="Get a free, no-obligation home valuation from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Accurate pricing backed by 17+ years of Las Vegas market expertise and $127M+ in closed transactions."
-        />
+          title="What's Your Iron Mountain Ranch Home Worth?"
+          subtitle="Schedule a free in-person consultation — Dr. Jan Duffy will prepare village-specific comps for your gated Iron Mountain Ranch home."
+        >
+          <div className="w-full max-w-xl mx-auto rounded-xl overflow-hidden bg-white/95 shadow-lg">
+            <CalendlyWidget
+              id="schedule-consultation"
+              utm={valuationUtm}
+              height="520px"
+            />
+          </div>
+        </IronMountainPageHero>
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
               <Link href="/" className="hover:text-blue-600">Home</Link>
               {" / "}
-              <Link href="/sellers" className="hover:text-blue-600">Sellers</Link>
+              <Link href="/sell" className="hover:text-blue-600">Sell</Link>
               {" / "}
               <span className="text-slate-900">Home Valuation</span>
             </nav>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
-            {/* Calendly Widget */}
-            <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
-              <div className="bg-blue-600 text-white p-4 text-center">
-                <h2 className="text-2xl font-bold">Schedule Your Free Valuation</h2>
-                <p className="text-blue-100 text-sm mt-1">
-                  Book a consultation with Dr. Jan Duffy
-                </p>
-              </div>
-              <CalendlyWidget url="showing" height="650px" />
-              <p className="text-xs text-slate-500 text-center p-4 border-t border-slate-200">
-                No obligation. No pressure. Just accurate information from Berkshire Hathaway
-                HomeServices.
-              </p>
-            </div>
-
-            {/* Value Prop */}
+          <div className="max-w-6xl mx-auto mb-16">
             <div className="space-y-8">
               <div className="bg-slate-900 text-white rounded-lg p-8">
                 <h2 className="text-2xl font-bold mb-4">Why Request a BHHS Valuation?</h2>
@@ -172,6 +174,13 @@ export default function HomeValuationPage() {
               </div>
             </div>
           </div>
+
+          <CalendlyInlineSection
+            utm={{ ...valuationUtm, utmContent: "valuation-midpage" }}
+            title="Schedule Your Free Home Valuation Meeting"
+            subtitle="In-person consultation at Berkshire Hathaway HomeServices — Iron Mountain Ranch CMA and pricing strategy."
+            id="schedule-consultation-mid"
+          />
 
           {/* Why Online Estimates Fall Short */}
           <section className="max-w-5xl mx-auto mb-16">
@@ -457,12 +466,15 @@ export default function HomeValuationPage() {
                 <Phone className="h-5 w-5 mr-2" />
                 Call (702) 996-3758
               </a>
-              <Link
-                href="/sellers"
+              <TrackedLink
+                href="/home-valuation#schedule-consultation"
+                ctaName="Schedule home valuation consultation"
+                intent="seller"
+                proximity="footer"
                 className="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-400 transition-colors"
               >
-                Learn About Selling
-              </Link>
+                Schedule Valuation Meeting
+              </TrackedLink>
             </div>
             <p className="mt-4 text-blue-200 text-sm">
               Berkshire Hathaway HomeServices Nevada Properties
