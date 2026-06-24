@@ -44,8 +44,12 @@ export default function Navbar() {
               </Link>
             ))}
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href={agentInfo.phoneTel} className="flex items-center gap-2">
-                <Phone className="h-4 w-4" />
+              <Link
+                href={agentInfo.phoneTel}
+                className="flex items-center gap-2"
+                aria-label={agentInfo.phoneCallLabel}
+              >
+                <Phone className="h-4 w-4" aria-hidden />
                 <span className="hidden xl:inline">{agentInfo.phoneFormatted}</span>
                 <span className="xl:hidden">Call</span>
               </Link>
@@ -54,8 +58,13 @@ export default function Navbar() {
 
           <div className="lg:hidden flex items-center gap-3">
             <Button asChild size="sm" className="bg-blue-600 hover:bg-blue-700">
-              <Link href={agentInfo.phoneTel}>
-                <Phone className="h-4 w-4" />
+              <Link
+                href={agentInfo.phoneTel}
+                className="flex items-center gap-2"
+                aria-label={agentInfo.phoneCallLabel}
+              >
+                <Phone className="h-4 w-4" aria-hidden />
+                <span className="sr-only">{agentInfo.phoneCallLabel}</span>
               </Link>
             </Button>
             <button
@@ -84,8 +93,12 @@ export default function Navbar() {
               ))}
               <div className="pt-4">
                 <Button asChild className="bg-blue-600 hover:bg-blue-700 w-full">
-                  <Link href={agentInfo.phoneTel} className="flex items-center justify-center gap-2">
-                    <Phone className="h-4 w-4" />
+                  <Link
+                    href={agentInfo.phoneTel}
+                    className="flex items-center justify-center gap-2"
+                    aria-label={agentInfo.phoneCallLabel}
+                  >
+                    <Phone className="h-4 w-4" aria-hidden />
                     Call {agentInfo.phoneFormatted}
                   </Link>
                 </Button>

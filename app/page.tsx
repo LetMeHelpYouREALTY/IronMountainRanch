@@ -1,5 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
+import DeferredRealScoutSimpleSearch from "@/components/realscout/DeferredRealScoutSimpleSearch";
 import PageHero from "@/components/sections/PageHero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
@@ -148,12 +149,11 @@ export default async function Home() {
               {config.heroSubheadline}
             </p>
 
-            {/* RealScout Search Widget */}
-            <div className="mb-8 flex justify-center">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `<realscout-simple-search agent-encoded-id="${config.realscoutAgentId}"></realscout-simple-search>`,
-                }}
+            {/* RealScout Search Widget — deferred so hero image remains LCP */}
+            <div className="mb-8 flex justify-center min-h-[3rem]">
+              <DeferredRealScoutSimpleSearch
+                agentEncodedId={config.realscoutAgentId}
+                className="w-full max-w-md"
               />
             </div>
 

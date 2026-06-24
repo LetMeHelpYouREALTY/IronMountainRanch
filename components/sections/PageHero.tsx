@@ -36,7 +36,7 @@ export default function PageHero({
           priority={priority}
           fetchPriority={priority ? "high" : "auto"}
           sizes="100vw"
-          quality={75}
+          quality={priority ? 70 : 60}
           className="object-cover object-center"
         />
         <div

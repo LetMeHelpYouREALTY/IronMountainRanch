@@ -25,12 +25,12 @@ export type PageHeroContent = {
 };
 
 const HERO_IMAGE_SRC: Record<HeroImageKey, string> = {
-  "gated-village": "/images/hero/imr-gated-village-hero.png",
-  "village-streetscape": "/images/hero/imr-village-streetscape-hero.png",
-  "community-park": "/images/hero/imr-community-park-hero.png",
-  estates: "/images/hero/imr-estates-hero.png",
-  "seller-home": "/images/hero/imr-seller-home-hero.png",
-  "sheep-range": "/images/hero/imr-sheep-range-hero.png",
+  "gated-village": "/images/hero/imr-gated-village-hero.webp",
+  "village-streetscape": "/images/hero/imr-village-streetscape-hero.webp",
+  "community-park": "/images/hero/imr-community-park-hero.webp",
+  estates: "/images/hero/imr-estates-hero.webp",
+  "seller-home": "/images/hero/imr-seller-home-hero.webp",
+  "sheep-range": "/images/hero/imr-sheep-range-hero.webp",
 };
 
 export function getHeroImageSrc(key: HeroImageKey): string {

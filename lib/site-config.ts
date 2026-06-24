@@ -30,6 +30,8 @@ export const agentInfo = {
   phone: "(702) 996-3758",
   phoneFormatted: "(702) 996-3758",
   phoneTel: "tel:+17029963758",
+  /** Accessible name for icon-only phone links (nav, CTAs) */
+  phoneCallLabel: "Call Dr. Jan Duffy at (702) 996-3758",
   email: "DrDuffy@IronMountainRanchLasVegas.com",
   brokerage: "Berkshire Hathaway HomeServices Nevada Properties",
 };
