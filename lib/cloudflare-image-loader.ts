@@ -14,30 +14,30 @@ export default function cloudflareImageLoader({
   width: number;
   quality?: number;
 }): string {
-  // If using Cloudflare Images (requires configuration)
-  const useCloudflareImages = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ENABLED === 'true';
-  
+  if (src.startsWith("http://") || src.startsWith("https://")) {
+    return src;
+  }
+
+  const useCloudflareImages = process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGES_ENABLED === "true";
+
   if (useCloudflareImages && process.env.NEXT_PUBLIC_CLOUDFLARE_ACCOUNT_HASH) {
     const accountHash = process.env.NEXT_PUBLIC_CLOUDFLARE_ACCOUNT_HASH;
-    // Remove leading slash if present
-    const imagePath = src.startsWith('/') ? src.slice(1) : src;
-    
-    // Build Cloudflare Images URL
+    const imagePath = src.startsWith("/") ? src.slice(1) : src;
+
     const params = new URLSearchParams({
       width: width.toString(),
       quality: (quality || 85).toString(),
-      format: 'auto', // Automatically serves WebP/AVIF when supported
+      format: "auto",
     });
-    
+
     return `https://imagedelivery.net/${accountHash}/${imagePath}?${params.toString()}`;
   }
-  
-  // Fallback: Use query parameters for Worker-based optimization
+
   const params = new URLSearchParams({
     w: width.toString(),
     q: (quality || 85).toString(),
-    f: 'auto',
+    f: "auto",
   });
-  
+
   return `${src}?${params.toString()}`;
 }

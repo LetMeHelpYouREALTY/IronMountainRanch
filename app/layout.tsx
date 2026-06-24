@@ -62,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.realscout.com" />
         <link rel="dns-prefetch" href="https://d1buiexcd5gara.cloudfront.net" />
+        <link rel="dns-prefetch" href="https://pub-55f2185197354e748b122f17b695df69.r2.dev" />
         <BotIdClient protect={[...botIdProtectedRoutes]} />
         <link rel="me" href={absoluteUrl("/")} />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />

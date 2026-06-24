@@ -1,3 +1,4 @@
+import ImrRegionalMarketSection from "@/components/sections/ImrRegionalMarketSection";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
@@ -123,6 +124,8 @@ export default function SubCommunitiesPage() {
             </p>
             <p className="text-slate-600 text-sm">{ironMountainRanch.hoaNote}</p>
           </section>
+
+          <ImrRegionalMarketSection className="mb-16" />
 
           {/* Village grid */}
           <section className="mb-16" aria-labelledby="village-directory-heading">

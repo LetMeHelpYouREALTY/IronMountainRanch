@@ -64,9 +64,9 @@ export const primaryNav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
-// Market Statistics (Updated January 2026)
+// Market Statistics (Updated June 2026 — hyperlocal IMR + valley context)
 export const marketStats = {
-  lastUpdated: "January 2026",
+  lastUpdated: "June 2026",
   lasVegas: {
     medianPrice: 450000,
     medianPriceFormatted: "$450,000",
@@ -81,7 +81,13 @@ export const marketStats = {
     medianPriceFormatted: "$550,000",
     yearOverYearChange: "+3.8%",
     daysOnMarket: 32,
-    priceRange: "$300,000 – $800,000",
+    priceRange: "$350,000 – $1,000,000+",
+  },
+  centennialHills: {
+    medianPrice: 525000,
+    medianPriceFormatted: "$525,000",
+    yearOverYearChange: "+4.5%",
+    daysOnMarket: 34,
   },
   henderson: {
     medianPrice: 485000,
@@ -98,9 +104,22 @@ export const marketStats = {
     luxuryMedian: 1200000,
     luxuryMedianFormatted: "$1.2M",
   },
+  northLasVegas: {
+    medianPrice: 385000,
+    medianPriceFormatted: "$385,000",
+    yearOverYearChange: "+3.2%",
+    daysOnMarket: 32,
+  },
+  southernHighlands: {
+    medianPrice: 750000,
+    medianPriceFormatted: "$750,000",
+    yearOverYearChange: "+7.2%",
+    daysOnMarket: 35,
+  },
   luxury: {
     medianPrice: 1200000,
     medianPriceFormatted: "$1.2M",
+    yearOverYearChange: "+8.5%",
     activeListings: 890,
     daysOnMarket: 45,
     pricePerSqFt: 385,

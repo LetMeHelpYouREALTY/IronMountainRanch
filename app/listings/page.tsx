@@ -19,20 +19,21 @@ import {
   ArrowRight,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Las Vegas Homes for Sale | MLS Property Search | Berkshire Hathaway HomeServices",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Iron Mountain Ranch MLS Listings | 89131 Village Search",
   description:
-    "Browse all Las Vegas and Henderson homes for sale with live MLS listings. Search by neighborhood, price, and features. Dr. Jan Duffy, Berkshire Hathaway HomeServices. Call (702) 996-3758.",
+    "Browse Iron Mountain Ranch gated home listings in northwest Las Vegas 89131 and 89143. Village-level MLS search with Dr. Jan Duffy. Call (702) 996-3758.",
+  path: "/listings",
   keywords: [
-    "Las Vegas homes for sale",
-    "Henderson real estate",
-    "MLS listings Las Vegas",
-    "Summerlin homes",
-    "houses for sale Las Vegas",
-    "Berkshire Hathaway listings",
+    "Iron Mountain Ranch listings",
+    "89131 homes for sale",
+    "Iron Mountain Ranch MLS",
+    "gated homes northwest Las Vegas",
+    "Iron Mountain Ranch villages",
   ],
-};
+});
 
 const listingsSchema = {
   "@context": "https://schema.org",

@@ -14,11 +14,20 @@ import {
   combineSchemas,
 } from "@/lib/schema";
 
+import { ironMountainRanchFaqs } from "@/lib/iron-mountain-ranch";
+
 export const metadata: Metadata = buildPageMetadata({
-  title: "FAQ | Berkshire Hathaway HomeServices Las Vegas Real Estate",
-  description: "Frequently asked questions about Las Vegas real estate, Berkshire Hathaway HomeServices, buying, selling, and working with Dr. Jan Duffy at BHHS Nevada Properties.",
+  title: "Iron Mountain Ranch FAQ | Gated Villages 89131",
+  description:
+    "Frequently asked questions about Iron Mountain Ranch gated villages, HOA/LMA fees, village MLS subdivisions, and buying or selling with Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/faq",
-  keywords: ["Berkshire Hathaway HomeServices FAQ","Las Vegas real estate questions","buying a home Las Vegas","selling a home Henderson","BHHS agent questions"],
+  keywords: [
+    "Iron Mountain Ranch FAQ",
+    "Iron Mountain Ranch HOA",
+    "89131 gated community questions",
+    "Iron Mountain Ranch villages",
+    "Dr. Jan Duffy realtor",
+  ],
 });
 
 // Breadcrumb items
@@ -28,6 +37,10 @@ const breadcrumbs = [
 ];
 
 const faqCategories = [
+  {
+    title: "Iron Mountain Ranch Villages",
+    faqs: ironMountainRanchFaqs.map((f) => ({ q: f.question, a: f.answer })),
+  },
   {
     title: "About Berkshire Hathaway HomeServices",
     faqs: [
@@ -41,7 +54,7 @@ const faqCategories = [
       },
       {
         q: "What areas does BHHS Nevada Properties serve?",
-        a: "BHHS Nevada Properties serves all of Las Vegas, Henderson, North Las Vegas, and surrounding areas, with specialized expertise in Summerlin, The Ridges, Skye Canyon, Southern Highlands, Green Valley, Inspirada, and all Henderson communities.",
+        a: "BHHS Nevada Properties serves Iron Mountain Ranch and northwest Las Vegas (89131 & 89143) first—with village-level MLS expertise for gated KB communities, plus comparison context for Centennial Hills, Aliante, and Summerlin relocators.",
       },
       {
         q: "Does using a Berkshire Hathaway agent cost more?",

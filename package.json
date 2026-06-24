@@ -37,7 +37,8 @@
     "seo-weekly:research": "node scripts/seo-weekly/parallel-research.mjs",
     "seo-weekly:audit": "node scripts/seo-weekly/audit-pages.mjs",
     "seo:apply-metadata": "node scripts/apply-page-metadata.mjs",
-    "optimize-hero-images": "node scripts/optimize-hero-images.mjs"
+    "optimize-hero-images": "node scripts/optimize-hero-images.mjs",
+    "cloudflare:upload-heroes": "node scripts/upload-imr-heroes-to-r2.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.24.0",

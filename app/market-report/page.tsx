@@ -3,9 +3,14 @@ import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, Home, Calendar, DollarSign, BarChart, Phone } from "lucide-react";
+import { TrendingUp, TrendingDown, Home, DollarSign, BarChart, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { marketStats } from "@/lib/site-config";
+import {
+  REGIONAL_MARKET_LAST_UPDATED,
+  regionalMarketComparison,
+} from "@/lib/lv-regional-market";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Market Report | Las Vegas 89131",
@@ -17,13 +22,13 @@ export const metadata: Metadata = buildPageMetadata({
 const reportSchema = {
   "@context": "https://schema.org",
   "@type": "Report",
-  name: "Las Vegas Real Estate Market Report - January 2026",
+  name: `Las Vegas Real Estate Market Report - ${REGIONAL_MARKET_LAST_UPDATED}`,
   author: {
     "@type": "RealEstateAgent",
     name: "Dr. Jan Duffy",
     worksFor: "Berkshire Hathaway HomeServices Nevada Properties",
   },
-  datePublished: "2026-01-23",
+  datePublished: "2026-06-01",
   about: {
     "@type": "Place",
     name: "Las Vegas, Nevada",
@@ -41,44 +46,52 @@ export default function MarketReportPage() {
       <main>
         <IronMountainPageHero
           path="/market-report"
-          title="Las Vegas Real Estate Market Report"
-          subtitle="January 2026 | Expert analysis from Berkshire Hathaway HomeServices Nevada Properties"
+          title="Iron Mountain Ranch Market Report | Northwest Las Vegas 89131"
+          subtitle={`${REGIONAL_MARKET_LAST_UPDATED} | Iron Mountain Ranch village stats plus valley comparison from Berkshire Hathaway HomeServices Nevada Properties`}
         />
         <div className="container mx-auto px-4 py-16">
           {/* Key Stats Overview */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold mb-8 text-center">
-              Las Vegas Market Snapshot | January 2026
+              Las Vegas Market Snapshot | {REGIONAL_MARKET_LAST_UPDATED}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">$450,000</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.lasVegas.medianPriceFormatted}
+                </div>
                 <div className="text-slate-300 text-sm">Median Home Price</div>
                 <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
                   <TrendingUp className="h-4 w-4 mr-1" />
-                  +4.2% YoY
+                  {marketStats.lasVegas.yearOverYearChange} YoY
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">28</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.lasVegas.daysOnMarket}
+                </div>
                 <div className="text-slate-300 text-sm">Days on Market</div>
                 <div className="flex items-center justify-center mt-1 text-green-400 text-sm">
                   <TrendingDown className="h-4 w-4 mr-1" />
-                  -3 days
+                  Valley average
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">4,850</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.lasVegas.activeListings.toLocaleString("en-US")}
+                </div>
                 <div className="text-slate-300 text-sm">Active Listings</div>
                 <div className="flex items-center justify-center mt-1 text-yellow-400 text-sm">
                   +12% YoY
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">2.1</div>
+                <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">
+                  {marketStats.lasVegas.inventoryMonths}
+                </div>
                 <div className="text-slate-300 text-sm">Months Inventory</div>
                 <div className="flex items-center justify-center mt-1 text-slate-400 text-sm">
-                  Seller's Market
+                  Seller&apos;s Market
                 </div>
               </div>
             </div>
@@ -86,75 +99,44 @@ export default function MarketReportPage() {
 
           {/* Area Breakdown */}
           <section className="mb-16 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
               Market Data by Area
             </h2>
+            <p className="text-center text-slate-600 mb-8 max-w-3xl mx-auto">
+              Iron Mountain Ranch ({marketStats.ironMountainRanch.medianPriceFormatted} median,{" "}
+              {marketStats.ironMountainRanch.daysOnMarket} days on market) sits between the broader
+              Las Vegas valley and premium Summerlin / Southern Highlands pricing—see{" "}
+              <Link href="/sub-communities" className="text-blue-600 font-semibold hover:underline">
+                village guides
+              </Link>{" "}
+              for hyperlocal context.
+            </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  area: "Las Vegas (Overall)",
-                  median: "$450,000",
-                  change: "+4.2%",
-                  dom: 28,
-                  trend: "up",
-                },
-                {
-                  area: "Henderson",
-                  median: "$485,000",
-                  change: "+5.1%",
-                  dom: 24,
-                  trend: "up",
-                },
-                {
-                  area: "Summerlin",
-                  median: "$625,000",
-                  change: "+6.8%",
-                  dom: 22,
-                  trend: "up",
-                },
-                {
-                  area: "North Las Vegas",
-                  median: "$385,000",
-                  change: "+3.2%",
-                  dom: 32,
-                  trend: "up",
-                },
-                {
-                  area: "Southern Highlands",
-                  median: "$750,000",
-                  change: "+7.2%",
-                  dom: 35,
-                  trend: "up",
-                },
-                {
-                  area: "Luxury ($1M+)",
-                  median: "$1,200,000",
-                  change: "+8.5%",
-                  dom: 45,
-                  trend: "up",
-                },
-              ].map((item) => (
+              {regionalMarketComparison.map((item) => (
                 <div
-                  key={item.area}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                  key={item.id}
+                  className={`rounded-lg p-6 hover:shadow-lg transition-shadow ${
+                    item.highlight
+                      ? "bg-blue-50 border-2 border-blue-300"
+                      : "bg-white border border-slate-200"
+                  }`}
                 >
-                  <h3 className="font-bold text-lg text-slate-900 mb-4">{item.area}</h3>
+                  <h3 className="font-bold text-lg text-slate-900 mb-1">{item.name}</h3>
+                  {item.scopeNote ? (
+                    <p className="text-xs text-slate-500 mb-3">{item.scopeNote}</p>
+                  ) : null}
                   <div className="space-y-3">
                     <div className="flex justify-between">
                       <span className="text-slate-600">Median Price</span>
-                      <span className="font-semibold text-slate-900">{item.median}</span>
+                      <span className="font-semibold text-slate-900">{item.medianPriceFormatted}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-600">YoY Change</span>
-                      <span
-                        className={`font-semibold ${item.trend === "up" ? "text-green-600" : "text-red-600"}`}
-                      >
-                        {item.change}
-                      </span>
+                      <span className="font-semibold text-green-600">{item.yearOverYearChange}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-600">Days on Market</span>
-                      <span className="font-semibold text-slate-900">{item.dom} days</span>
+                      <span className="font-semibold text-slate-900">{item.daysOnMarket} days</span>
                     </div>
                   </div>
                 </div>
@@ -302,7 +284,9 @@ export default function MarketReportPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">
+          Last Updated: {REGIONAL_MARKET_LAST_UPDATED}
+        </div>
       </main>
       <RealScoutListings />
       <Footer />

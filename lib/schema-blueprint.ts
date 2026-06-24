@@ -7,8 +7,11 @@
 
 import { buildOpeningHoursSpecification } from "./google-business-profile";
 import { ironMountainRanch, ironMountainRanchFaqs } from "./iron-mountain-ranch";
+import { getAgentHeadshotUrl } from "./agent-photos";
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
 import { absoluteUrl, getGbpAggregateRating } from "./site-url";
+
+const agentHeadshotUrl = getAgentHeadshotUrl();
 
 const ORG_ID = `${absoluteUrl("/")}#organization`;
 const AGENT_ID = `${absoluteUrl("/")}#agent`;
@@ -43,7 +46,7 @@ export function generateLocalBusinessSchema() {
     url: absoluteUrl("/"),
     telephone: agentInfo.phoneTel.replace("tel:", ""),
     email: agentInfo.email,
-    image: absoluteUrl("/images/agent/dr-jan-duffy.jpg"),
+    image: agentHeadshotUrl,
     priceRange: "$$",
     address: postalAddress,
     geo,
@@ -72,7 +75,7 @@ export function generateRealEstateAgentSchema() {
     url: absoluteUrl("/"),
     telephone: agentInfo.phoneTel.replace("tel:", ""),
     email: agentInfo.email,
-    image: absoluteUrl("/images/agent/dr-jan-duffy.jpg"),
+    image: agentHeadshotUrl,
     worksFor: {
       "@type": "Organization",
       name: agentInfo.brokerage,

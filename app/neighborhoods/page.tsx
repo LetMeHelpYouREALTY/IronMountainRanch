@@ -8,11 +8,30 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Las Vegas Neighborhoods | Berkshire Hathaway HomeServices",
-  description: "Explore Las Vegas and Henderson neighborhoods with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties. Summerlin, Henderson, The Ridges, Southern Highlands & more.",
+  title: "Iron Mountain Ranch vs Las Vegas Neighborhoods | 89131 Comparison",
+  description:
+    "Compare Iron Mountain Ranch gated villages (89131 & 89143) with Summerlin, Henderson, Centennial Hills, and northwest Las Vegas. Village guides from Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/neighborhoods",
-  keywords: ["Las Vegas neighborhoods","Henderson communities","Summerlin real estate","best neighborhoods Las Vegas","where to live Las Vegas"],
+  keywords: [
+    "Iron Mountain Ranch neighborhoods",
+    "89131 gated communities",
+    "Iron Mountain Ranch vs Summerlin",
+    "northwest Las Vegas comparison",
+    "Centennial Hills vs Iron Mountain Ranch",
+  ],
 });
+
+const ironMountainRanchCard = {
+  name: "Iron Mountain Ranch",
+  slug: "iron-mountain-ranch",
+  medianPrice: "$550,000",
+  priceChange: "+3.8%",
+  description:
+    "KB Home master plan with ~1,700 gated village homes, parks, ponds, and LMA trails in 89131 & 89143",
+  highlights: ["Gated villages", "89131 & 89143", "Village 1-A–11", "Iron Mountain Estates"],
+  bestFor: "Primary focus — gated northwest family homes",
+  primary: true,
+};
 
 const neighborhoods = [
   {
@@ -107,6 +126,8 @@ const neighborhoods = [
   },
 ];
 
+const allNeighborhoods = [ironMountainRanchCard, ...neighborhoods];
+
 export default function NeighborhoodsPage() {
   return (
     <>
@@ -114,18 +135,26 @@ export default function NeighborhoodsPage() {
       <main>
         <IronMountainPageHero
           path="/neighborhoods"
-          title="Las Vegas & Henderson Neighborhoods"
-          subtitle="Explore the best communities in Southern Nevada with Dr. Jan Duffy, your Berkshire Hathaway HomeServices neighborhood expert"
+          title="Iron Mountain Ranch & Northwest Comparisons"
+          subtitle="This site specializes in Iron Mountain Ranch gated villages. Other areas below help you compare pricing and lifestyle before you choose a village in 89131 or 89143."
         />
         <div className="container mx-auto px-4 py-16">
           {/* Neighborhood Grid */}
           <section className="mb-16 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
-              {neighborhoods.map((neighborhood) => (
+              {allNeighborhoods.map((neighborhood) => (
                 <Link
                   key={neighborhood.slug}
-                  href={`/neighborhoods/${neighborhood.slug}`}
-                  className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition-all hover:border-blue-300 group"
+                  href={
+                    neighborhood.slug === "iron-mountain-ranch"
+                      ? "/neighborhoods/iron-mountain-ranch"
+                      : `/neighborhoods/${neighborhood.slug}`
+                  }
+                  className={`rounded-lg p-6 hover:shadow-lg transition-all group ${
+                    "primary" in neighborhood && neighborhood.primary
+                      ? "border-2 border-blue-400 bg-blue-50"
+                      : "bg-white border border-slate-200 hover:border-blue-300"
+                  }`}
                 >
                   <div className="flex justify-between items-start mb-3">
                     <div>
@@ -159,11 +188,10 @@ export default function NeighborhoodsPage() {
           <section className="mb-16 max-w-4xl mx-auto">
             <div className="bg-slate-50 rounded-lg p-8">
               <blockquote className="text-lg text-slate-700 italic mb-4">
-                "Every Las Vegas neighborhood has its own personality. Whether you want the
-                family-friendly parks of Summerlin, the established charm of Green Valley, or the
-                luxury of The Ridges, I'll help you find the community that matches your lifestyle.
-                That's the Berkshire Hathaway HomeServices difference—personalized guidance backed
-                by local expertise."
+                &ldquo;Iron Mountain Ranch buyers often compare Centennial Hills, Summerlin, and
+                Skye Canyon before choosing a gated village in 89131. I filter MLS by subdivision—Village
+                4 (Wolf Creek), Meadow Ridge, Iron Mountain Estates—so you see real village pricing, not
+                valley averages.&rdquo;
               </blockquote>
               <cite className="text-slate-900 font-semibold">
                 — Dr. Jan Duffy, BHHS Nevada Properties
@@ -202,11 +230,11 @@ export default function NeighborhoodsPage() {
           {/* CTA */}
           <section className="text-center bg-blue-600 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Need Help Choosing a Neighborhood?
+              Need help choosing an Iron Mountain Ranch village?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Dr. Jan Duffy knows every Las Vegas community inside and out. Call for personalized
-              neighborhood recommendations.
+              Dr. Jan Duffy tours gated villages in 89131 and 89143 and compares them to northwest
+              alternatives before you write an offer.
             </p>
             <a
               href="tel:+17029963758"
@@ -222,7 +250,7 @@ export default function NeighborhoodsPage() {
         </div>
 
         {/* Last Updated */}
-        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: January 2026</div>
+        <div className="text-center text-sm text-slate-500 mt-8">Last Updated: June 2026</div>
       </main>
       <RealScoutListings />
       <Footer />

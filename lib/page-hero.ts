@@ -5,14 +5,10 @@
  */
 
 import type { SubCommunity } from "@/lib/iron-mountain-ranch";
+import { IMR_HERO_BY_KEY, type HeroImageKey } from "@/lib/imr-hero-images";
+import { resolveHeroImageSrc } from "@/lib/cloudflare-media";
 
-export type HeroImageKey =
-  | "gated-village"
-  | "village-streetscape"
-  | "community-park"
-  | "estates"
-  | "seller-home"
-  | "sheep-range";
+export type { HeroImageKey };
 
 export type PageHeroContent = {
   imageKey: HeroImageKey;
@@ -25,12 +21,30 @@ export type PageHeroContent = {
 };
 
 const HERO_IMAGE_SRC: Record<HeroImageKey, string> = {
-  "gated-village": "/images/hero/imr-gated-village-hero.webp",
-  "village-streetscape": "/images/hero/imr-village-streetscape-hero.webp",
-  "community-park": "/images/hero/imr-community-park-hero.webp",
-  estates: "/images/hero/imr-estates-hero.webp",
-  "seller-home": "/images/hero/imr-seller-home-hero.webp",
-  "sheep-range": "/images/hero/imr-sheep-range-hero.webp",
+  "gated-village": resolveHeroImageSrc(
+    IMR_HERO_BY_KEY["gated-village"].localPath,
+    IMR_HERO_BY_KEY["gated-village"].r2Key,
+  ),
+  "village-streetscape": resolveHeroImageSrc(
+    IMR_HERO_BY_KEY["village-streetscape"].localPath,
+    IMR_HERO_BY_KEY["village-streetscape"].r2Key,
+  ),
+  "community-park": resolveHeroImageSrc(
+    IMR_HERO_BY_KEY["community-park"].localPath,
+    IMR_HERO_BY_KEY["community-park"].r2Key,
+  ),
+  estates: resolveHeroImageSrc(
+    IMR_HERO_BY_KEY.estates.localPath,
+    IMR_HERO_BY_KEY.estates.r2Key,
+  ),
+  "seller-home": resolveHeroImageSrc(
+    IMR_HERO_BY_KEY["seller-home"].localPath,
+    IMR_HERO_BY_KEY["seller-home"].r2Key,
+  ),
+  "sheep-range": resolveHeroImageSrc(
+    IMR_HERO_BY_KEY["sheep-range"].localPath,
+    IMR_HERO_BY_KEY["sheep-range"].r2Key,
+  ),
 };
 
 export function getHeroImageSrc(key: HeroImageKey): string {

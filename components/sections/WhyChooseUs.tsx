@@ -1,35 +1,42 @@
-import { Shield, TrendingUp, Users, Award, Clock, Home } from "lucide-react";
+import { Shield, TrendingUp, Users, Award, Clock, Home, MapPin } from "lucide-react";
+import Link from "next/link";
+import { ironMountainRanch } from "@/lib/iron-mountain-ranch";
 
 const features = [
   {
     icon: Shield,
-    title: "Trusted Expertise",
-    description: "Serving Las Vegas and Henderson since 2008 with proven results.",
+    title: "Gated village expertise",
+    description:
+      "Iron Mountain Ranch-Village 1-A through 11, Iron Mountain Estates, Bradley Ranch, and Quarterhorse Estate—MLS subdivision by subdivision.",
+  },
+  {
+    icon: MapPin,
+    title: "Northwest 89131 & 89143",
+    description:
+      "Centennial Hills, Aliante, Floyd Lamb Park, and Red Rock Canyon access—with Sheep Range views from many IMR lots.",
   },
   {
     icon: TrendingUp,
-    title: "Market Knowledge",
-    description: "Deep understanding of local market trends and neighborhood insights.",
+    title: "Village-level comps",
+    description:
+      "Live MLS snapshots by village—not generic valley averages—before you tour or list in Iron Mountain Ranch.",
   },
   {
     icon: Users,
-    title: "Personalized Service",
-    description: "Dedicated attention to every client with customized solutions.",
-  },
-  {
-    icon: Award,
-    title: "Proven Results",
-    description: "500+ successful transactions and satisfied clients.",
+    title: "Buyer & seller representation",
+    description:
+      "Dr. Jan Duffy negotiates HOA review, gate access, and village-specific pricing for northwest Las Vegas clients.",
   },
   {
     icon: Clock,
-    title: "Responsive",
-    description: "Quick response times and seamless communication throughout.",
+    title: "Responsive tours",
+    description:
+      "Private showings across gated entries with clear communication on LMA fees and village amenities.",
   },
   {
     icon: Home,
-    title: "Full Service",
-    description: "Complete support from search to closing and beyond.",
+    title: "KB master-plan knowledge",
+    description: `~${ironMountainRanch.homeCount.toLocaleString()} homes since 2002—parks, ponds, and walking paths maintained through the community LMA.`,
   },
 ];
 
@@ -39,10 +46,10 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
-            Why Choose Us
+            Why Choose Dr. Jan for Iron Mountain Ranch?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Experience the difference of working with a trusted real estate professional
+            Hyperlocal guidance for gated KB villages in northwest Las Vegas—not generic valley copy.
           </p>
         </div>
 
@@ -63,6 +70,15 @@ export default function WhyChooseUs() {
             );
           })}
         </div>
+
+        <p className="text-center mt-10">
+          <Link
+            href="/sub-communities"
+            className="font-semibold text-blue-600 hover:underline"
+          >
+            Explore every Iron Mountain Ranch village →
+          </Link>
+        </p>
       </div>
     </section>
   );

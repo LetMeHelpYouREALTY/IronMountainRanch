@@ -1,18 +1,14 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { IMR_LEGACY_HERO_IMAGES } from "@/lib/imr-hero-images";
+import { resolveLegacyHeroSrc } from "@/lib/cloudflare-media";
 
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
   const prefersReducedMotion = useReducedMotion();
-  
-  const images = [
-    "/Image/hero_bg_1.jpg",
-    "/Image/hero_bg_2.jpg",
-    "/Image/hero_bg_3.jpg",
-  ];
+
+  const images = IMR_LEGACY_HERO_IMAGES.map((item) => resolveLegacyHeroSrc(item.localPath));
 
   useEffect(() => {
     // Don't animate if user prefers reduced motion
@@ -22,7 +18,7 @@ export default function HeroSection() {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(intervalId);
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, images.length]);
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -41,7 +37,7 @@ export default function HeroSection() {
           >
             <Image
               src={src}
-              alt={`Hero image ${index + 1}`}
+              alt={`Iron Mountain Ranch gated community in northwest Las Vegas — hero ${index + 1}`}
               fill
               className="object-cover"
               priority={index === 0}
@@ -54,13 +50,12 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
         <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-          Find Your Dream Home in
+          Iron Mountain Ranch
           <br />
-          <span className="text-blue-400">Las Vegas & Henderson</span>
+          <span className="text-blue-400">Gated Homes in 89131 & 89143</span>
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-          Expert real estate services with personalized attention. Your trusted partner for buying,
-          selling, and investing in Southern Nevada.
+          Search gated KB villages, parks, and pond trails in northwest Las Vegas with Dr. Jan Duffy.
         </p>
 
         {/* RealScout Search Widget */}

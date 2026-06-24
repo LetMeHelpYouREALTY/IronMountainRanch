@@ -7,6 +7,7 @@ import {
   googleBusinessProfile,
   gbpServiceAreas,
 } from "./google-business-profile";
+import { getAgentHeadshotUrl } from "./agent-photos";
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
 import { absoluteUrl, getGbpAggregateRating } from "./site-url";
 
@@ -105,7 +106,7 @@ export function generateLocalBusinessSchema() {
     "@type": "RealEstateAgent",
     "@id": `${absoluteUrl("/google-business")}#gbp-office`,
     name: businessInfo.name,
-    image: absoluteUrl("/images/agent/dr-jan-duffy.jpg"),
+    image: getAgentHeadshotUrl(),
     url: absoluteUrl("/google-business"),
     telephone: businessInfo.phone.tel,
     email: businessInfo.email,

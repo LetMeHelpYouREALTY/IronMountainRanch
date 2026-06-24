@@ -15,7 +15,7 @@ export const FAQ_BY_PAGE_TYPE: Record<string, FAQ[]> = {
 
   community: [
     { question: "What is the current median home price in this community?",
-      answer: "Median prices shift monthly. Call/text Dr. Jan at 702-222-1964 for a live comp pull — she tracks every sale in this community and can give you a precise number within minutes." },
+      answer: "Median prices shift monthly by village. Call Dr. Jan at (702) 996-3758 for a live Iron Mountain Ranch MLS comp pull—she tracks sales by subdivision (Village 1-A through 11, estates, Bradley Ranch)."},
     { question: "How long do homes stay on the market here?",
       answer: "Well-priced homes in master-planned Las Vegas communities typically sell in 14–28 days. Overpriced listings can sit for 60+ days. Dr. Jan's insider knowledge of days-on-market data helps buyers spot value and sellers price right the first time." },
     { question: "Are there HOA fees in this community?",
@@ -111,9 +111,14 @@ export const FAQ_DOMAIN_OVERRIDES: Record<string, FAQ[]> = {
 
   "ironmountainranchlasvegas.com": [
     {
+      question: "What sub-communities are in Iron Mountain Ranch?",
+      answer:
+        "Iron Mountain Ranch includes gated MLS villages (Village 1-A through Village 11), Iron Mountain Estates, Bradley Ranch, and Quarterhorse Estate—mostly in 89131 with estates in 89143. Browse village guides at /sub-communities or call (702) 996-3758.",
+    },
+    {
       question: "What is the median home price in Iron Mountain Ranch?",
       answer:
-        "Iron Mountain Ranch homes typically range from the $300s to $800s, with a median near $550,000 in 2026. Call Dr. Jan at (702) 996-3758 for a live comp pull on the village and floor plan you want.",
+        "Marketing snapshots cluster near $550,000 with village-dependent list prices from the $400s to $900,000+. Call Dr. Jan at (702) 996-3758 for a live comp pull on your target MLS subdivision.",
     },
     {
       question: "Is Iron Mountain Ranch gated?",

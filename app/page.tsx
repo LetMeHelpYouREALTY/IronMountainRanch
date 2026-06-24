@@ -1,3 +1,4 @@
+import ImrRegionalMarketSection from "@/components/sections/ImrRegionalMarketSection";
 import Navbar from "@/components/layouts/Navbar";
 import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
 import DeferredRealScoutSimpleSearch from "@/components/realscout/DeferredRealScoutSimpleSearch";
@@ -185,15 +186,15 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Berkshire Hathaway HomeServices Nevada Properties — the most trusted name in Las Vegas real estate.
+                Iron Mountain Ranch gated villages in 89131 &amp; 89143 — backed by Berkshire Hathaway HomeServices Nevada Properties.
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
               {[
-                { icon: Shield, title: "Trusted Brand", desc: "Backed by Warren Buffett's Berkshire Hathaway — unmatched integrity" },
-                { icon: Users, title: "50K+ Network", desc: "Global referral network for seamless moves to or from any market" },
-                { icon: TrendingUp, title: "$127M+ Sold", desc: "Proven results across every Las Vegas neighborhood since 2008" },
-                { icon: HomeIcon, title: "Full Service", desc: "Buying, selling, 55+, luxury, investment — one expert handles it all" },
+                { icon: Shield, title: "Gated villages", desc: "Village 1-A through 11, Iron Mountain Estates, Bradley Ranch, and Quarterhorse Estate" },
+                { icon: Users, title: "Village-level MLS", desc: "Subdivision filters—not generic valley search—for Wolf Creek, Meadow Ridge, and estate enclaves" },
+                { icon: TrendingUp, title: "Northwest comps", desc: `Marketing median near ${marketStats.ironMountainRanch.medianPriceFormatted} with live village CMAs from Dr. Jan` },
+                { icon: HomeIcon, title: "Buy & sell IMR", desc: "Tours, HOA review, and pricing strategy for KB homes since 2002 in the LMA master plan" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="text-center p-6">
                   <div className="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
@@ -232,6 +233,10 @@ export default async function Home() {
             </div>
           </div>
         </section>
+
+        <div className="container mx-auto px-4 max-w-6xl py-16">
+          <ImrRegionalMarketSection />
+        </div>
 
         <DeferredRealScoutListings />
         <WhyChooseUs />

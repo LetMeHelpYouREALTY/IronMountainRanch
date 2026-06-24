@@ -1,3 +1,4 @@
+import ImrRegionalMarketSection from "@/components/sections/ImrRegionalMarketSection";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
@@ -99,6 +100,8 @@ export default async function SubCommunityPage({ params }: PageProps) {
             {" / "}
             <span className="text-slate-900">{village.name}</span>
           </nav>
+
+          <ImrRegionalMarketSection village={village} className="mb-12" />
 
           <RealScoutListings />
 

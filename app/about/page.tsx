@@ -19,56 +19,68 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { agentInfo, officeInfo } from "@/lib/site-config";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About Dr. Jan Duffy | Berkshire Hathaway HomeServices Las Vegas",
-  description: "Meet Dr. Jan Duffy, your trusted Berkshire Hathaway HomeServices Nevada Properties agent. Serving Las Vegas since 2008, $127M+ in transactions, Henderson & Summerlin specialist. Call (702) 996-3758.",
+  title: "About Dr. Jan Duffy | Iron Mountain Ranch REALTOR® 89131",
+  description:
+    "Meet Dr. Jan Duffy, Iron Mountain Ranch and northwest Las Vegas gated-community specialist at Berkshire Hathaway HomeServices Nevada Properties. Village-level MLS expertise. Call (702) 996-3758.",
   path: "/about",
-  keywords: ["Dr. Jan Duffy","Berkshire Hathaway HomeServices agent","Las Vegas realtor","BHHS Nevada Properties","Henderson real estate agent","Summerlin realtor"],
+  keywords: [
+    "Dr. Jan Duffy Iron Mountain Ranch",
+    "Iron Mountain Ranch realtor",
+    "89131 real estate agent",
+    "gated community specialist Las Vegas",
+    "Berkshire Hathaway HomeServices Nevada Properties",
+  ],
 });
 
-// Person Schema for Dr. Jan Duffy
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy",
   jobTitle: "REALTOR®",
   description:
-    "Licensed real estate agent with Berkshire Hathaway HomeServices Nevada Properties, serving Las Vegas, Henderson, and Summerlin since 2008.",
-  telephone: "+17029963758",
-  email: "homes@heyberkshire.com",
-  url: "https://heyberkshire.com/about",
+    "Licensed real estate agent specializing in Iron Mountain Ranch gated villages and northwest Las Vegas (89131 & 89143) with Berkshire Hathaway HomeServices Nevada Properties.",
+  telephone: agentInfo.phoneTel.replace("tel:", ""),
+  email: agentInfo.email,
+  url: absoluteUrl("/about"),
   worksFor: {
     "@type": "RealEstateAgent",
-    name: "Berkshire Hathaway HomeServices Nevada Properties",
+    name: agentInfo.brokerage,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89134",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
     },
   },
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
     credentialCategory: "Real Estate License",
-    credentialNumber: "S.0197614.LLC",
+    credentialNumber: agentInfo.license,
   },
   knowsAbout: [
-    "Las Vegas real estate",
-    "Henderson properties",
-    "Summerlin homes",
-    "Luxury real estate",
-    "Investment properties",
-    "55+ communities",
-    "California relocation",
+    "Iron Mountain Ranch real estate",
+    "Iron Mountain Ranch gated villages",
+    "Northwest Las Vegas 89131",
+    "Iron Mountain Estates 89143",
+    "Centennial Hills comparison",
+    "KB Home master-planned communities",
   ],
 };
 
 const specializations = [
   {
+    title: "Iron Mountain Ranch villages",
+    description:
+      "Gated KB villages in 89131 & 89143—Village 1-A through 11, Iron Mountain Estates, Bradley Ranch, and Quarterhorse Estate",
+  },
+  {
     title: "Residential Home Sales",
-    description: "Single-family homes, condos, and townhomes throughout Las Vegas and Henderson",
+    description: "Single-family homes inside Iron Mountain Ranch and northwest Las Vegas gated master plans",
   },
   {
     title: "Luxury Properties ($1M+)",
