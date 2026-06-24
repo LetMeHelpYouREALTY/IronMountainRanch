@@ -32,10 +32,10 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'heyberkshire.com',
+            value: 'ironmountainranchlasvegas.com',
           },
         ],
-        destination: 'https://www.heyberkshire.com/:path*',
+        destination: 'https://www.ironmountainranchlasvegas.com/:path*',
         permanent: true,
       },
     ]

@@ -4,6 +4,7 @@ import { agentInfo, officeInfo, primaryNav, siteConfig } from "@/lib/site-config
 import { businessHoursDisplay } from "@/lib/google-business-profile";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import CalendlyInlineSection from "@/components/calendly/CalendlyInlineSection";
+import SiteOfficeMapSection from "@/components/sections/SiteOfficeMapSection";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,6 +20,7 @@ export default function Footer() {
         }}
         variant="dark"
       />
+      <SiteOfficeMapSection />
     <footer className="bg-slate-900 text-white">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -55,8 +57,9 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Iron Mountain Ranch</h3>
             <ul className="space-y-2 text-sm text-slate-300">
-              <li>6628 Sky Pointe Dr., Las Vegas NV 89131</li>
-              <li>Zip codes: 89131, 89143</li>
+              <li>Office: {officeInfo.address.full}</li>
+              <li>{officeInfo.areaLabel}</li>
+              <li>Community zips: 89131 &amp; 89143</li>
               <li>Gated master-planned community</li>
               <li>
                 <Link href="/sub-communities" className="hover:text-white">

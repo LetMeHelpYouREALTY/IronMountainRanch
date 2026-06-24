@@ -174,9 +174,9 @@ const ROUTE_HEROES: RouteHeroRule[] = [
     test: (p) => p === "/contact",
     hero: {
       imageKey: "gated-village",
-      alt: "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate at 6628 Sky Pointe Dr, Las Vegas NV 89131",
+      alt: "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate at 9312 Grand Gate St, Kyle Canyon Las Vegas NV 89143",
       locationBadge: "Iron Mountain Ranch REALTOR®",
-      locationDetail: "6628 Sky Pointe Dr · Las Vegas NV 89131",
+      locationDetail: "9312 Grand Gate St · Kyle Canyon · 89143",
     },
   },
   {

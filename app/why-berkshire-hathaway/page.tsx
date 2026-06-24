@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Shield, Users, Globe, Award, TrendingUp, CheckCircle, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { agentInfo } from "@/lib/site-config";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Choose Berkshire Hathaway HomeServices | Las Vegas Real Estate",
@@ -20,7 +22,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Berkshire Hathaway HomeServices",
   url: "https://www.bhhs.com",
-  logo: "https://heyberkshire.com/favicon-32x32.png",
+  logo: absoluteUrl("/images/dr-jan-duffy.jpg"),
   description:
     "Berkshire Hathaway HomeServices is a real estate brokerage network, part of Berkshire Hathaway Inc., one of the world's most respected and trusted companies.",
   parentOrganization: {

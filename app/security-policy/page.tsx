@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
+import { agentInfo } from "@/lib/site-config";
+import { CANONICAL_SITE_HOST } from "@/lib/site-url";
 
 export const metadata: Metadata = {
   ...buildPageMetadata({
@@ -16,6 +20,8 @@ export const metadata: Metadata = {
 
 export default function SecurityPolicyPage() {
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen bg-white py-12">
       <div className="container mx-auto max-w-4xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-8">
@@ -52,8 +58,8 @@ export default function SecurityPolicyPage() {
               <ul className="space-y-2 text-blue-800">
                 <li>
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:security@heyberkshire.com" className="underline">
-                    security@heyberkshire.com
+                  <a href={`mailto:${agentInfo.email}`} className="underline">
+                    {agentInfo.email}
                   </a>
                 </li>
                 <li>
@@ -225,7 +231,7 @@ export default function SecurityPolicyPage() {
               To protect your information when using our site:
             </p>
             <ul className="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Ensure you're on the correct domain: <strong>heyberkshire.com</strong></li>
+              <li>Ensure you're on the correct domain: <strong>{CANONICAL_SITE_HOST}</strong></li>
               <li>Look for the padlock icon (HTTPS)</li>
               <li>Don't share sensitive information via email</li>
               <li>Use strong, unique passwords if creating an account</li>
@@ -251,14 +257,14 @@ export default function SecurityPolicyPage() {
               </p>
               <p className="mb-2">
                 Email:{' '}
-                <a href="mailto:info@heyberkshire.com" className="text-blue-600 underline">
-                  info@heyberkshire.com
+                <a href={`mailto:${agentInfo.email}`} className="text-blue-600 underline">
+                  {agentInfo.email}
                 </a>
               </p>
               <p>
                 Phone:{' '}
-                <a href="tel:+17025001942" className="text-blue-600 underline">
-                  (702) 500-1942
+                <a href={agentInfo.phoneTel} className="text-blue-600 underline">
+                  {agentInfo.phoneFormatted}
                 </a>
               </p>
             </div>
@@ -276,5 +282,7 @@ export default function SecurityPolicyPage() {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }

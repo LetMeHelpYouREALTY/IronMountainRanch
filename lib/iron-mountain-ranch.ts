@@ -4,6 +4,7 @@
  */
 
 import { agentInfo } from "@/lib/site-config";
+import { communityPlusCode } from "@/lib/plus-codes";
 
 export type SubCommunity = {
   slug: string;
@@ -30,9 +31,11 @@ export const ironMountainRanch = {
   villageCount: 14,
   yearBuiltRange: "2002 – present",
   geo: {
-    latitude: 36.2812,
-    longitude: -115.2847,
+    latitude: communityPlusCode.latitude,
+    longitude: communityPlusCode.longitude,
   },
+  plusCode: communityPlusCode.compound,
+  plusCodeLocality: "Kyle Canyon, Las Vegas, NV",
   containedIn: "Las Vegas, NV",
   nearbyCommunities: [
     "Silverstone Ranch",

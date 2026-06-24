@@ -58,7 +58,7 @@ export const businessInfo = {
 export const gbpDescription = {
   whoWeAre: `${siteConfig.name} is the staffed office for Dr. Jan Duffy, REALTOR® with ${agentInfo.brokerage}. The practice focuses on buyer and seller representation inside Iron Mountain Ranch — a gated KB Home master-planned community in northwest Las Vegas (89131 and 89143) with village parks, ponds, and walking paths.`,
 
-  whatWeDo: `Dr. Jan helps buyers compare Iron Mountain Ranch villages, understand HOA and landscape maintenance (LMA) costs, and write competitive offers with current MLS data. Sellers receive village-specific pricing, prep guidance, and Berkshire Hathaway HomeServices marketing. Consultations are available in person at ${officeInfo.address.full}, by phone at ${agentInfo.phoneFormatted}, or through the site's scheduling tools.`,
+  whatWeDo: `Dr. Jan helps buyers compare Iron Mountain Ranch villages, understand HOA and landscape maintenance (LMA) costs, and write competitive offers with current MLS data. Sellers receive village-specific pricing, prep guidance, and Berkshire Hathaway HomeServices marketing. Consultations are available in person at the Kyle Canyon–area office (${officeInfo.address.full}), by phone at ${agentInfo.phoneFormatted}, or through the site's scheduling tools.`,
 
   whereWeServe: `Primary service area: Iron Mountain Ranch and surrounding northwest Las Vegas communities including Centennial Hills, Silverstone Ranch, Skye Canyon, and Aliante. Zip codes served: ${ironMountainRanch.zipCodes.join(" and ")}. Office hours: Monday–Friday 9:00 AM–6:00 PM, Saturday 10:00 AM–4:00 PM, Sunday by appointment.`,
 };

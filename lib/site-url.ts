@@ -1,12 +1,29 @@
 /**
  * Canonical site URL for ironmountainranchlasvegas.com.
- * Set NEXT_PUBLIC_SITE_URL in Vercel to match your Google Search Console property.
+ * Production host: https://www.ironmountainranchlasvegas.com (matches GSC + GBP website field).
+ * Set NEXT_PUBLIC_SITE_URL in Vercel to the www URL.
  */
-const DEFAULT_SITE_URL = "https://www.ironmountainranchlasvegas.com";
+export const CANONICAL_SITE_URL = "https://www.ironmountainranchlasvegas.com";
+const DEFAULT_SITE_URL = CANONICAL_SITE_URL;
+const APEX_SITE_HOST = "ironmountainranchlasvegas.com";
+export const CANONICAL_SITE_HOST = "www.ironmountainranchlasvegas.com";
+
+/** Normalize apex env values to the www canonical origin. */
+export function normalizeSiteUrl(url: string): string {
+  try {
+    const parsed = new URL(url.replace(/\/$/, ""));
+    if (parsed.hostname.toLowerCase() === APEX_SITE_HOST) {
+      parsed.hostname = CANONICAL_SITE_HOST;
+    }
+    return parsed.origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
 
 export function getSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL ?? DEFAULT_SITE_URL;
-  return raw.replace(/\/$/, "");
+  return normalizeSiteUrl(raw);
 }
 
 export function absoluteUrl(path = ""): string {

@@ -3,12 +3,13 @@ Realtor: Dr. Jan Duffy
 Site: Iron Mountain Ranch | Homes by Dr. Jan Duffy
 Brokerage: Berkshire Hathaway HomeServices Nevada Properties
 License: S.0197614.LLC
-Phone: (702) 500-1942
+Phone: (702) 996-3758
 Email: DrDuffy@IronMountainRanchLasVegas.com
 URL: https://www.ironmountainranchlasvegas.com
 
 /* OFFICE NAP */
-Address: 6628 Sky Pointe Dr., Las Vegas NV 89131
+Address: 9312 Grand Gate St., Las Vegas NV 89143
+Area: Kyle Canyon, Iron Mountain Ranch corridor
 Hours: Mon-Fri 9am-6pm, Sat 10am-4pm, Sun by appointment
 
 /* SITE MAP */

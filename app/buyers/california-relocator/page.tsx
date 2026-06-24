@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { agentInfo, officeInfo } from "@/lib/site-config";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
@@ -79,13 +81,13 @@ const realEstateAgentSchema = {
   "@type": "RealEstateAgent",
   name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
   telephone: "+17029963758",
-  url: "https://heyberkshire.com/buyers/california-relocator",
+  url: absoluteUrl("/buyers/california-relocator"),
   address: {
     "@type": "PostalAddress",
-    streetAddress: "9406 W Lake Mead Blvd, Suite 100",
-    addressLocality: "Las Vegas",
-    addressRegion: "NV",
-    postalCode: "89134",
+    streetAddress: officeInfo.address.street,
+    addressLocality: officeInfo.address.city,
+    addressRegion: officeInfo.address.state,
+    postalCode: officeInfo.address.zip,
   },
   areaServed: ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas"],
   priceRange: "$350,000 - $10,000,000+",

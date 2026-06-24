@@ -1,12 +1,23 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { CANONICAL_SITE_HOST } from "@/lib/site-url";
+
+const APEX_SITE_HOST = "ironmountainranchlasvegas.com";
 
 /**
- * Injects the request Host into `x-domain` for Server Components (metadata, OG image, copy).
- * Must be set on the *request* headers — `headers().get("x-domain")` does not read response headers.
+ * Apex → www redirect (backup to Vercel/next.config redirects) and `x-domain` for Server Components.
  */
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host") || "";
+  const hostWithoutPort = hostname.split(":")[0]?.toLowerCase() ?? "";
+
+  if (hostWithoutPort === APEX_SITE_HOST) {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = CANONICAL_SITE_HOST;
+    return NextResponse.redirect(url, 308);
+  }
+
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set("x-domain", hostname);
 

@@ -15,7 +15,7 @@ import { isValidZipCode } from "@/lib/las-vegas-zip-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
-  description: "Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. 6628 Sky Pointe Dr., Las Vegas NV 89131. Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com.",
+  description: `Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. ${officeInfo.address.full} (Kyle Canyon / 89143). Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com.`,
   path: "/contact",
 });
 
@@ -29,10 +29,10 @@ const contactSchema = {
     email: "DrDuffy@IronMountainRanchLasVegas.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "6628 Sky Pointe Dr.",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89131",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
       addressCountry: "US",
     },
   },
@@ -110,6 +110,7 @@ export default function ContactPage({
                   <MapPin className="h-6 w-6 text-blue-600 mr-4 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-semibold text-slate-900 mb-1">Office Address</h3>
+                    <p className="text-sm text-blue-700 font-medium mb-1">{officeInfo.areaLabel}</p>
                     <address className="not-italic text-slate-700">
                       {agentInfo.brokerage}
                       <br />

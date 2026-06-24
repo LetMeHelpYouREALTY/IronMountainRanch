@@ -2,7 +2,7 @@
 
 **GBP business name:** `Iron Mountain Ranch | Homes by Dr. Jan Duffy`  
 **Website (GBP field):** `https://www.ironmountainranchlasvegas.com`  
-**Office NAP:** `6628 Sky Pointe Dr., Las Vegas, NV 89131` · `(702) 996-3758`  
+**Office NAP:** `9312 Grand Gate St., Las Vegas, NV 89143` · `(702) 996-3758` · Kyle Canyon / Iron Mountain Ranch corridor  
 **Primary category:** Real Estate Agent
 
 Research basis (June 2026): [Google GBP representation guidelines](https://support.google.com/business/answer/3038177), current local-SEO practice emphasizing **NAP + schema + visible page parity**, and realtor-specific guidance (primary category *Real Estate Agent*, personal website URL in GBP, service-area focus).
@@ -30,7 +30,7 @@ Research basis (June 2026): [Google GBP representation guidelines](https://suppo
 - [ ] One profile per business location.
 
 ### NAP & website
-- [ ] Address matches `6628 Sky Pointe Dr., Las Vegas, NV 89131` on site footer, `/contact`, `/google-business`, and JSON-LD.
+- [ ] Address matches `9312 Grand Gate St., Las Vegas, NV 89143` on site footer, `/contact`, `/google-business`, and JSON-LD.
 - [ ] Phone `(702) 996-3758` visible with `tel:+17029963758` links.
 - [ ] Website field = `https://www.ironmountainranchlasvegas.com` (this microsite, not a portfolio parent URL).
 - [ ] Email `DrDuffy@IronMountainRanchLasVegas.com` matches visible copy.
@@ -61,6 +61,7 @@ Research basis (June 2026): [Google GBP representation guidelines](https://suppo
 
 ### Optional map upgrade
 - [ ] `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` — upgrades embed to Place ID pin when `NEXT_PUBLIC_GBP_PLACE_ID` is set.
+- [ ] **Plus Codes** (GBP / Maps pins): office `8PF6+47 Kyle Canyon, Las Vegas, NV` (9312 Grand Gate St) · community `8PF7+75J Kyle Canyon, Las Vegas, NV` — source of truth in `lib/plus-codes.ts`.
 
 ## Search Console link
 

@@ -7,6 +7,7 @@
 
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
 import { absoluteUrl } from "./site-url";
+import { officePlusCode } from "./plus-codes";
 
 /** GBP primary category (Google predefined list). */
 export const GBP_PRIMARY_CATEGORY = "Real Estate Agent" as const;
@@ -60,6 +61,7 @@ export function buildOpeningHoursSpecification() {
 /** Service areas listed in GBP (hyper-local first). */
 export const gbpServiceAreas = [
   "Iron Mountain Ranch, Las Vegas, NV",
+  "Kyle Canyon, Las Vegas, NV",
   "Northwest Las Vegas, NV",
   "Centennial Hills, Las Vegas, NV",
   "89131, Las Vegas, NV",
@@ -77,6 +79,7 @@ export const googleBusinessProfile = {
   email: agentInfo.email,
   address: officeInfo.address,
   coordinates: officeInfo.coordinates,
+  mapPlusCode: officePlusCode.compound,
   license: agentInfo.license,
   brokerage: agentInfo.brokerage,
   agentName: agentInfo.name,

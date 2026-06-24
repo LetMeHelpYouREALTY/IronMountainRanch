@@ -88,7 +88,7 @@ export const DOMAIN_CONFIGS: Record<string, DomainConfig> = {
     neighborhood: "Iron Mountain Ranch",
     tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
     description:
-      "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community specialist Dr. Jan Duffy at 6628 Sky Pointe Dr. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 996-3758.",
+      "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131 & 89143). Gated village specialist Dr. Jan Duffy at 9312 Grand Gate St., Kyle Canyon. Email DrDuffy@IronMountainRanchLasVegas.com or call (702) 996-3758.",
     heroHeadline: "Iron Mountain Ranch Homes for Sale",
     heroSubheadline:
       "Gated northwest Las Vegas living — wooded parks, ponds, and scenic paths. Homes by Dr. Jan Duffy.",
@@ -114,10 +114,10 @@ export const DEFAULT_CONFIG: DomainConfig = {
   neighborhood: "Iron Mountain Ranch",
   tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
   description:
-    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community homes with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131 & 89143). Gated community homes with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
   heroHeadline: "Iron Mountain Ranch Homes for Sale",
   heroSubheadline:
-    "Homes by Dr. Jan Duffy — gated northwest Las Vegas community expert at 6628 Sky Pointe Dr.",
+    "Homes by Dr. Jan Duffy — Kyle Canyon office inside the Iron Mountain Ranch corridor (89143).",
   keywords: [
     "Iron Mountain Ranch homes for sale",
     "Homes by Dr Jan Duffy",

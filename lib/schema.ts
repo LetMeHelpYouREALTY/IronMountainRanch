@@ -1,6 +1,6 @@
 /**
- * Schema.org Structured Data Generators for heyberkshire.com
- * Following Google's 2025 Structured Data Guidelines
+ * Schema.org Structured Data Generators for ironmountainranchlasvegas.com
+ * Following Google's structured data guidelines
  *
  * @see https://schema.org
  * @see https://developers.google.com/search/docs/appearance/structured-data
@@ -63,14 +63,10 @@ export interface SeniorCommunityData {
 
 const BASE_URL = siteConfig.url;
 
-// Social media profiles (to be updated with actual URLs)
+// Agent social profiles (site-specific — avoid portfolio clone URLs)
 export const socialProfiles = {
-  facebook: "https://www.facebook.com/heyberkshire",
-  instagram: "https://www.instagram.com/heyberkshire",
   linkedin: "https://www.linkedin.com/in/drjanduffy",
-  tiktok: "https://www.tiktok.com/@heyberkshire",
-  youtube: "https://www.youtube.com/@heyberkshire",
-};
+} as const;
 
 // ============================================================================
 // Core Schema Generators
@@ -87,7 +83,8 @@ export function generateRealEstateAgentSchema() {
     "@id": `${BASE_URL}#organization`,
     name: "Dr. Jan Duffy - Berkshire Hathaway HomeServices Nevada Properties",
     alternateName: [
-      "HeyBerkshire",
+      siteConfig.name,
+      "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
       "BHHS Nevada Properties",
       "Berkshire Hathaway HomeServices",
     ],

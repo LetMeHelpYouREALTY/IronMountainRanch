@@ -179,24 +179,24 @@ export default function AboutPage() {
                   <h3 className="font-bold text-slate-900 mb-4">Contact Dr. Jan Duffy</h3>
                   <div className="space-y-3">
                     <a
-                      href="tel:+17029963758"
+                      href={agentInfo.phoneTel}
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Phone className="h-5 w-5 mr-3 text-blue-600" />
-                      <span className="font-semibold">(702) 996-3758</span>
+                      <span className="font-semibold">{agentInfo.phone}</span>
                     </a>
                     <a
-                      href="mailto:homes@heyberkshire.com"
+                      href={`mailto:${agentInfo.email}`}
                       className="flex items-center text-slate-700 hover:text-blue-600"
                     >
                       <Mail className="h-5 w-5 mr-3 text-blue-600" />
-                      Homes@HeyBerkshire.com
+                      {agentInfo.email}
                     </a>
                     <div className="flex items-start text-slate-700">
                       <MapPin className="h-5 w-5 mr-3 text-blue-600 mt-0.5" />
                       <address className="not-italic">
-                        9406 W Lake Mead Blvd, Suite 100<br />
-                        Las Vegas, NV 89134
+                        {officeInfo.address.street}<br />
+                        {officeInfo.address.city}, {officeInfo.address.state} {officeInfo.address.zip}
                       </address>
                     </div>
                     <div className="flex items-center text-slate-700">

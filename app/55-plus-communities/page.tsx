@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "55+ Active Adult Communities Las Vegas | Sun City, Del Webb, Heritage | Dr. Jan Duffy",
@@ -95,7 +96,7 @@ const localBusinessSchema = {
   description:
     "55+ community specialist helping active adults find their perfect Las Vegas retirement home",
   telephone: "(702) 996-3758",
-  url: "https://heyberkshire.com/55-plus-communities",
+  url: absoluteUrl("/55-plus-communities"),
   areaServed: {
     "@type": "City",
     name: "Las Vegas",

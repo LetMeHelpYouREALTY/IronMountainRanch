@@ -8,7 +8,7 @@ import { TrackedLink } from "@/components/analytics/TrackedLink";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Camera, TrendingUp, BarChart } from "lucide-react";
-import { agentInfo } from "@/lib/site-config";
+import { agentInfo, officeInfo } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -31,13 +31,13 @@ const sellServiceSchema = {
     email: agentInfo.email,
     address: {
       "@type": "PostalAddress",
-      streetAddress: "6628 Sky Pointe Dr.",
-      addressLocality: "Las Vegas",
-      addressRegion: "NV",
-      postalCode: "89131",
+      streetAddress: officeInfo.address.street,
+      addressLocality: officeInfo.address.city,
+      addressRegion: officeInfo.address.state,
+      postalCode: officeInfo.address.zip,
     },
   },
-  areaServed: "Iron Mountain Ranch, Las Vegas NV 89131",
+  areaServed: "Iron Mountain Ranch, Las Vegas NV 89131, 89143",
 };
 
 const sellUtm = {

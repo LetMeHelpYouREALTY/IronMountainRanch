@@ -4,6 +4,7 @@
  */
 
 import { getSiteUrl } from "./site-url";
+import { officePlusCode } from "./plus-codes";
 
 export const siteConfig = {
   name: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
@@ -18,9 +19,9 @@ export const siteConfig = {
     return getSiteUrl();
   },
   description:
-    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131). Gated community homes with expert buyer and seller representation from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131 & 89143). Gated village specialist with a Kyle Canyon–area office inside the IMR corridor — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   primaryCommunity: "Iron Mountain Ranch",
-  primaryZip: "89131",
+  primaryZip: "89143",
 };
 
 export const agentInfo = {
@@ -38,17 +39,21 @@ export const agentInfo = {
 
 export const officeInfo = {
   name: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
+  /** Hyperlocal corridor label — matches GBP service area and visible copy. */
+  areaLabel: "Kyle Canyon, Iron Mountain Ranch",
   address: {
-    street: "6628 Sky Pointe Dr.",
+    street: "9312 Grand Gate St.",
     city: "Las Vegas",
     state: "NV",
-    zip: "89131",
-    full: "6628 Sky Pointe Dr., Las Vegas, NV 89131",
+    zip: "89143",
+    full: "9312 Grand Gate St., Las Vegas, NV 89143",
   },
+  /** Aligns with GBP map pin at Grand Gate St (Plus Code 8PF6+47 Kyle Canyon). */
   coordinates: {
-    lat: 36.2905,
-    lng: -115.2658,
+    lat: officePlusCode.latitude,
+    lng: officePlusCode.longitude,
   },
+  plusCode: officePlusCode.compound,
   phone: "(702) 996-3758",
   phoneTel: "tel:+17029963758",
 };

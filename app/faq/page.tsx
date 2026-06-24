@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
+import { agentInfo, officeInfo } from "@/lib/site-config";
 import SchemaScript from "@/components/SchemaScript";
 import {
   generateBreadcrumbSchema,
@@ -155,7 +156,7 @@ const faqCategories = [
       },
       {
         q: "How do I contact Dr. Jan Duffy?",
-        a: "Call or text (702) 996-3758 or email homes@heyberkshire.com. Office located at 9406 W Lake Mead Blvd, Suite 100, Las Vegas, NV 89134.",
+        a: `Call or text ${agentInfo.phone} or email ${agentInfo.email}. Office located at ${officeInfo.address.full}.`,
       },
       {
         q: "What areas does Dr. Jan cover?",
