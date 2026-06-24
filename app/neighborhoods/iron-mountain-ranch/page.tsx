@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
@@ -61,8 +62,23 @@ export default function IronMountainRanchPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/neighborhoods/iron-mountain-ranch"
+          title="Iron Mountain Ranch Homes for Sale"
+          subtitle={
+            <>
+              Gated northwest Las Vegas community in zip code{" "}
+              <strong>{ironMountainRanch.zipCodes.join(" & ")}</strong>. Work with{" "}
+              <strong>{agentInfo.name}</strong> for expert buyer and seller representation.
+            </>
+          }
+        >
+          <div className="flex justify-center">
+            <GbpActionLinks />
+          </div>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           <nav className="text-sm text-slate-500 mb-6 max-w-6xl mx-auto">
             <Link href="/" className="hover:text-blue-600">
               Home
@@ -74,23 +90,6 @@ export default function IronMountainRanchPage() {
             {" / "}
             <span className="text-slate-900">Iron Mountain Ranch</span>
           </nav>
-
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <p className="text-blue-600 font-semibold mb-3">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </p>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Iron Mountain Ranch Homes for Sale
-            </h1>
-            <p className="text-xl text-slate-600">
-              Gated northwest Las Vegas community in zip code{" "}
-              <strong>{ironMountainRanch.zipCodes.join(" & ")}</strong>. Work with{" "}
-              <strong>{agentInfo.name}</strong> for expert buyer and seller representation.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <GbpActionLinks />
-            </div>
-          </div>
 
           <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-slate-50 rounded-2xl p-8">

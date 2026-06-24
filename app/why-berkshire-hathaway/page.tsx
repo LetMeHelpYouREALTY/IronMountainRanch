@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -37,23 +38,13 @@ export default function WhyBerkshireHathawayPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              The Most Trusted Name in Real Estate
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Why Choose Berkshire Hathaway HomeServices?
-            </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-              When you work with a <strong>Berkshire Hathaway HomeServices</strong> agent, you're
-              backed by a name synonymous with trust, ethical standards, and financial strength—the
-              same principles that built Warren Buffett's empire.
-            </p>
-          </div>
-
+      <main>
+        <IronMountainPageHero
+          path="/why-berkshire-hathaway"
+          title="Why Choose Berkshire Hathaway HomeServices?"
+          subtitle="When you work with a Berkshire Hathaway HomeServices agent, you're backed by a name synonymous with trust, ethical standards, and financial strength—the same principles that built Warren Buffett's empire."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Warren Buffett Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">

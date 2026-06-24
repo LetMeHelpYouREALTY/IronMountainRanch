@@ -16,10 +16,14 @@ const DYNAMIC_SEGMENT = /^\[.+\]$/;
 function readSubCommunitySlugs() {
   const file = path.join(ROOT, "lib/iron-mountain-ranch.ts");
   const content = fs.readFileSync(file, "utf8");
+  const start = content.indexOf("export const subCommunities");
+  if (start < 0) return [];
+  const end = content.indexOf("export function getSubCommunity", start);
+  const block = end > start ? content.slice(start, end) : content.slice(start);
   const slugs = [];
   const re = /slug:\s*"([^"]+)"/g;
   let match;
-  while ((match = re.exec(content)) !== null) {
+  while ((match = re.exec(block)) !== null) {
     slugs.push(match[1]);
   }
   return [...new Set(slugs)];

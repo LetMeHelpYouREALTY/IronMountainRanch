@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import Link from "next/link";
 import {
@@ -49,63 +50,58 @@ export default function GoogleBusinessPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero - NAP Prominent */}
+      <main>
+        <IronMountainPageHero
+          path="/google-business"
+          title="Dr. Jan Duffy"
+          subtitle={`REALTOR® | License ${businessInfo.license} · Nevada Properties`}
+        >
+          <a
+            href={`tel:${businessInfo.phone.tel}`}
+            className="inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+          >
+            <Phone className="h-4 w-4 mr-2" />
+            Call {businessInfo.phone.display}
+          </a>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
+          {/* NAP */}
           <section className="max-w-5xl mx-auto mb-16">
-            <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white rounded-2xl p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Award className="h-6 w-6 text-yellow-400" />
-                    <span className="text-yellow-400 font-semibold">Berkshire Hathaway HomeServices</span>
+            <div className="bg-slate-50 rounded-2xl p-8 md:p-10 border border-slate-200">
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-medium text-slate-900">{businessInfo.address.streetAddress}</p>
+                      <p className="text-slate-700">
+                        {businessInfo.address.addressLocality}, {businessInfo.address.addressRegion}{" "}
+                        {businessInfo.address.postalCode}
+                      </p>
+                    </div>
                   </div>
-                  <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                    Dr. Jan Duffy
-                  </h1>
-                  <p className="text-xl text-blue-200 mb-2">REALTOR® | License {businessInfo.license}</p>
-                  <p className="text-slate-300 mb-6">Nevada Properties</p>
-                  
-                  {/* NAP - Exact match to GBP */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-medium">{businessInfo.address.streetAddress}</p>
-                        <p>{businessInfo.address.addressLocality}, {businessInfo.address.addressRegion} {businessInfo.address.postalCode}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                      <a href={`tel:${businessInfo.phone.tel}`} className="font-medium hover:text-blue-300">
-                        {businessInfo.phone.display}
-                      </a>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Mail className="h-5 w-5 text-blue-400 flex-shrink-0" />
-                      <a href={`mailto:${businessInfo.email}`} className="hover:text-blue-300">
-                        {businessInfo.email}
-                      </a>
-                    </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <a href={`tel:${businessInfo.phone.tel}`} className="font-medium text-blue-600 hover:text-blue-700">
+                      {businessInfo.phone.display}
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <a href={`mailto:${businessInfo.email}`} className="text-blue-600 hover:text-blue-700">
+                      {businessInfo.email}
+                    </a>
                   </div>
                 </div>
-                
-                {/* Rating & CTA */}
-                <div className="text-center bg-white/10 rounded-xl p-8">
+                <div className="text-center bg-white rounded-xl p-8 border border-slate-200">
                   <div className="flex justify-center mb-4">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star key={star} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-3xl font-bold mb-2">4.9 / 5.0</p>
-                  <p className="text-blue-200 mb-6">200+ Client Reviews</p>
-                  <a
-                    href={`tel:${businessInfo.phone.tel}`}
-                    className="inline-block w-full bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-lg font-bold text-lg transition-colors"
-                  >
-                    Call Now: {businessInfo.phone.display}
-                  </a>
-                  <p className="text-sm text-blue-300 mt-3">Free Consultation</p>
+                  <p className="text-3xl font-bold text-slate-900 mb-2">4.9 / 5.0</p>
+                  <p className="text-slate-600 mb-2">200+ Client Reviews</p>
+                  <p className="text-sm text-slate-500">Free Consultation</p>
                 </div>
               </div>
             </div>

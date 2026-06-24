@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-24T10:41:56.928Z",
-  "count": 56,
+  "generatedAt": "2026-06-24T11:17:25.798Z",
+  "count": 62,
   "routes": [
     "/",
     "/55-plus-communities",
@@ -50,12 +50,18 @@
     "/services",
     "/sub-communities",
     "/sub-communities/bradley",
-    "/sub-communities/iron-mountain-ranch",
+    "/sub-communities/iron-mountain-estates",
+    "/sub-communities/quarterhorse-estate",
     "/sub-communities/village-1-a",
+    "/sub-communities/village-10",
     "/sub-communities/village-11",
+    "/sub-communities/village-2",
     "/sub-communities/village-3",
+    "/sub-communities/village-4",
     "/sub-communities/village-5",
+    "/sub-communities/village-6",
     "/sub-communities/village-7",
+    "/sub-communities/village-8",
     "/sub-communities/village-9",
     "/why-berkshire-hathaway"
   ]

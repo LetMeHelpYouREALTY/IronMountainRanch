@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -26,8 +27,21 @@ export default function MoveUpSellerPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/sellers/move-up"
+          title="Ready for Your Next Chapter?"
+          subtitle="Your home's equity unlocks your dream home. Let's make the upgrade seamless."
+        >
+          <a
+            href="tel:+17029963758"
+            className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
+          >
+            <Phone className="h-5 w-5 mr-2" />
+            Start Your Upgrade → (702) 996-3758
+          </a>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -37,27 +51,6 @@ export default function MoveUpSellerPage() {
               {" / "}
               <span className="text-slate-900">Move-Up Sellers</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <TrendingUp className="h-4 w-4 mr-2" />
-              Your Equity Unlocks Your Dream Home
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Ready for Your Next Chapter?
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Your home's equity unlocks your dream home. Let's make the upgrade seamless.
-            </p>
-            <a
-              href="tel:+17029963758"
-              className="inline-flex items-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Start Your Upgrade → (702) 996-3758
-            </a>
           </div>
 
           {/* Equity Section */}

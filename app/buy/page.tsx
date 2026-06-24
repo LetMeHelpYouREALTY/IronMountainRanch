@@ -1,12 +1,13 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Search, Key, Shield } from "lucide-react";
-import { agentInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo } from "@/lib/site-config";
 import { generateListingServiceSchema } from "@/lib/schema-blueprint";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -25,20 +26,17 @@ export default function BuyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listingSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <p className="text-blue-600 font-semibold text-center mb-3">{siteConfig.name}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6">
-            Buy in Iron Mountain Ranch
-          </h1>
-          <p className="text-xl text-slate-600 text-center mb-8 max-w-3xl mx-auto">
-            Search gated Iron Mountain Ranch homes in zip code 89131 with {agentInfo.name}. Free
-            buyer representation through Berkshire Hathaway HomeServices Nevada Properties.
-          </p>
-          <div className="flex justify-center mb-12">
+      <main>
+        <IronMountainPageHero
+          path="/buy"
+          title="Buy in Iron Mountain Ranch"
+          subtitle={`Search gated Iron Mountain Ranch homes in zip code 89131 with ${agentInfo.name}. Free buyer representation through Berkshire Hathaway HomeServices Nevada Properties.`}
+        >
+          <div className="flex justify-center">
             <GbpActionLinks />
           </div>
-
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 max-w-5xl py-16">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               { icon: Search, title: "Village-Level Search", desc: "Filter by Iron Mountain Ranch village, price, beds, and gate access." },

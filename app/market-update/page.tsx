@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -55,8 +56,15 @@ export default function MarketUpdatePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/market-update"
+          title="Berkshire Hathaway HomeServices Las Vegas Market Update"
+          subtitle="Your weekly insider report on Las Vegas Valley real estate from Berkshire Hathaway HomeServices Nevada Properties"
+        >
+          <p className="text-sm text-white/75">By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties · Week of January 20, 2026</p>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-4xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -66,24 +74,6 @@ export default function MarketUpdatePage() {
               {" / "}
               <span className="text-slate-900">Weekly Update</span>
             </nav>
-          </div>
-
-          {/* Header */}
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Calendar className="h-4 w-4 mr-2" />
-              Week of January 20, 2026
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Berkshire Hathaway HomeServices Las Vegas Market Update
-            </h1>
-            <p className="text-xl text-slate-600">
-              Your weekly insider report on Las Vegas Valley real estate from{" "}
-              <strong>Berkshire Hathaway HomeServices Nevada Properties</strong>
-            </p>
-            <div className="flex items-center justify-center mt-6 text-slate-500 text-sm">
-              <span>By Dr. Jan Duffy, REALTOR® | BHHS Nevada Properties</span>
-            </div>
           </div>
 
           {/* Key Statistics */}

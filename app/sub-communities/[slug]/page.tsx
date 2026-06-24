@@ -1,12 +1,15 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import PageHero from "@/components/sections/PageHero";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getSubCommunity, subCommunities } from "@/lib/iron-mountain-ranch";
-import { agentInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo } from "@/lib/site-config";
+import { getHeroForSubCommunity } from "@/lib/page-hero";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import { absoluteUrl } from "@/lib/site-url";
 
 type PageProps = {
@@ -22,15 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const village = getSubCommunity(slug);
   if (!village) return {};
 
-  return {
+  return buildPageMetadata({
     title: `${village.name} Homes for Sale | Iron Mountain Ranch Las Vegas`,
-    description: `${village.description} Search listings with Dr. Jan Duffy. Call (702) 996-3758.`,
-    alternates: { canonical: `/sub-communities/${slug}` },
-    openGraph: {
-      title: `${village.name} | Iron Mountain Ranch`,
-      url: absoluteUrl(`/sub-communities/${slug}`),
-    },
-  };
+    description: `${village.description} Search gated Iron Mountain Ranch listings with Dr. Jan Duffy. Call ${agentInfo.phoneFormatted}.`,
+    path: `/sub-communities/${slug}`,
+  });
 }
 
 export default async function SubCommunityPage({ params }: PageProps) {
@@ -42,6 +41,9 @@ export default async function SubCommunityPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@type": "Neighborhood",
     name: village.name,
+    ...(village.alsoKnownAs?.length
+      ? { alternateName: village.alsoKnownAs }
+      : {}),
     description: village.description,
     url: absoluteUrl(`/sub-communities/${slug}`),
     containedInPlace: {
@@ -56,6 +58,8 @@ export default async function SubCommunityPage({ params }: PageProps) {
     },
   };
 
+  const hero = getHeroForSubCommunity(village);
+
   return (
     <>
       <script
@@ -63,8 +67,31 @@ export default async function SubCommunityPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-5xl">
+      <main>
+        <PageHero {...hero}>
+          <div className="text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight">
+              {village.name} Homes for Sale
+            </h1>
+            <p className="text-lg md:text-xl text-white/85 max-w-3xl mx-auto mb-6">
+              {village.description}
+            </p>
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              {village.highlights.map((h) => (
+                <span
+                  key={h}
+                  className="bg-white/15 text-white text-sm px-3 py-1 rounded-full border border-white/25"
+                >
+                  {h}
+                </span>
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <GbpActionLinks />
+            </div>
+          </div>
+        </PageHero>
+        <div className="container mx-auto px-4 max-w-5xl py-16">
           <nav className="text-sm text-slate-500 mb-6">
             <Link href="/" className="hover:text-blue-600">Home</Link>
             {" / "}
@@ -72,20 +99,6 @@ export default async function SubCommunityPage({ params }: PageProps) {
             {" / "}
             <span className="text-slate-900">{village.name}</span>
           </nav>
-
-          <p className="text-blue-600 font-semibold mb-3">{siteConfig.name}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            {village.name} Homes for Sale
-          </h1>
-          <p className="text-xl text-slate-600 mb-8">{village.description}</p>
-          <div className="flex flex-wrap gap-2 mb-8">
-            {village.highlights.map((h) => (
-              <span key={h} className="bg-blue-50 text-blue-800 text-sm px-3 py-1 rounded-full">
-                {h}
-              </span>
-            ))}
-          </div>
-          <GbpActionLinks className="mb-12" />
 
           <RealScoutListings />
 

@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -99,8 +100,13 @@ export default function SunCityAnthemPage() {
       {/* Combined JSON-LD Schema: Breadcrumb + ResidentialComplex + FAQ */}
       <SchemaScript schema={pageSchemas} id="sun-city-anthem-schema" />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/55-plus-communities/sun-city-anthem"
+          title="Sun City Anthem"
+          subtitle="7,100+ homes. Mountain views. Henderson safety. Championship golf."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -110,20 +116,6 @@ export default function SunCityAnthemPage() {
               {" / "}
               <span className="text-slate-900">Sun City Anthem</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Mountain className="h-4 w-4 mr-2" />
-              Henderson's Premier 55+ Community
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Sun City Anthem
-            </h1>
-            <p className="text-xl text-slate-600">
-              7,100+ homes. Mountain views. Henderson safety. Championship golf.
-            </p>
           </div>
 
           {/* Quick Stats */}

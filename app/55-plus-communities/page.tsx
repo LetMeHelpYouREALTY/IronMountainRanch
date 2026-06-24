@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -317,8 +318,32 @@ export default function FiftyFiveCommunitiesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/55-plus-communities"
+          title="Find Your Perfect 55+ Community in Las Vegas"
+          subtitle="Sun City, Del Webb, Heritage at Stonebridge and more—Dr. Duffy specializes in active adult living"
+        >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+17029963758"
+              className="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
+            >
+              <Phone className="h-5 w-5 mr-2" />
+              Call (702) 996-3758
+            </a>
+            <a
+              href="http://drjanduffy.realscout.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-white/15 text-white border border-white/25 px-8 py-4 rounded-md font-bold text-lg hover:bg-white/25 transition-colors"
+            >
+              Explore Communities
+              <ArrowRight className="h-5 w-5 ml-2" />
+            </a>
+          </div>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -332,40 +357,6 @@ export default function FiftyFiveCommunitiesPage() {
               {" / "}
               <span className="text-slate-900">55+ Communities</span>
             </nav>
-          </div>
-
-          {/* Hero Section */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Sun className="h-4 w-4 mr-2" />
-              Active Adult Living Specialist
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Find Your Perfect 55+ Community in Las Vegas
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8">
-              Sun City, Del Webb, Heritage at Stonebridge & more—
-              <br className="hidden md:block" />
-              <strong>Dr. Duffy specializes in active adult living</strong>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:+17029963758"
-                className="inline-flex items-center justify-center bg-blue-600 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-blue-700 transition-colors"
-              >
-                <Phone className="h-5 w-5 mr-2" />
-                Call (702) 996-3758
-              </a>
-              <a
-                href="http://drjanduffy.realscout.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center bg-slate-100 text-slate-900 px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-200 transition-colors"
-              >
-                Explore Communities
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Stats */}

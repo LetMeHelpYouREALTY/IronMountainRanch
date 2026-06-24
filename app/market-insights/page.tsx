@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -48,8 +49,13 @@ export default function MarketInsightsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reportSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/market-insights"
+          title="Las Vegas Market Insights"
+          subtitle="Technology trends, economic forces, and market dynamics shaping Las Vegas real estate in 2026 and beyond."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -57,21 +63,6 @@ export default function MarketInsightsPage() {
               {" / "}
               <span className="text-slate-900">Market Insights</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <TrendingUp className="h-4 w-4 mr-2" />
-              2026 Economic & Real Estate Analysis
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Market Insights
-            </h1>
-            <p className="text-xl text-slate-600">
-              Technology trends, economic forces, and market dynamics shaping Las Vegas
-              real estate in 2026 and beyond.
-            </p>
           </div>
 
           {/* Key Drivers */}

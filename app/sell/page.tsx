@@ -1,11 +1,12 @@
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Camera, TrendingUp, BarChart } from "lucide-react";
-import { agentInfo, siteConfig } from "@/lib/site-config";
+import { agentInfo } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -44,20 +45,17 @@ export default function SellPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sellServiceSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <p className="text-blue-600 font-semibold text-center mb-3">{siteConfig.name}</p>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6">
-            Sell Your Iron Mountain Ranch Home
-          </h1>
-          <p className="text-xl text-slate-600 text-center mb-8 max-w-3xl mx-auto">
-            Village-specific pricing, gated-community marketing, and Berkshire Hathaway
-            HomeServices exposure — led by {agentInfo.name}.
-          </p>
-          <div className="flex justify-center mb-12">
+      <main>
+        <IronMountainPageHero
+          path="/sell"
+          title="Sell Your Iron Mountain Ranch Home"
+          subtitle={`Village-specific pricing, gated-community marketing, and Berkshire Hathaway HomeServices exposure — led by ${agentInfo.name}.`}
+        >
+          <div className="flex justify-center">
             <GbpActionLinks />
           </div>
-
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 max-w-5xl py-16">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               { icon: BarChart, title: "Free Home Valuation", desc: "Accurate CMA using Iron Mountain Ranch village comps." },

@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -51,8 +52,13 @@ export default function TrilogySummerlinPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(communitySchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/55-plus-communities/trilogy-summerlin"
+          title="Trilogy at Summerlin"
+          subtitle="Where five-star resort living meets 55+ community. Farm-to-table dining, world-class spa, and contemporary homes."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -66,21 +72,6 @@ export default function TrilogySummerlinPage() {
               {" / "}
               <span className="text-slate-900">Trilogy at Summerlin</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-rose-100 text-rose-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Sparkles className="h-4 w-4 mr-2" />
-              Luxury Resort-Style 55+ Living
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Trilogy at Summerlin
-            </h1>
-            <p className="text-xl text-slate-600">
-              Where five-star resort living meets 55+ community. Farm-to-table
-              dining, world-class spa, and contemporary homes.
-            </p>
           </div>
 
           {/* Quick Stats */}

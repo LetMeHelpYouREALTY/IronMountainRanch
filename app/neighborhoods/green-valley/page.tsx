@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -60,8 +61,13 @@ export default function GreenValleyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/neighborhoods/green-valley"
+          title="Berkshire Hathaway HomeServices Green Valley"
+          subtitle="Henderson's original master-planned community. Find your Green Valley home with Berkshire Hathaway HomeServices and Dr. Jan Duffy."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -71,20 +77,6 @@ export default function GreenValleyPage() {
               {" / "}
               <span className="text-slate-900">Green Valley</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Berkshire Hathaway HomeServices Green Valley
-            </h1>
-            <p className="text-xl text-slate-600">
-              Henderson's original master-planned community. Find your Green Valley home with{" "}
-              <strong>Berkshire Hathaway HomeServices</strong> and Dr. Jan Duffy.
-            </p>
           </div>
 
           {/* Market Stats */}

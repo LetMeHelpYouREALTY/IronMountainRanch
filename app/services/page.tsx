@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -164,38 +165,28 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              Berkshire Hathaway HomeServices Nevada Properties
+      <main>
+        <IronMountainPageHero
+          path="/services"
+          title="Las Vegas Real Estate Services"
+          subtitle="Comprehensive real estate solutions from Dr. Jan Duffy, backed by the most trusted name in the business—Berkshire Hathaway HomeServices. Whether you're buying your first home, selling a luxury estate, or relocating from California, you'll receive expert guidance every step of the way."
+        >
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-white/80">
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>Serving Las Vegas Since 2008</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Real Estate Services
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Comprehensive real estate solutions from Dr. Jan Duffy, backed by the most trusted
-              name in the business—<strong>Berkshire Hathaway HomeServices</strong>. Whether you're 
-              buying your first home, selling a luxury estate, or relocating from California, 
-              you'll receive expert guidance every step of the way.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>Serving Las Vegas Since 2008</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>$127M+ in Transactions</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
-                <span>500+ Satisfied Clients</span>
-              </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>$127M+ in Transactions</span>
+            </div>
+            <div className="flex items-center">
+              <CheckCircle className="h-5 w-5 text-green-400 mr-2" />
+              <span>500+ Satisfied Clients</span>
             </div>
           </div>
-
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           {/* Core Services Section */}
           <section className="mb-16 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">

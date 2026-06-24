@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getHeroImageSrc } from "@/lib/page-hero";
 
 type HomeHeroBackgroundProps = {
   /** Descriptive alt for LCP discovery; visually de-emphasized with opacity overlay */
@@ -7,7 +8,6 @@ type HomeHeroBackgroundProps = {
 
 /**
  * Hero background via next/image (AVIF/WebP, priority) — not CSS background-image.
- * Lighthouse flagged /Image/hero_bg_1.jpg (~2.2MB JPEG) as LCP with no modern format.
  */
 export default function HomeHeroBackground({
   alt = "Iron Mountain Ranch gated community homes in northwest Las Vegas, Nevada",
@@ -15,7 +15,7 @@ export default function HomeHeroBackground({
   return (
     <div className="absolute inset-0" aria-hidden="true">
       <Image
-        src="/Image/hero_bg_1.jpg"
+        src={getHeroImageSrc("gated-village")}
         alt={alt}
         fill
         priority

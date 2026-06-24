@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -25,8 +26,13 @@ export default function DelWebbLakeLasVegasPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/55-plus-communities/del-webb-lake-las-vegas"
+          title="Del Webb at Lake Las Vegas"
+          subtitle="Modern homes. Lake views. Resort living. The newest Del Webb in Las Vegas."
+        />
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -36,20 +42,6 @@ export default function DelWebbLakeLasVegasPage() {
               {" / "}
               <span className="text-slate-900">Del Webb at Lake Las Vegas</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Waves className="h-4 w-4 mr-2" />
-              Lakefront 55+ Living
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Del Webb at Lake Las Vegas
-            </h1>
-            <p className="text-xl text-slate-600">
-              Modern homes. Lake views. Resort living. The newest Del Webb in Las Vegas.
-            </p>
           </div>
 
           {/* Quick Stats */}

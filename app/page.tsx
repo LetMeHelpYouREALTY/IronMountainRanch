@@ -1,6 +1,6 @@
 import Navbar from "@/components/layouts/Navbar";
 import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
-import HomeHeroBackground from "@/components/sections/HomeHeroBackground";
+import PageHero from "@/components/sections/PageHero";
 import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
@@ -10,6 +10,7 @@ import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { getFaqsForDomain } from "@/lib/faq-config";
 import { agentInfo, marketStats } from "@/lib/site-config";
+import { getHeroForPath } from "@/lib/page-hero";
 import {
   getGbpBrowseReviewsUrl,
   getVisibleGbpAggregateRating,
@@ -133,11 +134,8 @@ export default async function Home() {
       <Navbar />
       <main>
         {/* Domain-Aware Hero */}
-        <section className="relative bg-slate-900 text-white py-24 md:py-32 overflow-hidden">
-          <HomeHeroBackground
-            alt={`${config.neighborhood} homes in northwest Las Vegas, Nevada`}
-          />
-          <div className="relative z-10 container mx-auto px-4 text-center">
+        <PageHero {...getHeroForPath("/")} priority overlay={50}>
+          <div className="text-center text-white">
             {config.ctaBadge && (
               <span className="inline-block bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-full mb-6">
                 {config.ctaBadge}
@@ -175,7 +173,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </PageHero>
 
         {/* Value Proposition */}
         <section className="py-16 md:py-20 bg-white">

@@ -1,4 +1,5 @@
 import Navbar from "@/components/layouts/Navbar";
+import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import Link from "next/link";
@@ -64,8 +65,21 @@ export default function LuxuryHomesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
+      <main>
+        <IronMountainPageHero
+          path="/buyers/luxury-homes-las-vegas"
+          title="Las Vegas Luxury Real Estate"
+          subtitle="Guard-gated estates. Strip penthouses. Uncompromising privacy."
+        >
+          <a
+            href="tel:+17029963758"
+            className="inline-flex items-center bg-white text-slate-900 px-8 py-4 rounded-md font-bold text-lg hover:bg-white/90 transition-colors"
+          >
+            <Phone className="h-5 w-5 mr-2" />
+            Schedule a Private Preview → (702) 996-3758
+          </a>
+        </IronMountainPageHero>
+        <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
           <div className="max-w-6xl mx-auto mb-6">
             <nav className="text-sm text-slate-500">
@@ -75,27 +89,6 @@ export default function LuxuryHomesPage() {
               {" / "}
               <span className="text-slate-900">Luxury Homes</span>
             </nav>
-          </div>
-
-          {/* Hero */}
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Star className="h-4 w-4 mr-2" />
-              $1.2M - $10M+
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-              Las Vegas Luxury Real Estate
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">
-              Guard-gated estates. Strip penthouses. Uncompromising privacy.
-            </p>
-            <a
-              href="tel:+17029963758"
-              className="inline-flex items-center bg-slate-900 text-white px-8 py-4 rounded-md font-bold text-lg hover:bg-slate-800 transition-colors"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              Schedule a Private Preview → (702) 996-3758
-            </a>
           </div>
 
           {/* Market Performance */}
