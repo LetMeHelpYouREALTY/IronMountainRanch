@@ -47,6 +47,11 @@ const nextConfig = {
       { source: "/buyers/:path*", destination: "/buy", permanent: true },
       { source: "/sellers", destination: "/sell", permanent: true },
       { source: "/sellers/:path*", destination: "/sell", permanent: true },
+      {
+        source: "/neighborhoods/iron-mountain-ranch",
+        destination: "/sub-communities",
+        permanent: true,
+      },
     ];
   },
 
