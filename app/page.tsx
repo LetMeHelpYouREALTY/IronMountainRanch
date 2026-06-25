@@ -14,6 +14,7 @@ import { Phone, Home as HomeIcon, TrendingUp, Shield, Users } from "lucide-react
 import { getPageDomainConfig } from "@/lib/get-domain-config";
 import { getFaqsForDomain } from "@/lib/faq-config";
 import { agentInfo, marketStats } from "@/lib/site-config";
+import { IRON_MOUNTAIN_RANCH_HUB_PATH } from "@/lib/iron-mountain-ranch";
 import { getHeroForPath } from "@/lib/page-hero";
 import {
   getGbpBrowseReviewsUrl,
@@ -186,7 +187,11 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Iron Mountain Ranch gated villages in 89131 &amp; 89143 — backed by Berkshire Hathaway HomeServices Nevada Properties.
+                Iron Mountain Ranch, Las Vegas, Nevada — gated villages in 89131 &amp; 89143, backed by
+                Berkshire Hathaway HomeServices Nevada Properties.{" "}
+                <Link href={IRON_MOUNTAIN_RANCH_HUB_PATH} className="text-blue-600 font-semibold hover:underline">
+                  Community guide &amp; homes for sale
+                </Link>
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">

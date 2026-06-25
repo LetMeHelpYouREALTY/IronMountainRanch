@@ -114,15 +114,20 @@ export const DEFAULT_CONFIG: DomainConfig = {
   neighborhood: "Iron Mountain Ranch",
   tagline: "Iron Mountain Ranch | Homes by Dr. Jan Duffy",
   description:
-    "Iron Mountain Ranch homes for sale in northwest Las Vegas (89131 & 89143). Gated community homes with Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.",
+    "Iron Mountain Ranch homes and houses for sale in Las Vegas, Nevada (89131 & 89143). Gated northwest Las Vegas community — Iron Mountain Estates, villages, and MLS search with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   heroHeadline: "Iron Mountain Ranch Homes for Sale",
   heroSubheadline:
-    "Homes by Dr. Jan Duffy — Kyle Canyon office inside the Iron Mountain Ranch corridor (89143).",
+    "Las Vegas, Nevada gated community in 89131 & 89143 — Kyle Canyon office inside the Iron Mountain Ranch corridor.",
   keywords: [
     "Iron Mountain Ranch homes for sale",
+    "Iron Mountain Ranch houses for sale",
+    "Iron Mountain Ranch Las Vegas",
+    "Iron Mountain Ranch Nevada",
+    "Iron Mountain Estates",
+    "houses for sale in Iron Mountain Ranch",
     "Homes by Dr Jan Duffy",
     "89131 real estate",
-    "Iron Mountain Ranch Las Vegas",
+    "89143 real estate",
   ],
   pageType: "community",
   realscoutAgentId: REALSCOUT_AGENT_ID,

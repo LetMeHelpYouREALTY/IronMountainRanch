@@ -3,7 +3,14 @@
  * Display names are buyer-friendly; mlsSubdivision matches GLVAR / LVR MLS labels (June 2026).
  */
 
-import { agentInfo } from "@/lib/site-config";
+import { agentInfo, officeInfo } from "@/lib/site-config";
+
+/** Canonical URL for IMR head-term SEO (las vegas, nevada, houses for sale, estates). */
+export const IRON_MOUNTAIN_RANCH_HUB_PATH = "/neighborhoods/iron-mountain-ranch" as const;
+
+/** First-paragraph copy for the IMR hub — exact phrases buyers search. */
+export const ironMountainRanchHubIntro =
+  "Iron Mountain Ranch, Las Vegas, Nevada is a gated KB Home master-planned community in northwest Clark County (zip codes 89131 and 89143). This page is the hub for Iron Mountain Ranch homes for sale, houses in every gated village, and the Iron Mountain Estates enclave—plus buyer and seller representation from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.";
 import { communityPlusCode } from "@/lib/plus-codes";
 
 export type SubCommunity = {
@@ -57,6 +64,9 @@ export const ironMountainRanch = {
     "HOA and LMA dues vary by village and lot; Dr. Jan confirms exact fees and coverage before you tour or write an offer.",
   landscapeNote:
     "Villages participate in a Landscape Maintenance Association that maintains shared desert landscaping, parks, and trails.",
+  /** Visible copy for HOA/LMA — IMR only; not Spring Mountain Ranch (different community). */
+  hoaOverview:
+    "Iron Mountain Ranch uses village HOAs plus a community Landscape Maintenance Association (LMA) for shared parks, ponds, and desert landscaping. Dues and coverage differ by village and lot—there is no single HOA fee for the entire master plan.",
 } as const;
 
 export const subCommunities: SubCommunity[] = [
@@ -190,10 +200,18 @@ export function getSubCommunity(slug: string): SubCommunity | undefined {
   return subCommunities.find((v) => v.slug === slug);
 }
 
+export function getIronMountainEstatesVillage(): SubCommunity | undefined {
+  return getSubCommunity("iron-mountain-estates");
+}
+
 const phone = agentInfo.phoneFormatted;
 const email = agentInfo.email;
 
 export const ironMountainRanchFaqs = [
+  {
+    question: "Where is Iron Mountain Ranch in Las Vegas, Nevada?",
+    answer: `Iron Mountain Ranch sits in northwest Las Vegas, Clark County, Nevada—primarily zip codes 89131 and 89143 along the Kyle Canyon corridor near US-95 and the 215 Beltway. It is a master-planned community inside the City of Las Vegas, not a separate municipality. Dr. Jan Duffy's office at ${officeInfo.address.full} serves buyers and sellers across every gated village. Call ${phone} for directions or a tour.`,
+  },
   {
     question: "How many sub-communities are in Iron Mountain Ranch?",
     answer: `Iron Mountain Ranch is a master-planned community of gated villages in northwest Las Vegas (89131 and 89143). MLS listings commonly reference numbered villages (Village 1-A through Village 11), Iron Mountain Estates, Bradley Ranch, and Quarterhorse Estate—about 1,700 homes total. Several villages also carry builder marketing names such as Wolf Creek (Village 4), Meadow Ridge (Village 3), and Classics at Iron Mountain Ranch (Village 7). Browse each guide at ironmountainranchlasvegas.com/sub-communities or call ${phone}.`,
@@ -223,6 +241,15 @@ export const ironMountainRanchFaqs = [
   {
     question: "What is Quarterhorse Estate?",
     answer: `Quarterhorse Estate is a gated enclave within Iron Mountain Ranch in zip code 89131 with larger single-family homes—separate from the numbered villages in MLS. Listings often show 3,200+ sq ft floor plans. Call ${phone} for current Quarterhorse Estate inventory.`,
+  },
+  {
+    question: "Is Iron Mountain Ranch the same as Spring Mountain Ranch?",
+    answer:
+      "No. Iron Mountain Ranch and Spring Mountain Ranch are different master-planned communities in the Las Vegas Valley. Iron Mountain Ranch is a gated KB Home community in northwest Las Vegas (zip codes 89131 and 89143) near Kyle Canyon. Spring Mountain Ranch is a separate community with its own HOA. If you meant Iron Mountain Ranch HOA or LMA dues, call Dr. Jan Duffy at the number on this site—do not use Spring Mountain Ranch HOA contacts for an IMR address.",
+  },
+  {
+    question: "What are Iron Mountain Ranch HOA fees?",
+    answer: `Iron Mountain Ranch HOA and Landscape Maintenance Association (LMA) dues vary by village, lot size, and amenity package—there is no one community-wide fee. Village HOAs may cover gates and neighborhood amenities; the LMA maintains shared parks, ponds, and trails. Dr. Jan Duffy confirms current dues from HOA disclosures and MLS listing documents before you tour. Call ${phone} for village-specific numbers—not estimates from other Las Vegas communities.`,
   },
   {
     question: "How do I search listings by Iron Mountain Ranch village?",

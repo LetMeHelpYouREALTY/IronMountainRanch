@@ -15,7 +15,7 @@ import { isValidZipCode } from "@/lib/las-vegas-zip-data";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
-  description: `Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. ${officeInfo.address.full} (Kyle Canyon / 89143). Call (702) 996-3758 or email DrDuffy@IronMountainRanchLasVegas.com.`,
+  description: `Contact Dr. Jan Duffy for Iron Mountain Ranch real estate. ${officeInfo.address.full} (Kyle Canyon / 89143). Call (702) 996-3758 or email ${agentInfo.email}.`,
   path: "/contact",
 });
 
@@ -26,7 +26,7 @@ const contactSchema = {
     "@type": "RealEstateAgent",
     name: siteConfig.name,
     telephone: "+17029963758",
-    email: "DrDuffy@IronMountainRanchLasVegas.com",
+    email: agentInfo.email,
     address: {
       "@type": "PostalAddress",
       streetAddress: officeInfo.address.street,

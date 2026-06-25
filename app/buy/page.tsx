@@ -10,15 +10,24 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Search, Key, Shield } from "lucide-react";
 import { agentInfo } from "@/lib/site-config";
+import { IRON_MOUNTAIN_RANCH_HUB_PATH } from "@/lib/iron-mountain-ranch";
 import { generateListingServiceSchema } from "@/lib/schema-blueprint";
 import ZipQueryBanner from "@/components/maps/ZipQueryBanner";
 import { isValidZipCode } from "@/lib/las-vegas-zip-data";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Buy a Home in Iron Mountain Ranch | Northwest Las Vegas 89131",
+  title: "Iron Mountain Ranch Houses for Sale | Las Vegas, Nevada",
   description:
-    "Search Iron Mountain Ranch gated homes for sale in northwest Las Vegas 89131. MLS search, village filters, and buyer representation from Dr. Jan Duffy. Call (702) 996-3758.",
+    "Iron Mountain Ranch houses for sale in Las Vegas, Nevada (89131 & 89143). MLS search for gated villages and Iron Mountain Estates. Buyer representation from Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/buy",
+  keywords: [
+    "Iron Mountain Ranch houses for sale",
+    "houses for sale in Iron Mountain Ranch",
+    "Iron Mountain Ranch homes for sale",
+    "Iron Mountain Ranch Las Vegas",
+    "Iron Mountain Ranch Nevada",
+    "Iron Mountain Estates homes",
+  ],
 });
 
 const listingSchema = generateListingServiceSchema();
@@ -41,8 +50,8 @@ export default function BuyPage({
       <main>
         <IronMountainPageHero
           path="/buy"
-          title="Buy in Iron Mountain Ranch"
-          subtitle={`Search gated Iron Mountain Ranch homes in zip 89131 with ${agentInfo.name}. Enter an address, city, or MLS # below — no signup until you save a search.`}
+          title="Iron Mountain Ranch Houses for Sale"
+          subtitle={`Search gated Iron Mountain Ranch homes in Las Vegas, Nevada (89131 & 89143) with ${agentInfo.name}. Enter an address, city, or MLS # below — no signup until you save a search.`}
         >
           <div className="flex flex-col items-center gap-6 w-full max-w-lg mx-auto">
             <RealScoutSimpleSearch id="imr-search" className="w-full" />
@@ -95,6 +104,15 @@ export default function BuyPage({
           />
 
           <div className="text-center mt-12">
+            <TrackedLink
+              href={IRON_MOUNTAIN_RANCH_HUB_PATH}
+              ctaName="Iron Mountain Ranch community guide"
+              intent="buyer"
+              proximity="midpage"
+              className="text-blue-600 font-semibold hover:underline mr-6"
+            >
+              Iron Mountain Ranch Las Vegas, Nevada guide
+            </TrackedLink>
             <TrackedLink
               href="/sub-communities"
               ctaName="Explore sub-communities"

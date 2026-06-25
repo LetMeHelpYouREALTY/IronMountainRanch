@@ -57,6 +57,21 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Iron Mountain Ranch</h3>
             <ul className="space-y-2 text-sm text-slate-300">
+              <li>
+                <Link href="/neighborhoods/iron-mountain-ranch" className="hover:text-white font-medium">
+                  Iron Mountain Ranch homes for sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/buy" className="hover:text-white">
+                  Iron Mountain Ranch houses for sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/sub-communities/iron-mountain-estates" className="hover:text-white">
+                  Iron Mountain Estates
+                </Link>
+              </li>
               <li>Office: {officeInfo.address.full}</li>
               <li>{officeInfo.areaLabel}</li>
               <li>Community zips: 89131 &amp; 89143</li>

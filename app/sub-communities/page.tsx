@@ -11,6 +11,7 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import {
   ironMountainRanch,
   ironMountainRanchFaqs,
+  IRON_MOUNTAIN_RANCH_HUB_PATH,
   subCommunities,
 } from "@/lib/iron-mountain-ranch";
 import { generateNeighborhoodSchema } from "@/lib/schema-blueprint";
@@ -122,7 +123,16 @@ export default function SubCommunitiesPage() {
               {ironMountainRanch.zipCodes.join(" and ")}, with community parks, ponds, and walking
               paths maintained through a Landscape Maintenance Association.
             </p>
-            <p className="text-slate-600 text-sm">{ironMountainRanch.hoaNote}</p>
+            <p className="text-slate-600 text-sm">
+              {ironMountainRanch.hoaNote}{" "}
+              <Link href={IRON_MOUNTAIN_RANCH_HUB_PATH} className="text-blue-600 font-semibold hover:underline">
+                Iron Mountain Ranch Las Vegas, Nevada community guide
+              </Link>
+              {" · "}
+              <Link href="/buy" className="text-blue-600 font-semibold hover:underline">
+                Houses for sale in Iron Mountain Ranch
+              </Link>
+            </p>
           </section>
 
           <ImrRegionalMarketSection className="mb-16" />
