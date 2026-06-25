@@ -19,20 +19,23 @@ import {
   IRON_MOUNTAIN_RANCH_HUB_PATH,
 } from "@/lib/iron-mountain-ranch";
 import { buildImrHubBreadcrumbs, buildImrHubPageSchema } from "@/lib/imr-seo-schema";
+import { IMR_TOPICAL_GUIDES } from "@/lib/imr-topical-pages";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Iron Mountain Ranch Las Vegas, Nevada | Homes for Sale",
+  title: "Iron Mountain Ranch Las Vegas Homes for Sale | 89131 & 89143",
   description:
-    "Iron Mountain Ranch, Las Vegas, Nevada — gated homes and houses for sale in 89131 & 89143. Iron Mountain Estates, village guides, and MLS search. Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 996-3758.",
+    "Iron Mountain Ranch Las Vegas homes for sale in gated 89131 & 89143 — villages, Iron Mountain Estates, schools, HOA, and MLS search. Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 996-3758.",
   path: IRON_MOUNTAIN_RANCH_HUB_PATH,
   keywords: [
     "Iron Mountain Ranch Las Vegas",
     "Iron Mountain Ranch Nevada",
     "Iron Mountain Ranch homes for sale",
     "Iron Mountain Ranch houses for sale",
+    "Iron Mountain Ranch las vegas for sale",
     "houses for sale in Iron Mountain Ranch",
     "Iron Mountain Estates",
     "Iron Mountain Ranch gated community",
+    "Iron Mountain Ranch homeowners association",
     "89131 homes",
     "89143 homes",
   ],
@@ -200,6 +203,29 @@ export default function IronMountainRanchPage() {
 
           <ImrVillageGuideTable />
 
+          <section className="max-w-5xl mx-auto mb-16" aria-labelledby="topical-guides-heading">
+            <h2 id="topical-guides-heading" className="text-2xl font-bold text-slate-900 mb-3">
+              Iron Mountain Ranch buyer guides
+            </h2>
+            <p className="text-slate-600 text-sm mb-6">
+              Topic pages for zip codes, HOAs, schools, KB resale, reviews, and neighborhood
+              comparisons—each links back to this hub.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-4">
+              {IMR_TOPICAL_GUIDES.map((guide) => (
+                <li key={guide.href}>
+                  <Link
+                    href={guide.href}
+                    className="block rounded-xl border border-slate-200 bg-white p-5 hover:border-blue-400 hover:shadow-md transition-all"
+                  >
+                    <span className="font-semibold text-slate-900">{guide.label}</span>
+                    <p className="text-sm text-slate-600 mt-1">{guide.description}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           {estates ? (
             <section className="max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="text-2xl font-bold text-slate-900 mb-3">Iron Mountain Estates</h2>
@@ -230,6 +256,12 @@ export default function IronMountainRanchPage() {
             <p className="text-slate-600 mb-3">{ironMountainRanch.hoaOverview}</p>
             <p className="text-slate-600 text-sm">{ironMountainRanch.landscapeNote}</p>
             <p className="text-slate-500 text-sm mt-3">{ironMountainRanch.hoaNote}</p>
+            <Link
+              href="/iron-mountain-ranch-hoa"
+              className="mt-4 inline-block text-sm font-semibold text-blue-600 hover:underline"
+            >
+              Full Iron Mountain Ranch HOA &amp; LMA guide →
+            </Link>
           </section>
 
           <section className="max-w-5xl mx-auto mb-16">

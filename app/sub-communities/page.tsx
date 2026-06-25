@@ -5,6 +5,8 @@ import IronMountainPageHero from "@/components/sections/IronMountainPageHero";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import FAQSection from "@/components/sections/FAQSection";
 import DeferredRealScoutListings from "@/components/realscout/DeferredRealScoutListings";
+import BreadcrumbNav from "@/components/shared/BreadcrumbNav";
+import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
@@ -14,9 +16,10 @@ import {
   IRON_MOUNTAIN_RANCH_HUB_PATH,
   subCommunities,
 } from "@/lib/iron-mountain-ranch";
+import { buildSubCommunitiesBreadcrumbs, buildSubCommunitiesPageSchema } from "@/lib/imr-seo-schema";
 import { generateNeighborhoodSchema } from "@/lib/schema-blueprint";
+import { combineSchemas } from "@/lib/schema";
 import { agentInfo } from "@/lib/site-config";
-import { absoluteUrl } from "@/lib/site-url";
 import { MapPin, Trees, Shield, Phone } from "lucide-react";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -35,56 +38,16 @@ export const metadata: Metadata = buildPageMetadata({
   ],
 });
 
-function buildItemListSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Iron Mountain Ranch Sub-Communities",
-    description: ironMountainRanch.description,
-    numberOfItems: subCommunities.length,
-    itemListElement: subCommunities.map((village, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: village.name,
-      url: absoluteUrl(`/sub-communities/${village.slug}`),
-    })),
-  };
-}
-
-function buildFaqSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: ironMountainRanchFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-}
+const subCommunitiesSchema = combineSchemas(
+  buildSubCommunitiesPageSchema(),
+  generateNeighborhoodSchema(),
+);
+const subCommunitiesBreadcrumbs = buildSubCommunitiesBreadcrumbs();
 
 export default function SubCommunitiesPage() {
-  const neighborhoodSchema = generateNeighborhoodSchema();
-  const itemListSchema = buildItemListSchema();
-  const faqSchema = buildFaqSchema();
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(neighborhoodSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <SchemaScript schema={subCommunitiesSchema} id="imr-sub-communities-schema" />
       <Navbar />
       <main>
         <IronMountainPageHero
@@ -92,6 +55,13 @@ export default function SubCommunitiesPage() {
           title="Iron Mountain Ranch Sub-Communities"
           subtitle={ironMountainRanch.description}
         >
+          <p className="text-white/90 mb-4 text-sm md:text-base">
+            <Link href={IRON_MOUNTAIN_RANCH_HUB_PATH} className="font-semibold underline hover:text-white">
+              Iron Mountain Ranch Las Vegas homes for sale
+            </Link>
+            {" — "}
+            village directory under the community hub.
+          </p>
           <p className="text-white/80 mb-6">
             ~{ironMountainRanch.homeCount.toLocaleString()} homes · Zip{" "}
             {ironMountainRanch.zipCodes.join(" & ")} · Built {ironMountainRanch.yearBuiltRange}
@@ -105,6 +75,8 @@ export default function SubCommunitiesPage() {
           </div>
         </IronMountainPageHero>
         <div className="container mx-auto px-4 max-w-6xl py-16">
+          <BreadcrumbNav items={subCommunitiesBreadcrumbs} className="mb-6" />
+
           {/* AEO: direct answer */}
           <section className="mb-14 rounded-xl border border-slate-200 bg-slate-50 p-6 md:p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-3">
@@ -126,7 +98,7 @@ export default function SubCommunitiesPage() {
             <p className="text-slate-600 text-sm">
               {ironMountainRanch.hoaNote}{" "}
               <Link href={IRON_MOUNTAIN_RANCH_HUB_PATH} className="text-blue-600 font-semibold hover:underline">
-                Iron Mountain Ranch Las Vegas, Nevada community guide
+                Iron Mountain Ranch homes for sale
               </Link>
               {" · "}
               <Link href="/buy" className="text-blue-600 font-semibold hover:underline">

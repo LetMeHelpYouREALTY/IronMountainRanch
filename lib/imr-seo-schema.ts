@@ -9,6 +9,7 @@ import {
   ironMountainRanch,
   ironMountainRanchFaqs,
   IRON_MOUNTAIN_RANCH_HUB_PATH,
+  subCommunities,
 } from "@/lib/iron-mountain-ranch";
 import {
   combineSchemas,
@@ -90,12 +91,43 @@ export function buildImrHubBreadcrumbs(): BreadcrumbItem[] {
   ];
 }
 
+export function buildSubCommunitiesBreadcrumbs(): BreadcrumbItem[] {
+  return [
+    { name: "Home", url: "/" },
+    { name: "Iron Mountain Ranch", url: IRON_MOUNTAIN_RANCH_HUB_PATH },
+    { name: "Sub-Communities", url: "/sub-communities" },
+  ];
+}
+
 export function buildImrVillageBreadcrumbs(villageName: string, slug: string): BreadcrumbItem[] {
   return [
     { name: "Home", url: "/" },
+    { name: "Iron Mountain Ranch", url: IRON_MOUNTAIN_RANCH_HUB_PATH },
     { name: "Sub-Communities", url: "/sub-communities" },
     { name: villageName, url: `/sub-communities/${slug}` },
   ];
+}
+
+export function buildSubCommunitiesPageSchema() {
+  return combineSchemas(
+    generateBreadcrumbSchema(buildSubCommunitiesBreadcrumbs()),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Iron Mountain Ranch Sub-Communities",
+      description: ironMountainRanch.description,
+      isPartOf: { "@id": IMR_COMMUNITY_PLACE_ID },
+      numberOfItems: subCommunities.length,
+      url: absoluteUrl("/sub-communities"),
+      itemListElement: subCommunities.map((village, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: village.name,
+        url: absoluteUrl(`/sub-communities/${village.slug}`),
+      })),
+    },
+    generateFAQSchema([...ironMountainRanchFaqs]),
+  );
 }
 
 export function buildImrHubPageSchema() {

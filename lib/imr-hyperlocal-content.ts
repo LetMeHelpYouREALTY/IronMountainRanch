@@ -57,6 +57,15 @@ const EXEMPT_EXACT = new Set([
   "/security-policy",
   "/market-report",
   "/neighborhoods/iron-mountain-ranch",
+  "/iron-mountain-ranch-hoa",
+  "/iron-mountain-ranch-schools",
+  "/89131-homes-for-sale",
+  "/89143-homes-for-sale",
+  "/kb-home-iron-mountain-ranch",
+  "/iron-mountain-ranch-reviews",
+  "/iron-mountain-ranch-vs-spring-mountain-ranch",
+  "/iron-mountain-ranch-vs-centennial-hills",
+  "/iron-mountain-ranch-vs-summerlin",
 ]);
 
 export function shouldShowImrPageContext(path: string): boolean {

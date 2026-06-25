@@ -243,6 +243,60 @@ const ROUTE_HEROES: RouteHeroRule[] = [
     },
   },
   {
+    test: (p) => p === "/iron-mountain-ranch-hoa",
+    hero: {
+      imageKey: "community-park",
+      alt: "Iron Mountain Ranch HOA and LMA maintained parks and walking paths in northwest Las Vegas",
+      locationBadge: "Iron Mountain Ranch HOA & LMA",
+      locationDetail: `Village gates · Not Spring Mountain Ranch · ${ZIP_BADGE}`,
+    },
+  },
+  {
+    test: (p) => p === "/iron-mountain-ranch-schools",
+    hero: {
+      imageKey: "village-streetscape",
+      alt: "Schools near Iron Mountain Ranch gated community northwest Las Vegas CCSD",
+      locationBadge: "CCSD · Iron Mountain Ranch",
+      locationDetail: `Verify zoning by address · ${ZIP_BADGE}`,
+    },
+  },
+  {
+    test: (p) => p === "/89131-homes-for-sale" || p === "/89143-homes-for-sale",
+    hero: {
+      imageKey: "gated-village",
+      alt: "Homes for sale in Iron Mountain Ranch zip codes 89131 and 89143 northwest Las Vegas",
+      locationBadge: "Iron Mountain Ranch Zip Search",
+      locationDetail: ZIP_BADGE,
+    },
+  },
+  {
+    test: (p) => p === "/kb-home-iron-mountain-ranch",
+    hero: {
+      imageKey: "gated-village",
+      alt: "KB Home villages in Iron Mountain Ranch northwest Las Vegas gated resale",
+      locationBadge: "KB Home · Iron Mountain Ranch",
+      locationDetail: `Villages since 2002 · ${ZIP_BADGE}`,
+    },
+  },
+  {
+    test: (p) => p.startsWith("/iron-mountain-ranch-vs-"),
+    hero: {
+      imageKey: "sheep-range",
+      alt: "Compare Iron Mountain Ranch gated northwest Las Vegas with other valley communities",
+      locationBadge: "Iron Mountain Ranch Comparison",
+      locationDetail: ZIP_BADGE,
+    },
+  },
+  {
+    test: (p) => p === "/iron-mountain-ranch-reviews",
+    hero: {
+      imageKey: "community-park",
+      alt: "Iron Mountain Ranch community reviews and buyer questions northwest Las Vegas",
+      locationBadge: "Iron Mountain Ranch Reviews",
+      locationDetail: `Community vs agent GBP · ${ZIP_BADGE}`,
+    },
+  },
+  {
     test: (p) => p === "/faq",
     hero: {
       imageKey: "community-park",

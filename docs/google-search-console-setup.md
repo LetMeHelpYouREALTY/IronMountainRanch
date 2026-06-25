@@ -48,10 +48,13 @@ After verification:
 After the first production deploy with the IMR SEO hub live, use **URL Inspection** → **Request indexing** for:
 
 1. `https://www.ironmountainranchlasvegas.com/neighborhoods/iron-mountain-ranch`
-2. `https://www.ironmountainranchlasvegas.com/buy`
-3. `https://www.ironmountainranchlasvegas.com/`
-4. `https://www.ironmountainranchlasvegas.com/sub-communities/iron-mountain-estates`
-5. `https://www.ironmountainranchlasvegas.com/sub-communities/village-4`
+2. `https://www.ironmountainranchlasvegas.com/89131-homes-for-sale`
+3. `https://www.ironmountainranchlasvegas.com/89143-homes-for-sale`
+4. `https://www.ironmountainranchlasvegas.com/iron-mountain-ranch-hoa`
+5. `https://www.ironmountainranchlasvegas.com/buy`
+6. `https://www.ironmountainranchlasvegas.com/`
+7. `https://www.ironmountainranchlasvegas.com/sub-communities/iron-mountain-estates`
+8. `https://www.ironmountainranchlasvegas.com/iron-mountain-ranch-vs-spring-mountain-ranch`
 
 Re-request only after substantive content changes (monthly max per URL is fine).
 

@@ -161,6 +161,9 @@ const ROUTE_KEYWORDS: Record<string, readonly string[]> = {
   ],
   "/neighborhoods/iron-mountain-ranch": [
     ...IMR_HEAD_KEYWORDS,
+    "Iron Mountain Ranch las vegas for sale",
+    "Iron Mountain Ranch homeowners association",
+    "Iron Mountain Ranch las vegas reviews",
     "Iron Mountain Estates",
     "Iron Mountain Ranch HOA",
     "Iron Mountain Ranch LMA",
@@ -304,6 +307,54 @@ const ROUTE_KEYWORDS: Record<string, readonly string[]> = {
     "89131 map",
     "89143 map",
     "Iron Mountain Ranch zip codes",
+  ],
+  "/89131-homes-for-sale": [
+    "89131 homes for sale",
+    "Iron Mountain Ranch 89131",
+    "89131 gated homes",
+    "Iron Mountain Ranch las vegas for sale",
+  ],
+  "/89143-homes-for-sale": [
+    "89143 homes for sale",
+    "Iron Mountain Estates homes for sale",
+    "Iron Mountain Ranch 89143",
+    "Kyle Canyon homes for sale",
+  ],
+  "/iron-mountain-ranch-hoa": [
+    "Iron Mountain Ranch homeowners association",
+    "Iron Mountain Ranch HOA",
+    "Iron Mountain Ranch HOA fees",
+    "Iron Mountain Ranch LMA",
+  ],
+  "/iron-mountain-ranch-schools": [
+    "Iron Mountain Ranch schools",
+    "schools near Iron Mountain Ranch",
+    "CCSD Iron Mountain Ranch",
+    "89131 schools",
+    "89143 schools",
+  ],
+  "/kb-home-iron-mountain-ranch": [
+    "KB Home Iron Mountain Ranch",
+    "Iron Mountain Ranch KB Home",
+    "KB Home Las Vegas resale",
+  ],
+  "/iron-mountain-ranch-reviews": [
+    "Iron Mountain Ranch las vegas reviews",
+    "Iron Mountain Ranch reviews",
+    "Iron Mountain Ranch gated community reviews",
+  ],
+  "/iron-mountain-ranch-vs-spring-mountain-ranch": [
+    "Iron Mountain Ranch vs Spring Mountain Ranch",
+    "Spring Mountain Ranch Las Vegas",
+    "Iron Mountain Ranch not Spring Mountain",
+  ],
+  "/iron-mountain-ranch-vs-centennial-hills": [
+    "Iron Mountain Ranch vs Centennial Hills",
+    "Centennial Hills vs Iron Mountain Ranch",
+  ],
+  "/iron-mountain-ranch-vs-summerlin": [
+    "Iron Mountain Ranch vs Summerlin",
+    "Summerlin vs Iron Mountain Ranch",
   ],
   "/55-plus-communities": [
     "55 plus communities Las Vegas",

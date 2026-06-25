@@ -68,6 +68,26 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/89131-homes-for-sale" className="hover:text-white">
+                  89131 homes for sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/89143-homes-for-sale" className="hover:text-white">
+                  89143 homes for sale
+                </Link>
+              </li>
+              <li>
+                <Link href="/iron-mountain-ranch-hoa" className="hover:text-white">
+                  HOA &amp; LMA guide
+                </Link>
+              </li>
+              <li>
+                <Link href="/iron-mountain-ranch-schools" className="hover:text-white">
+                  Schools near IMR
+                </Link>
+              </li>
+              <li>
                 <Link href="/sub-communities/iron-mountain-estates" className="hover:text-white">
                   Iron Mountain Estates
                 </Link>
