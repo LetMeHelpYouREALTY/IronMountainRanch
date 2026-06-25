@@ -12,6 +12,7 @@ import GBPMapCard from "@/components/shared/GBPMapCard";
 import { businessHoursLines } from "@/lib/google-business-profile";
 import ZipQueryBanner from "@/components/maps/ZipQueryBanner";
 import { isValidZipCode } from "@/lib/las-vegas-zip-data";
+import { ContactLeadForm } from "@/components/forms/ContactLeadForm";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact Dr. Jan Duffy | Iron Mountain Ranch Las Vegas",
@@ -199,6 +200,19 @@ export default function ContactPage({
               </div>
             </div>
           </div>
+
+          {/* BotID-protected contact form */}
+          <section className="max-w-2xl mx-auto mt-16">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">
+              Send a Message
+            </h2>
+            <p className="text-slate-600 text-center mb-6">
+              Prefer email over scheduling? Dr. Jan Duffy typically responds within two hours during business hours.
+            </p>
+            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+              <ContactLeadForm />
+            </div>
+          </section>
 
           {/* Service Areas Section */}
           <section className="max-w-5xl mx-auto mt-16">

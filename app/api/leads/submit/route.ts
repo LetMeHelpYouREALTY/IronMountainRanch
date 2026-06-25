@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { verifyBotRequest } from "@/lib/verify-bot";
+import { applyLeadApiGuards } from "@/lib/leads/lead-api-guard";
+import { ingestWebsiteLead } from "@/lib/leads/ingest-website-lead";
+import { getRateLimitHeaders } from "@/lib/rate-limit";
 
 const leadSchema = z.object({
   name: z.string().min(2).max(120),
@@ -12,22 +14,29 @@ const leadSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const botResponse = await verifyBotRequest();
-  if (botResponse) return botResponse;
+  const guard = await applyLeadApiGuards(request);
+  if (guard instanceof NextResponse) return guard;
 
   try {
     const body = await request.json();
     const data = leadSchema.parse(body);
 
-    // TODO: wire to Follow Up Boss / email notification
-    console.info("[leads/submit]", {
+    const result = await ingestWebsiteLead({
       name: data.name,
       email: data.email,
       phone: data.phone,
+      message: data.message,
       source: data.source ?? "ironmountainranchlasvegas.com",
+      formType: "lead-submit",
+      tags: ["website-lead", data.interest ?? "general"].filter(Boolean) as string[],
+      referer: request.headers.get("referer"),
+      interest: data.interest,
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json(
+      { success: true, personId: result.personId, synced: result.synced },
+      { headers: getRateLimitHeaders(guard.rateLimit) }
+    );
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }

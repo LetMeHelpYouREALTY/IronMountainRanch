@@ -10,6 +10,7 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import { Phone, Camera, TrendingUp, BarChart } from "lucide-react";
 import { agentInfo, officeInfo } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
+import { HomeValuationForm } from "@/components/forms/HomeValuationForm";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Sell Your Iron Mountain Ranch Home | Las Vegas 89131",
@@ -96,6 +97,16 @@ export default function SellPage() {
               </div>
             ))}
           </div>
+
+          <section className="max-w-xl mx-auto mb-12 bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Free Iron Mountain Ranch Home Valuation
+            </h2>
+            <p className="text-slate-600 text-sm mb-6">
+              Request a complimentary CMA for your gated village home — Wolf Creek, Iron Mountain Estates, and all IMR villages.
+            </p>
+            <HomeValuationForm />
+          </section>
 
           <CalendlyInlineSection
             utm={{ ...sellUtm, utmContent: "sell-midpage" }}

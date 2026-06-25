@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { verifyBotRequest } from "@/lib/verify-bot";
+import { applyLeadApiGuards } from "@/lib/leads/lead-api-guard";
+import { ingestWebsiteLead } from "@/lib/leads/ingest-website-lead";
+import { getRateLimitHeaders } from "@/lib/rate-limit";
 
 const contactSchema = z.object({
   name: z.string().min(2).max(120),
@@ -10,19 +12,28 @@ const contactSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const botResponse = await verifyBotRequest();
-  if (botResponse) return botResponse;
+  const guard = await applyLeadApiGuards(request);
+  if (guard instanceof NextResponse) return guard;
 
   try {
     const body = await request.json();
     const data = contactSchema.parse(body);
 
-    console.info("[contact]", {
+    const result = await ingestWebsiteLead({
       name: data.name,
       email: data.email,
+      phone: data.phone,
+      message: data.message,
+      source: "ironmountainranchlasvegas.com/contact",
+      formType: "contact",
+      tags: ["contact-form"],
+      referer: request.headers.get("referer"),
     });
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json(
+      { success: true, personId: result.personId, synced: result.synced },
+      { headers: getRateLimitHeaders(guard.rateLimit) }
+    );
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }

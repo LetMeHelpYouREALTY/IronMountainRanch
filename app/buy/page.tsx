@@ -14,6 +14,7 @@ import { IRON_MOUNTAIN_RANCH_HUB_PATH } from "@/lib/iron-mountain-ranch";
 import { generateListingServiceSchema } from "@/lib/schema-blueprint";
 import ZipQueryBanner from "@/components/maps/ZipQueryBanner";
 import { isValidZipCode } from "@/lib/las-vegas-zip-data";
+import { LeadCaptureForm } from "@/components/forms/LeadCaptureForm";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Houses for Sale | Las Vegas, Nevada",
@@ -90,6 +91,20 @@ export default function BuyPage({
           </div>
 
           <RealScoutListings />
+
+          <section className="max-w-xl mx-auto my-12 bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-slate-900 mb-2">
+              Get Buyer Updates for Iron Mountain Ranch
+            </h2>
+            <p className="text-slate-600 text-sm mb-6">
+              Tell us what you are looking for — Dr. Jan Duffy will follow up with matching MLS listings and village guidance.
+            </p>
+            <LeadCaptureForm
+              source="ironmountainranchlasvegas.com/buy"
+              formType="property-search"
+              defaultTags={["buyer", "iron-mountain-ranch"]}
+            />
+          </section>
 
           <CalendlyInlineSection
             utm={{
