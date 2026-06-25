@@ -14,15 +14,12 @@ import {
   buildImrTopicBreadcrumbs,
   buildImrTopicPageSchema,
 } from "@/lib/imr-topical-pages";
-import { regionalMarketComparison } from "@/lib/lv-regional-market";
+import { getRegionalMarketArea } from "@/lib/lv-regional-market";
 
 const PATH = "/iron-mountain-ranch-vs-centennial-hills" as const;
 const TOPIC = "vs Centennial Hills";
 
-const competitor = regionalMarketComparison.find((a) => a.id === "centennial-hills");
-if (!competitor) {
-  throw new Error("Missing Centennial Hills market data");
-}
+const competitor = getRegionalMarketArea("centennial-hills");
 
 const faqs = [
   {

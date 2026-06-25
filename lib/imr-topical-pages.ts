@@ -35,7 +35,9 @@ export function buildImrTopicPageSchema(
   topicPath: string,
   faqs?: readonly ImrFaq[],
 ) {
-  const parts = [generateBreadcrumbSchema(buildImrTopicBreadcrumbs(topicLabel, topicPath))];
+  const parts: Record<string, unknown>[] = [
+    generateBreadcrumbSchema(buildImrTopicBreadcrumbs(topicLabel, topicPath)),
+  ];
   if (faqs && faqs.length > 0) {
     parts.push(generateFAQSchema([...faqs]));
   }

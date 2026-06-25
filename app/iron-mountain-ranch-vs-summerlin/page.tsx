@@ -14,15 +14,12 @@ import {
   buildImrTopicBreadcrumbs,
   buildImrTopicPageSchema,
 } from "@/lib/imr-topical-pages";
-import { regionalMarketComparison } from "@/lib/lv-regional-market";
+import { getRegionalMarketArea } from "@/lib/lv-regional-market";
 
 const PATH = "/iron-mountain-ranch-vs-summerlin" as const;
 const TOPIC = "vs Summerlin";
 
-const competitor = regionalMarketComparison.find((a) => a.id === "summerlin");
-if (!competitor) {
-  throw new Error("Missing Summerlin market data");
-}
+const competitor = getRegionalMarketArea("summerlin");
 
 const faqs = [
   {

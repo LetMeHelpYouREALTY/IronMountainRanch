@@ -104,6 +104,14 @@ export const metroMarketComparison: RegionalMarketArea[] =
       area.id !== "iron-mountain-ranch" && area.id !== "centennial-hills",
   );
 
+export function getRegionalMarketArea(id: string): RegionalMarketArea {
+  const area = regionalMarketComparison.find((a) => a.id === id);
+  if (!area) {
+    throw new Error(`Missing regional market data for id: ${id}`);
+  }
+  return area;
+}
+
 export function getVillageMarketInsight(village: SubCommunity): string {
   const isEstate =
     village.slug === "iron-mountain-estates" ||
