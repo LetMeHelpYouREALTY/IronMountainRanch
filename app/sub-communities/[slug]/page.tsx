@@ -4,14 +4,23 @@ import Footer from "@/components/layouts/Footer";
 import PageHero from "@/components/sections/PageHero";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
+import BreadcrumbNav from "@/components/shared/BreadcrumbNav";
+import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getSubCommunity, subCommunities } from "@/lib/iron-mountain-ranch";
+import {
+  getSubCommunity,
+  IRON_MOUNTAIN_RANCH_HUB_PATH,
+  subCommunities,
+} from "@/lib/iron-mountain-ranch";
 import { agentInfo } from "@/lib/site-config";
 import { getHeroForSubCommunity } from "@/lib/page-hero";
 import { buildPageMetadata } from "@/lib/page-metadata";
-import { absoluteUrl } from "@/lib/site-url";
+import {
+  buildImrVillageBreadcrumbs,
+  buildImrVillagePageSchema,
+} from "@/lib/imr-seo-schema";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -38,35 +47,13 @@ export default async function SubCommunityPage({ params }: PageProps) {
   const village = getSubCommunity(slug);
   if (!village) notFound();
 
-  const placeSchema = {
-    "@context": "https://schema.org",
-    "@type": "Neighborhood",
-    name: village.name,
-    ...(village.alsoKnownAs?.length
-      ? { alternateName: village.alsoKnownAs }
-      : {}),
-    description: village.description,
-    url: absoluteUrl(`/sub-communities/${slug}`),
-    containedInPlace: {
-      "@type": "Neighborhood",
-      name: "Iron Mountain Ranch",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Las Vegas",
-        addressRegion: "NV",
-        postalCode: "89131",
-      },
-    },
-  };
-
+  const pageSchema = buildImrVillagePageSchema(village, slug);
+  const breadcrumbs = buildImrVillageBreadcrumbs(village.name, slug);
   const hero = getHeroForSubCommunity(village);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
-      />
+      <SchemaScript schema={pageSchema} id={`imr-village-schema-${slug}`} />
       <Navbar />
       <main>
         <PageHero {...hero}>
@@ -93,13 +80,18 @@ export default async function SubCommunityPage({ params }: PageProps) {
           </div>
         </PageHero>
         <div className="container mx-auto px-4 max-w-5xl py-16">
-          <nav className="text-sm text-slate-500 mb-6">
-            <Link href="/" className="hover:text-blue-600">Home</Link>
-            {" / "}
-            <Link href="/sub-communities" className="hover:text-blue-600">Sub-Communities</Link>
-            {" / "}
-            <span className="text-slate-900">{village.name}</span>
-          </nav>
+          <BreadcrumbNav items={breadcrumbs} className="mb-6" />
+
+          <p className="mb-8 text-slate-600 text-sm">
+            <Link
+              href={IRON_MOUNTAIN_RANCH_HUB_PATH}
+              className="font-semibold text-blue-600 hover:underline"
+            >
+              Iron Mountain Ranch homes for sale
+            </Link>
+            {" · "}
+            MLS subdivision: <strong>{village.mlsSubdivision}</strong>
+          </p>
 
           <ImrRegionalMarketSection village={village} className="mb-12" />
 

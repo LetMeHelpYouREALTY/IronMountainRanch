@@ -4,6 +4,9 @@ import Footer from "@/components/layouts/Footer";
 import RealScoutListings from "@/components/realscout/RealScoutListings";
 import GbpActionLinks from "@/components/shared/GbpActionLinks";
 import FAQSection from "@/components/sections/FAQSection";
+import ImrVillageGuideTable from "@/components/sections/ImrVillageGuideTable";
+import BreadcrumbNav from "@/components/shared/BreadcrumbNav";
+import SchemaScript from "@/components/SchemaScript";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
@@ -15,7 +18,7 @@ import {
   ironMountainRanchHubIntro,
   IRON_MOUNTAIN_RANCH_HUB_PATH,
 } from "@/lib/iron-mountain-ranch";
-import { absoluteUrl } from "@/lib/site-url";
+import { buildImrHubBreadcrumbs, buildImrHubPageSchema } from "@/lib/imr-seo-schema";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Las Vegas, Nevada | Homes for Sale",
@@ -35,34 +38,8 @@ export const metadata: Metadata = buildPageMetadata({
   ],
 });
 
-const placeSchema = {
-  "@context": "https://schema.org",
-  "@type": "Place",
-  name: `${ironMountainRanch.name}, Las Vegas, Nevada`,
-  description: ironMountainRanch.description,
-  url: absoluteUrl(IRON_MOUNTAIN_RANCH_HUB_PATH),
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: ironMountainRanch.geo.latitude,
-    longitude: ironMountainRanch.geo.longitude,
-  },
-  containedInPlace: {
-    "@type": "City",
-    name: "Las Vegas",
-    addressRegion: "NV",
-    addressCountry: "US",
-  },
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: ironMountainRanchFaqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
-  })),
-};
+const hubSchema = buildImrHubPageSchema();
+const hubBreadcrumbs = buildImrHubBreadcrumbs();
 
 export default function IronMountainRanchPage() {
   const estates = getIronMountainEstatesVillage();
@@ -72,14 +49,7 @@ export default function IronMountainRanchPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <SchemaScript schema={hubSchema} id="imr-hub-schema" />
       <Navbar />
       <main>
         <IronMountainPageHero
@@ -101,17 +71,7 @@ export default function IronMountainRanchPage() {
           </div>
         </IronMountainPageHero>
         <div className="container mx-auto px-4 py-16">
-          <nav className="text-sm text-slate-500 mb-6 max-w-6xl mx-auto">
-            <Link href="/" className="hover:text-blue-600">
-              Home
-            </Link>
-            {" / "}
-            <Link href="/neighborhoods" className="hover:text-blue-600">
-              Neighborhoods
-            </Link>
-            {" / "}
-            <span className="text-slate-900">Iron Mountain Ranch</span>
-          </nav>
+          <BreadcrumbNav items={hubBreadcrumbs} className="mb-6 max-w-6xl mx-auto" />
 
           <section className="max-w-5xl mx-auto mb-12">
             <p className="text-lg text-slate-700 leading-relaxed">{ironMountainRanchHubIntro}</p>
@@ -176,6 +136,69 @@ export default function IronMountainRanchPage() {
               </address>
             </div>
           </section>
+
+          <section className="max-w-5xl mx-auto mb-16 grid md:grid-cols-2 gap-8">
+            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                Zip code 89131 — numbered villages &amp; enclaves
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed">{ironMountainRanch.zipGuide.zip89131}</p>
+              <Link
+                href="/buy#imr-search"
+                className="mt-4 inline-block text-sm font-semibold text-blue-600 hover:underline"
+              >
+                Search Iron Mountain Ranch houses for sale in 89131 →
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                Zip code 89143 — Iron Mountain Estates
+              </h2>
+              <p className="text-slate-600 text-sm leading-relaxed">{ironMountainRanch.zipGuide.zip89143}</p>
+              <Link
+                href="/sub-communities/iron-mountain-estates"
+                className="mt-4 inline-block text-sm font-semibold text-blue-600 hover:underline"
+              >
+                Iron Mountain Estates homes for sale →
+              </Link>
+            </div>
+          </section>
+
+          <section className="max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-200 bg-slate-50 p-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-3">
+              {ironMountainRanch.builder.name} master plan &amp; resale market
+            </h2>
+            <p className="text-slate-600 leading-relaxed">{ironMountainRanch.builder.summary}</p>
+            <p className="mt-4 text-slate-600 text-sm">
+              Nearby master-planned comparisons:{" "}
+              {ironMountainRanch.nearbyCommunities.join(", ")}. For village-level MLS comps,{" "}
+              <Link href="/contact" className="text-blue-600 font-semibold hover:underline">
+                contact Dr. Jan Duffy
+              </Link>{" "}
+              before you tour.
+            </p>
+          </section>
+
+          <section className="max-w-5xl mx-auto mb-16">
+            <h2 className="text-2xl font-bold text-slate-900 mb-3">
+              Schools near Iron Mountain Ranch (CCSD)
+            </h2>
+            <p className="text-slate-600 text-sm mb-6">{ironMountainRanch.schoolsNote}</p>
+            <ul className="grid sm:grid-cols-2 gap-4">
+              {ironMountainRanch.schools.map((school) => (
+                <li
+                  key={school.name}
+                  className="rounded-xl border border-slate-200 bg-white p-5"
+                >
+                  <h3 className="font-semibold text-slate-900">{school.name}</h3>
+                  <p className="text-sm text-slate-500 mt-1">Grades {school.grades}</p>
+                  <p className="text-sm text-slate-600 mt-2">{school.note}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <ImrVillageGuideTable />
 
           {estates ? (
             <section className="max-w-5xl mx-auto mb-16 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">

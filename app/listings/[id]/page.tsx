@@ -4,12 +4,22 @@ import Image from "next/image";
 import { Bed, Bath, Square, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: "Property Details | Las Vegas & Henderson Real Estate",
-  description: "View detailed information about this property listing in Las Vegas or Henderson, NV.",
+type PropertyPageProps = {
+  params: Promise<{ id: string }>;
 };
 
+export async function generateMetadata({ params }: PropertyPageProps): Promise<Metadata> {
+  const { id } = await params;
+  return buildPageMetadata({
+    title: "Iron Mountain Ranch Property Details | Las Vegas MLS",
+    description:
+      "View Iron Mountain Ranch and northwest Las Vegas MLS property details. Listing information from Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+    path: `/listings/${id}`,
+    keywords: ["Iron Mountain Ranch MLS listing", "Las Vegas property details", "89131 home listing"],
+  });
+}
 // This would typically fetch from RealScout API
 async function getProperty(id: string) {
   // Placeholder - replace with RealScout API call
@@ -27,10 +37,6 @@ async function getProperty(id: string) {
       "Stunning modern home in desirable Summerlin community. Features open floor plan, updated kitchen, and beautiful backyard. Close to schools, shopping, and entertainment.",
   };
 }
-
-type PropertyPageProps = {
-  params: Promise<{ id: string }>;
-};
 
 export default async function PropertyPage({ params }: PropertyPageProps) {
   const { id } = await params;

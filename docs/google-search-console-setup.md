@@ -43,7 +43,19 @@ After verification:
 2. `app/sitemap.ts` builds URLs from `lib/seo-weekly/marketing-routes.generated.json`.
 3. `app/robots.ts` advertises the sitemap and allows `/` while blocking `/api/`.
 
-## 4. Post-setup checks
+## 4. Request indexing (priority URLs)
+
+After the first production deploy with the IMR SEO hub live, use **URL Inspection** → **Request indexing** for:
+
+1. `https://www.ironmountainranchlasvegas.com/neighborhoods/iron-mountain-ranch`
+2. `https://www.ironmountainranchlasvegas.com/buy`
+3. `https://www.ironmountainranchlasvegas.com/`
+4. `https://www.ironmountainranchlasvegas.com/sub-communities/iron-mountain-estates`
+5. `https://www.ironmountainranchlasvegas.com/sub-communities/village-4`
+
+Re-request only after substantive content changes (monthly max per URL is fine).
+
+## 5. Post-setup checks
 
 | Check | How |
 |-------|-----|
@@ -53,7 +65,7 @@ After verification:
 | Rich results | [Rich Results Test](https://search.google.com/test/rich-results) on `/` and `/google-business` |
 | URL Inspection | Inspect `/`, `/buy`, `/google-business` after deploy |
 
-## 5. Ongoing monitoring
+## 6. Ongoing monitoring
 
 - **Page indexing** — fix 404s, redirect chains, and duplicate canonicals.
 - **Core Web Vitals** — field data in GSC + Vercel Speed Insights.

@@ -6,7 +6,12 @@
  */
 
 import { buildOpeningHoursSpecification } from "./google-business-profile";
-import { ironMountainRanch, ironMountainRanchFaqs } from "./iron-mountain-ranch";
+import {
+  ironMountainRanch,
+  ironMountainRanchFaqs,
+  IRON_MOUNTAIN_RANCH_HUB_PATH,
+} from "./iron-mountain-ranch";
+import { IMR_COMMUNITY_PLACE_ID } from "./imr-seo-schema";
 import { getAgentHeadshotUrl } from "./agent-photos";
 import { agentInfo, officeInfo, siteConfig } from "./site-config";
 import { absoluteUrl, getGbpAggregateRating } from "./site-url";
@@ -16,7 +21,7 @@ const agentHeadshotUrl = getAgentHeadshotUrl();
 const ORG_ID = `${absoluteUrl("/")}#organization`;
 const AGENT_ID = `${absoluteUrl("/")}#agent`;
 const LOCAL_BUSINESS_ID = `${absoluteUrl("/")}#localbusiness`;
-const NEIGHBORHOOD_ID = `${absoluteUrl("/sub-communities")}#neighborhood`;
+const NEIGHBORHOOD_ID = IMR_COMMUNITY_PLACE_ID;
 const LISTING_SERVICE_ID = `${absoluteUrl("/buy")}#listing-service`;
 
 const postalAddress = {
@@ -107,7 +112,7 @@ export function generateNeighborhoodSchema() {
     "@id": NEIGHBORHOOD_ID,
     name: ironMountainRanch.name,
     description: ironMountainRanch.description,
-    url: absoluteUrl("/sub-communities"),
+    url: absoluteUrl(IRON_MOUNTAIN_RANCH_HUB_PATH),
     containedInPlace: {
       "@type": "City",
       name: "Las Vegas",

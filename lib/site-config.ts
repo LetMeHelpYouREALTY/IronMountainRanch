@@ -61,6 +61,7 @@ export const officeInfo = {
 /** Primary site navigation — URL architecture for Google + users */
 export const primaryNav = [
   { href: "/", label: "Home" },
+  { href: "/neighborhoods/iron-mountain-ranch", label: "Iron Mountain Ranch" },
   { href: "/buy#imr-search", label: "Buy" },
   { href: "/sell#schedule-consultation", label: "Sell" },
   { href: "/home-valuation#schedule-consultation", label: "Home Value" },

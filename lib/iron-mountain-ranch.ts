@@ -67,7 +67,47 @@ export const ironMountainRanch = {
   /** Visible copy for HOA/LMA — IMR only; not Spring Mountain Ranch (different community). */
   hoaOverview:
     "Iron Mountain Ranch uses village HOAs plus a community Landscape Maintenance Association (LMA) for shared parks, ponds, and desert landscaping. Dues and coverage differ by village and lot—there is no single HOA fee for the entire master plan.",
+  builder: {
+    name: "KB Home",
+    summary:
+      "KB Home developed the numbered Iron Mountain Ranch villages from 2002 forward. Today's MLS is overwhelmingly resale of KB floor plans—typically 3–4 bedroom single-family homes on larger northwest lots—with Iron Mountain Estates and other enclaves offering larger custom-style builds in 89143.",
+  },
+  schoolsNote:
+    "School assignments are address-specific in Clark County School District (CCSD). Verify zoning for your lot before you close—village marketing materials do not guarantee a particular campus.",
+  schools: [
+    {
+      name: "O'Callaghan Middle School",
+      grades: "6–8",
+      note: "Frequently assigned to 89131 Iron Mountain Ranch addresses",
+    },
+    {
+      name: "Molasky Junior High School",
+      grades: "6–8",
+      note: "Serves portions of northwest 89131 near the IMR corridor",
+    },
+    {
+      name: "Centennial High School",
+      grades: "9–12",
+      note: "Common high school for northwest Centennial Hills / IMR buyers",
+    },
+    {
+      name: "Ernest J. Moore Elementary School",
+      grades: "K–5",
+      note: "Verify for your village block—elementary zones vary by street",
+    },
+  ],
+  zipGuide: {
+    zip89131:
+      "Most numbered villages (Village 1-A through 11), Bradley Ranch, Quarterhorse Estate, and Wolf Creek (Village 4) list in zip code 89131. Buyers search “Iron Mountain Ranch 89131” for gated KB resale near Centennial Hills and US-95.",
+    zip89143:
+      "Iron Mountain Estates and select estate parcels sit in 89143 along the Kyle Canyon corridor. Larger floor plans and cul-de-sac lots dominate MLS marketing—confirm zip and HOA package on each listing.",
+  },
 } as const;
+
+/** Primary MLS zip for village guides and schema (estates → 89143). */
+export function getVillagePrimaryZip(slug: string): "89131" | "89143" {
+  return slug === "iron-mountain-estates" ? "89143" : "89131";
+}
 
 export const subCommunities: SubCommunity[] = [
   {

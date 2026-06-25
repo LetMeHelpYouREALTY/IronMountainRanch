@@ -5,6 +5,7 @@ import {
   getImrPageContext,
   IMR_HYPERLOCAL_FACTS,
 } from "@/lib/imr-hyperlocal-content";
+import { IRON_MOUNTAIN_RANCH_HUB_PATH } from "@/lib/iron-mountain-ranch";
 import { ironMountainRanchMarket } from "@/lib/lv-regional-market";
 
 type ImrPageContextProps = {
@@ -27,6 +28,13 @@ export default function ImrPageContext({ path }: ImrPageContextProps) {
           <span className="hidden sm:inline">·</span>
           <MapPin className="h-4 w-4 text-blue-600 sm:hidden" aria-hidden />
           <span>~{IMR_HYPERLOCAL_FACTS.homeCount.toLocaleString()} gated homes</span>
+          <span className="hidden sm:inline">·</span>
+          <Link
+            href={IRON_MOUNTAIN_RANCH_HUB_PATH}
+            className="font-semibold text-blue-600 hover:underline"
+          >
+            Iron Mountain Ranch homes for sale
+          </Link>
         </div>
 
         <h2
@@ -74,6 +82,12 @@ export default function ImrPageContext({ path }: ImrPageContextProps) {
               Iron Mountain Ranch villages
             </p>
             <div className="flex flex-wrap gap-2">
+              <Link
+                href={IRON_MOUNTAIN_RANCH_HUB_PATH}
+                className="rounded-full border border-blue-600 bg-white px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50"
+              >
+                Iron Mountain Ranch homes for sale
+              </Link>
               <Link
                 href="/sub-communities"
                 className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"

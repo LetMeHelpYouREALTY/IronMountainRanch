@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getDomainConfig } from "@/lib/domain-config";
 import { buildSocialImageMetadata } from "@/lib/metadata-social";
+import { resolvePageKeywords } from "@/lib/page-keywords";
 import { absoluteUrl } from "@/lib/site-url";
 
 const SITE_DOMAIN = "ironmountainranchlasvegas.com";
@@ -26,7 +27,7 @@ export function buildPageMetadata(input: PageMetadataInput): Metadata {
   return {
     title: input.title,
     description: input.description,
-    ...(input.keywords?.length ? { keywords: input.keywords } : {}),
+    keywords: resolvePageKeywords(input.path, input.keywords),
     alternates: { canonical },
     openGraph: {
       title: input.title,
