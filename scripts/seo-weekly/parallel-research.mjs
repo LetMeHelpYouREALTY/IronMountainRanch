@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Parallel Search API — weekly SEO / AEO / GEO research digest.
+ * Parallel Search + Extract — weekly SEO / AEO / GEO research digest.
  * @see https://docs.parallel.ai/search/search-quickstart
+ * @see https://docs.parallel.ai/extract/extract-quickstart
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { parallelExtract, parallelSearch } from "./parallel-client.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "../..");
@@ -51,47 +53,59 @@ const RESEARCH_PACKS = [
       "gated communities Centennial Hills Las Vegas buyer guide",
     ],
   },
+  {
+    label: "Competitor SEO — Northwest Las Vegas",
+    objective:
+      "Identify SEO content strategies used by competing Las Vegas gated community and neighborhood real estate sites in northwest Las Vegas.",
+    search_queries: [
+      "Centennial Hills Las Vegas real estate blog content strategy",
+      "gated community Las Vegas SEO neighborhood pages",
+      "Las Vegas hyperlocal real estate website FAQ schema",
+    ],
+  },
+  {
+    label: "Las Vegas Market Trends (2026)",
+    objective:
+      "Summarize current Las Vegas residential market trends relevant to Iron Mountain Ranch buyers and sellers: inventory, median price, days on market.",
+    search_queries: [
+      "Las Vegas housing market inventory 2026",
+      "northwest Las Vegas home prices trend 2026",
+      "Las Vegas gated community resale market 2026",
+    ],
+  },
 ];
 
-async function parallelSearch({ objective, search_queries, session_id }) {
-  const apiKey = process.env.PARALLEL_API_KEY?.trim();
-  if (!apiKey) {
-    return { skipped: true, reason: "PARALLEL_API_KEY not set" };
-  }
-
-  const response = await fetch("https://api.parallel.ai/v1/search", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey,
-    },
-    body: JSON.stringify({
-      objective,
-      search_queries,
-      ...(session_id ? { session_id } : {}),
-    }),
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Parallel search failed (${response.status}): ${text}`);
-  }
-
-  return response.json();
-}
+const COMPETITOR_EXTRACT = {
+  label: "Competitor Page Extract",
+  urls: [
+    "https://www.realtor.com/realestateandhomes-search/Iron-Mountain-Ranch_Las-Vegas_NV",
+    "https://www.redfin.com/neighborhood/89131/NV/Las-Vegas/Iron-Mountain-Ranch",
+  ],
+  objective:
+    "Extract listing counts, price ranges, and neighborhood positioning copy useful for Iron Mountain Ranch SEO differentiation.",
+};
 
 function formatSection(label, data) {
   if (data.skipped) {
     return `## ${label}\n\n_Skipped: ${data.reason}_\n`;
   }
-  const lines = [`## ${label}`, "", `Search ID: ${data.search_id}`, ""];
-  for (const result of (data.results ?? []).slice(0, 4)) {
+  const lines = [`## ${label}`, ""];
+
+  if (data.search_id) lines.push(`Search ID: ${data.search_id}`, "");
+  if (data.extract_id) lines.push(`Extract ID: ${data.extract_id}`, "");
+
+  const results = data.results ?? [];
+  for (const result of results.slice(0, 4)) {
     lines.push(`### ${result.title ?? result.url}`);
-    lines.push(`Source: ${result.url}`);
+    if (result.url) lines.push(`Source: ${result.url}`);
     if (result.publish_date) lines.push(`Published: ${result.publish_date}`);
     lines.push("");
     for (const excerpt of (result.excerpts ?? []).slice(0, 2)) {
       lines.push(String(excerpt).trim());
+      lines.push("");
+    }
+    if (result.content) {
+      lines.push(String(result.content).trim().slice(0, 1500));
       lines.push("");
     }
   }
@@ -113,6 +127,13 @@ export async function runParallelResearch() {
     sections.push(formatSection(pack.label, data));
   }
 
+  console.log(`Parallel extract: ${COMPETITOR_EXTRACT.label}`);
+  const extractData = await parallelExtract({
+    urls: COMPETITOR_EXTRACT.urls,
+    objective: COMPETITOR_EXTRACT.objective,
+  });
+  sections.push(formatSection(COMPETITOR_EXTRACT.label, extractData));
+
   const stamp = new Date().toISOString().slice(0, 10);
   const outDir = path.join(ROOT, "reports/seo-weekly");
   fs.mkdirSync(outDir, { recursive: true });
@@ -128,6 +149,7 @@ export async function runParallelResearch() {
     ``,
     `- Apply research manually or via follow-up PRs; this job does not rewrite marketing copy without human review.`,
     `- NAP and GBP fields must stay aligned with lib/site-contact.ts.`,
+    `- Competitor extracts are for positioning research only — do not copy MLS data verbatim.`,
     ``,
   ].join("\n");
   fs.writeFileSync(mdPath, body, "utf8");
