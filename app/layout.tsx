@@ -14,6 +14,7 @@ import {
   getGoogleSearchConsoleVerification,
   getSiteUrl,
 } from "@/lib/site-url";
+import { getAgentHeadshotSrc } from "@/lib/agent-photos";
 import { botIdProtectedRoutes } from "@/lib/botid-routes";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
@@ -21,6 +22,7 @@ import SiteJsonLd from "@/components/seo/SiteJsonLd";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import CalendlyRoot from "@/components/calendly/CalendlyRoot";
 import { BotIdClient } from "botid/client";
+import GlobalHeroBanner from "@/components/layout/GlobalHeroBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
   const domain = headers().get("x-domain") || "";
@@ -52,6 +54,10 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     ...(verification ? { verification } : {}),
+    icons: {
+      icon: [{ url: getAgentHeadshotSrc(), sizes: "32x32", type: "image/png" }],
+      apple: [{ url: getAgentHeadshotSrc(), sizes: "180x180", type: "image/png" }],
+    },
   };
 }
 
@@ -81,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</Script>
       </head>
       <body>
+        <GlobalHeroBanner />
         <SiteJsonLd />
         {children}
         <CalendlyRoot />
