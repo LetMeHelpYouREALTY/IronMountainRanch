@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PropertyPageProps): Promise<M
   return buildPageMetadata({
     title: "Iron Mountain Ranch Property Details | Las Vegas MLS",
     description:
-      "View Iron Mountain Ranch and northwest Las Vegas MLS property details. Listing information from Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "View Iron Mountain Ranch and northwest Las Vegas MLS property details. Listing information from Dr. Jan Duffy, REALTOR®.",
     path: `/listings/${id}`,
     keywords: ["Iron Mountain Ranch MLS listing", "Las Vegas property details", "89131 home listing"],
   });
@@ -138,7 +138,7 @@ export default async function PropertyPage({ params }: PropertyPageProps) {
                 <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Agent</h3>
                 <p className="text-slate-600 mb-4">Dr. Jan Duffy</p>
                 <p className="text-sm text-slate-600 mb-6">
-                  Berkshire Hathaway HomeServices Nevada Properties
+                  Dr. Jan Duffy, REALTOR® · In real estate since 1983
                 </p>
                 <div className="space-y-3">
                   <Button asChild className="w-full bg-blue-600 hover:bg-blue-700">

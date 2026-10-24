@@ -24,7 +24,7 @@ import { IMR_TOPICAL_GUIDES } from "@/lib/imr-topical-pages";
 export const metadata: Metadata = buildPageMetadata({
   title: "Iron Mountain Ranch Las Vegas Homes for Sale | 89131 & 89143",
   description:
-    "Iron Mountain Ranch Las Vegas homes for sale in gated 89131 & 89143 — villages, Iron Mountain Estates, schools, HOA, and MLS search. Dr. Jan Duffy, BHHS Nevada Properties. Call (702) 996-3758.",
+    "Iron Mountain Ranch Las Vegas homes for sale in gated 89131 & 89143 — villages, Iron Mountain Estates, schools, HOA, and MLS search. Dr. Jan Duffy, REALTOR®. Call (702) 996-3758.",
   path: IRON_MOUNTAIN_RANCH_HUB_PATH,
   keywords: [
     "Iron Mountain Ranch Las Vegas",
@@ -124,7 +124,6 @@ export default function IronMountainRanchPage() {
                 Matches Google Business Profile for {agentInfo.name}
               </p>
               <address className="not-italic text-sm space-y-2 text-slate-200">
-                <p>{agentInfo.brokerage}</p>
                 <p>{officeInfo.address.full}</p>
                 <p>
                   <a href={agentInfo.phoneTel} className="hover:text-blue-300">

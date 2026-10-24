@@ -23,8 +23,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Relocating to Las Vegas | Berkshire Hathaway HomeServices",
-  description: "Moving to Las Vegas? Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 996-3758.",
+  title: "Relocating to Las Vegas | Dr. Jan Duffy",
+  description: "Moving to Las Vegas? Dr. Jan Duffy provides comprehensive relocation services. Schools, neighborhoods, cost of living. Call (702) 996-3758.",
   path: "/relocation",
   keywords: ["relocating to Las Vegas","moving to Las Vegas","Las Vegas relocation services","moving to Henderson Nevada","California to Las Vegas","Las Vegas relocation agent","moving from California to Nevada","Las Vegas real estate relocation"],
 });
@@ -85,7 +85,7 @@ const relocationServices = [
   "Personalized neighborhood matching based on your priorities",
   "School district research and tour coordination",
   "Virtual home tours before you arrive",
-  "Coordination with your current BHHS agent",
+  "Coordination with your current agent",
   "Cost of living and budget comparison",
   "Commute time analysis to your workplace",
   "Community and lifestyle matching",
@@ -108,10 +108,10 @@ export default function RelocationPage() {
         <IronMountainPageHero
           path="/relocation"
           title="Relocating to Las Vegas?"
-          subtitle="Berkshire Hathaway HomeServices makes your move seamless. With 50,000+ agents nationwide, we coordinate your relocation from anywhere in the country. Whether you're moving from California, the Midwest, or across the globe, Dr. Jan Duffy provides comprehensive relocation services to ensure your transition is stress-free."
+          subtitle="Whether you're moving from California, the Midwest, or across the globe, Dr. Jan Duffy provides comprehensive relocation services to ensure your transition is stress-free."
         >
           <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-            <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> 50,000+ Agent Network</span>
+            <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> In Real Estate Since 1983</span>
             <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Virtual Home Tours</span>
             <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> School Research</span>
           </div>
@@ -158,12 +158,12 @@ export default function RelocationPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Moving to a new city is stressful enough. I handle everything from neighborhood
                 tours to school research to contractor referrals so you can focus on your new
-                beginning. And because Berkshire Hathaway HomeServices has agents nationwide, I can
+                beginning. I can also
                 coordinate with your agent back home to make the transition seamless. My goal is to 
                 make Las Vegas feel like home before you even arrive."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties | Serving Las Vegas Since 2008
+                — Dr. Jan Duffy, REALTOR® | In Real Estate Since 1983
               </cite>
             </div>
           </section>
@@ -321,40 +321,6 @@ export default function RelocationPage() {
             </div>
           </section>
 
-          {/* BHHS Network */}
-          <section className="mb-16 max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4 text-center">
-              The Berkshire Hathaway HomeServices Advantage
-            </h2>
-            <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
-              With 50,000+ agents in 1,500+ offices worldwide, Berkshire Hathaway HomeServices 
-              provides seamless coordination for relocations. Your agent back home can connect 
-              directly with Dr. Jan to ensure a smooth transition—no gaps, no miscommunication.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-slate-50 rounded-xl">
-                <Globe className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Nationwide Network</h3>
-                <p className="text-slate-600 text-sm">
-                  Seamless referrals from any BHHS agent in the country directly to Dr. Jan
-                </p>
-              </div>
-              <div className="text-center p-6 bg-slate-50 rounded-xl">
-                <Shield className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Coordinated Transactions</h3>
-                <p className="text-slate-600 text-sm">
-                  Sell your current home and buy in Las Vegas with coordinated timelines
-                </p>
-              </div>
-              <div className="text-center p-6 bg-slate-50 rounded-xl">
-                <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Trusted Referrals</h3>
-                <p className="text-slate-600 text-sm">
-                  Not using BHHS? Dr. Jan can recommend a trusted agent in your area
-                </p>
-              </div>
-            </div>
-          </section>
 
           {/* FAQ */}
           <section className="mb-16 max-w-4xl mx-auto">
@@ -381,7 +347,7 @@ export default function RelocationPage() {
                 },
                 {
                   q: "Do you help coordinate the sale of my current home too?",
-                  a: "Yes! Through the BHHS referral network, Dr. Jan can connect you with a trusted agent in your current city. This coordination ensures both transactions stay on track with synchronized timelines for a seamless transition.",
+                  a: "Yes! Through her referral network, Dr. Jan can connect you with a trusted agent in your current city. This coordination ensures both transactions stay on track with synchronized timelines for a seamless transition.",
                 },
                 {
                   q: "What's the job market like in Las Vegas?",
@@ -404,7 +370,7 @@ export default function RelocationPage() {
           <section className="text-center bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Planning Your Move to Las Vegas?</h2>
             <p className="text-xl text-slate-300 mb-8">
-              Let Dr. Jan Duffy and Berkshire Hathaway HomeServices make your relocation stress-free.
+              Let Dr. Jan Duffy make your relocation stress-free.
               Whether you're moving next month or exploring options, a free consultation can help 
               you understand the Las Vegas market and plan your transition.
             </p>
@@ -424,7 +390,7 @@ export default function RelocationPage() {
               </Link>
             </div>
             <p className="mt-4 text-slate-400 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

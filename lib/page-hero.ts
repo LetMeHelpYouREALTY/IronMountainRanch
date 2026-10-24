@@ -185,7 +185,7 @@ const ROUTE_HEROES: RouteHeroRule[] = [
       imageKey: "sheep-range",
       alt: "Dr. Jan Duffy — Iron Mountain Ranch and northwest Las Vegas real estate specialist",
       locationBadge: IMR_BADGE,
-      locationDetail: `Berkshire Hathaway HomeServices · ${ZIP_BADGE}`,
+      locationDetail: `Top 1% Las Vegas REALTOR® · ${ZIP_BADGE}`,
     },
   },
   {

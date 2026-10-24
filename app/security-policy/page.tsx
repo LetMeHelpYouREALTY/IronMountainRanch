@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   ...buildPageMetadata({
     title: "Security Policy | Iron Mountain Ranch Las Vegas",
     description:
-      "Security policy and responsible disclosure for ironmountainranchlasvegas.com — operated by Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+      "Security policy and responsible disclosure for ironmountainranchlasvegas.com — operated by Dr. Jan Duffy.",
     path: "/security-policy",
   }),
   robots: {

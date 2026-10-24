@@ -194,7 +194,7 @@ export default function NeighborhoodsPage() {
                 valley averages.&rdquo;
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, BHHS Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -244,7 +244,7 @@ export default function NeighborhoodsPage() {
               Call (702) 996-3758
             </a>
             <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

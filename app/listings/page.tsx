@@ -120,7 +120,7 @@ export default function ListingsPage() {
         <IronMountainPageHero
           path="/listings"
           title="Las Vegas Homes for Sale"
-          subtitle="Search thousands of Las Vegas, Henderson, and Summerlin properties with live MLS listings updated every 15 minutes. Find your dream home with expert guidance from Dr. Jan Duffy at Berkshire Hathaway HomeServices."
+          subtitle="Search thousands of Las Vegas, Henderson, and Summerlin properties with live MLS listings updated every 15 minutes. Find your dream home with expert guidance from Dr. Jan Duffy."
         >
           <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
             <span className="flex items-center"><CheckCircle className="h-4 w-4 text-green-400 mr-1" /> Live MLS Data</span>
@@ -214,8 +214,7 @@ export default function ListingsPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Each Las Vegas neighborhood offers a unique lifestyle, from the resort-style living 
               of Summerlin to the family-friendly communities of Henderson. Understanding these 
-              differences is crucial to finding a home that fits your needs. As a Berkshire 
-              Hathaway HomeServices agent serving Las Vegas since 2008, Dr. Jan Duffy provides 
+              differences is crucial to finding a home that fits your needs. In real estate since 1983, Dr. Jan Duffy provides 
               expert guidance on which neighborhoods match your priorities—whether that's schools, 
               commute times, amenities, or investment potential.
             </p>
@@ -247,13 +246,12 @@ export default function ListingsPage() {
           {/* Why Use an Agent Section */}
           <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold mb-6 text-center">
-              Why Work With a Berkshire Hathaway HomeServices Agent
+              Why Work With Dr. Jan Duffy
             </h2>
             <p className="text-slate-300 text-center max-w-3xl mx-auto mb-8">
               In today's competitive Las Vegas market, having expert representation can mean the 
               difference between winning your dream home and losing out. Dr. Jan Duffy brings 
-              the resources of Berkshire Hathaway HomeServices—the most trusted name in real estate—
-              combined with deep local market knowledge from serving Las Vegas since 2008.
+              deep local market knowledge from her years in real estate since 1983.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center">
@@ -262,7 +260,7 @@ export default function ListingsPage() {
                 </div>
                 <h3 className="font-bold mb-2">Off-Market Access</h3>
                 <p className="text-slate-400 text-sm">
-                  See listings before they hit the MLS through our network of 50,000+ agents
+                  See listings before they hit the MLS through her agent network
                 </p>
               </div>
               <div className="text-center">
@@ -334,8 +332,7 @@ export default function ListingsPage() {
             <p className="text-slate-600 text-center max-w-3xl mx-auto mb-8">
               Buying a home is one of the most significant financial decisions you'll make. 
               Understanding the process helps reduce stress and ensures you're prepared at each 
-              step. Here's what to expect when purchasing a home in Las Vegas with Dr. Jan Duffy 
-              and Berkshire Hathaway HomeServices.
+              step. Here's what to expect when purchasing a home in Las Vegas with Dr. Jan Duffy.
             </p>
             <div className="space-y-6">
               <div className="flex items-start">
@@ -466,7 +463,7 @@ export default function ListingsPage() {
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Contact Dr. Jan Duffy for personalized guidance, off-market listings, and expert 
-              representation backed by Berkshire Hathaway HomeServices. Free buyer consultations 
+              representation from a REALTOR® in real estate since 1983. Free buyer consultations 
               available—the seller pays the commission.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -485,7 +482,7 @@ export default function ListingsPage() {
               </Link>
             </div>
             <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

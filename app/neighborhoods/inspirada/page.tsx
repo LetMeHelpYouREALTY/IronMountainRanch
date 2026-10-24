@@ -8,8 +8,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Berkshire Hathaway HomeServices Inspirada | Henderson Resort Living",
-  description: "Find Inspirada homes with Berkshire Hathaway HomeServices Nevada Properties. Dr. Jan Duffy specializes in Henderson's resort-style community. Median price $525K. Call (702) 996-3758.",
+  title: "Inspirada Real Estate | Henderson Resort Living",
+  description: "Find Inspirada homes with Dr. Jan Duffy, in real estate since 1983. She specializes in Henderson's resort-style community. Median price $525K. Call (702) 996-3758.",
   path: "/neighborhoods/inspirada",
   keywords: ["Berkshire Hathaway HomeServices Inspirada","Inspirada homes for sale","Inspirada Henderson","Henderson master planned","resort style community"],
 });
@@ -64,8 +64,8 @@ export default function InspiradaPage() {
       <main>
         <IronMountainPageHero
           path="/neighborhoods/inspirada"
-          title="Berkshire Hathaway HomeServices Inspirada"
-          subtitle="Resort-style living in Henderson. Discover Inspirada with Berkshire Hathaway HomeServices and Dr. Jan Duffy."
+          title="Inspirada Real Estate"
+          subtitle="Resort-style living in Henderson. Discover Inspirada with Dr. Jan Duffy."
         />
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
@@ -114,7 +114,7 @@ export default function InspiradaPage() {
                 <strong>Inspirada</strong> redefines what a master-planned community can be. This
                 2,000-acre development in Henderson consistently ranks among the nation's top-selling
                 communities, and for good reason: Inspirada delivers resort-style amenities that make
-                every day feel like a vacation. <strong>Berkshire Hathaway HomeServices</strong>
+                every day feel like a vacation. <strong>Dr. Jan Duffy</strong>
                 is proud to represent buyers and sellers in this exceptional community.
               </p>
               <p>
@@ -126,11 +126,11 @@ export default function InspiradaPage() {
                 to Inspirada's identity.
               </p>
               <p>
-                <strong>Berkshire Hathaway HomeServices Nevada Properties</strong> provides free
+                <strong>Dr. Jan Duffy</strong> provides free
                 buyer representation on Inspirada new construction purchases. With multiple builders
                 offering homes in the community, navigating options can be overwhelming. Dr. Jan Duffy
                 helps buyers compare builders, negotiate upgrades, and avoid common new construction
-                pitfalls. For resales, BHHS agents identify properties where previous owners made
+                pitfalls. For resales, Dr. Jan identify properties where previous owners made
                 smart upgrade decisions, delivering better value than comparable new construction.
               </p>
 
@@ -276,8 +276,8 @@ export default function InspiradaPage() {
                 established yards and upgraded features offer compelling alternatives.
               </p>
               <p>
-                Choosing <strong>Berkshire Hathaway HomeServices</strong> for your Inspirada purchase
-                means working with agents who understand the community's various neighborhoods, which
+                Choosing Dr. Jan Duffy for your Inspirada purchase
+                means working with an agent who understands the community's various neighborhoods, which
                 builders offer the best quality, and which lots provide the best value. Dr. Jan Duffy
                 has helped dozens of families find their Inspirada homes, and that experience
                 translates into better outcomes for buyers navigating this popular community.
@@ -291,12 +291,12 @@ export default function InspiradaPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Inspirada isn't just a place to live—it's a lifestyle. Families move here for the
                 pools, the trails, and the community events that make weekends special. As a
-                Berkshire Hathaway HomeServices agent, I help clients find the specific neighborhood
+                REALTOR® in real estate since 1983, I help clients find the specific neighborhood
                 within Inspirada that matches how they want to live, whether that's close to the
                 main pool complex or on a quiet cul-de-sac backing to open space."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -356,7 +356,7 @@ export default function InspiradaPage() {
               Experience Inspirada Living
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Contact Dr. Jan Duffy, your Berkshire Hathaway HomeServices Inspirada specialist,
+              Contact Dr. Jan Duffy, your Inspirada specialist,
               for expert guidance in Henderson's premier resort-style community.
             </p>
             <a
@@ -367,7 +367,7 @@ export default function InspiradaPage() {
               Call (702) 996-3758
             </a>
             <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

@@ -165,11 +165,11 @@ export default async function Home() {
             <div className="flex flex-wrap justify-center gap-6 text-white/80 text-sm">
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">500+</span>
-                <span>Families Helped</span>
+                <span>Transactions</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-semibold text-white">30+ Years</span>
-                <span>Las Vegas Experience</span>
+                <span className="font-semibold text-white">Since 1983</span>
+                <span>In Real Estate</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-white">4.9★</span>
@@ -187,8 +187,7 @@ export default async function Home() {
                 Why Work With Dr. Jan Duffy?
               </h2>
               <p className="text-lg text-slate-600">
-                Iron Mountain Ranch, Las Vegas, Nevada — gated villages in 89131 &amp; 89143, backed by
-                Berkshire Hathaway HomeServices Nevada Properties.{" "}
+                Iron Mountain Ranch, Las Vegas, Nevada — gated villages in 89131 &amp; 89143, with Dr. Jan Duffy, Top 1% Las Vegas REALTOR®.{" "}
                 <Link href={IRON_MOUNTAIN_RANCH_HUB_PATH} className="text-blue-600 font-semibold hover:underline">
                   Community guide &amp; homes for sale
                 </Link>
@@ -303,7 +302,7 @@ export default async function Home() {
               </a>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Dr. Jan Duffy | License S.0197614.LLC | Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </div>
         </section>

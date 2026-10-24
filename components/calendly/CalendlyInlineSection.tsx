@@ -17,7 +17,7 @@ type CalendlyInlineSectionProps = {
 export default function CalendlyInlineSection({
   utm,
   title = "Schedule an In-Person Real Estate Consultation",
-  subtitle = "Meet with Dr. Jan Duffy at Berkshire Hathaway HomeServices — buyer tours, seller pricing, and Iron Mountain Ranch village guidance.",
+  subtitle = "Meet with Dr. Jan Duffy — buyer tours, seller pricing, and Iron Mountain Ranch village guidance.",
   height = "700px",
   id = "schedule-consultation",
   variant = "default",

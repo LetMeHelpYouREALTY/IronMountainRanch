@@ -47,7 +47,7 @@ export default function MarketReportPage() {
         <IronMountainPageHero
           path="/market-report"
           title="Iron Mountain Ranch Market Report | Northwest Las Vegas 89131"
-          subtitle={`${REGIONAL_MARKET_LAST_UPDATED} | Iron Mountain Ranch village stats plus valley comparison from Berkshire Hathaway HomeServices Nevada Properties`}
+          subtitle={`${REGIONAL_MARKET_LAST_UPDATED} | Iron Mountain Ranch village stats plus valley comparison from Dr. Jan Duffy`}
         />
         <div className="container mx-auto px-4 py-16">
           {/* Key Stats Overview */}
@@ -158,7 +158,7 @@ export default function MarketReportPage() {
                 proper pricing and preparation."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
 
@@ -278,7 +278,7 @@ export default function MarketReportPage() {
               Call (702) 996-3758
             </a>
             <p className="mt-4 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

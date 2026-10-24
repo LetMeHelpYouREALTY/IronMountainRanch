@@ -147,7 +147,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 mt-8 pt-8 text-center">
           <p className="text-slate-400 text-sm">
-            © {currentYear} {siteConfig.name}. {agentInfo.brokerage}. License {agentInfo.license}.
+            © {currentYear} {siteConfig.name}. {agentInfo.brokerage} since September 2008 · License {agentInfo.license}
           </p>
           <Link href="/sitemap.xml" className="text-slate-500 text-xs mt-2 inline-block hover:text-white">
             Sitemap

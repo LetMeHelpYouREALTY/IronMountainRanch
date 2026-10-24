@@ -82,7 +82,7 @@ export default function SellPage() {
               {
                 icon: Camera,
                 title: "Professional Marketing",
-                desc: "Photography, syndication, and BHHS global buyer network.",
+                desc: "Photography, syndication, and broad buyer exposure.",
               },
               {
                 icon: TrendingUp,
@@ -111,7 +111,7 @@ export default function SellPage() {
           <CalendlyInlineSection
             utm={{ ...sellUtm, utmContent: "sell-midpage" }}
             title="Book Your Seller Consultation"
-            subtitle="Choose a time for an in-person meeting — Iron Mountain Ranch pricing, staging, and BHHS marketing plan."
+            subtitle="Choose a time for an in-person meeting — Iron Mountain Ranch pricing, staging, and marketing plan."
             id="schedule-consultation-mid"
           />
         </div>

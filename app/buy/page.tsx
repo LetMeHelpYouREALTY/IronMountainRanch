@@ -78,8 +78,8 @@ export default function BuyPage({
               },
               {
                 icon: Shield,
-                title: "BHHS Backed",
-                desc: "Warren Buffett's brand with local Iron Mountain Ranch expertise.",
+                title: "Since 1983",
+                desc: "Decades of real estate experience with local Iron Mountain Ranch expertise.",
               },
             ].map(({ icon: Icon, title, desc }) => (
               <div key={title} className="bg-slate-50 rounded-xl p-6 text-center">

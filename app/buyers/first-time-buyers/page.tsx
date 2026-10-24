@@ -21,8 +21,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "First-Time Home Buyers Las Vegas | Berkshire Hathaway HomeServices",
-  description: "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and expert guidance from Dr. Jan Duffy at Berkshire Hathaway HomeServices. Call (702) 996-3758.",
+  title: "First-Time Home Buyers Las Vegas | Dr. Jan Duffy",
+  description: "First-time buyer in Las Vegas? Down payment assistance, builder incentives, and expert guidance from Dr. Jan Duffy. Call (702) 996-3758.",
   path: "/buyers/first-time-buyers",
   keywords: ["first time home buyer Las Vegas","first time buyer Nevada","down payment assistance Las Vegas","FHA loans Las Vegas","VA loans Las Vegas","Berkshire Hathaway HomeServices first time buyer"],
 });
@@ -451,7 +451,7 @@ export default function FirstTimeBuyersPage() {
                 </h3>
                 <p className="text-slate-600">
                   No! Buyer's agent services are typically free to buyers—the seller pays the commission.
-                  You get full professional representation from Berkshire Hathaway HomeServices at no
+                  You get full professional representation from Dr. Jan Duffy at no
                   cost to you.
                 </p>
               </div>
@@ -475,12 +475,12 @@ export default function FirstTimeBuyersPage() {
               <blockquote className="text-lg text-slate-700 italic mb-4">
                 "Buying your first home is exciting AND overwhelming. My job is to make it less
                 overwhelming. I walk first-time buyers through every step, explain everything in
-                plain English, and make sure you're confident in your decision. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent, I have resources and
-                connections that independent agents simply don't have."
+                plain English, and make sure you're confident in your decision. As a REALTOR®
+                in real estate since 1983, I have resources and
+                connections built over decades in this market."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -510,7 +510,7 @@ export default function FirstTimeBuyersPage() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

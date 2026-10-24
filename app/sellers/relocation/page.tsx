@@ -18,8 +18,8 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Relocation Home Sales Las Vegas | Berkshire Hathaway HomeServices",
-  description: "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates with BHHS offices nationwide. Call (702) 996-3758.",
+  title: "Relocation Home Sales Las Vegas | Dr. Jan Duffy",
+  description: "Leaving Las Vegas for a new opportunity? Dr. Jan Duffy helps relocating homeowners sell fast and coordinates both ends of your move. Call (702) 996-3758.",
   path: "/sellers/relocation",
   keywords: ["relocation sale Las Vegas","job relocation Las Vegas","sell home fast Las Vegas","Berkshire Hathaway relocation services","corporate relocation Nevada"],
 });
@@ -60,35 +60,6 @@ export default function RelocationPage() {
             </nav>
           </div>
 
-          {/* Network Advantage */}
-          <section className="mb-16 bg-slate-900 text-white rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
-            <div className="flex items-center justify-center mb-6">
-              <Globe className="h-8 w-8 mr-3 text-blue-400" />
-              <h2 className="text-3xl font-bold">Berkshire Hathaway HomeServices Network</h2>
-            </div>
-            <p className="text-center text-slate-300 mb-8 max-w-2xl mx-auto">
-              When you work with Dr. Jan, you're not just getting a Las Vegas agent—you're
-              tapping into the most trusted real estate network in America.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center bg-white/10 rounded-xl p-6">
-                <div className="text-4xl font-bold text-blue-400 mb-2">50,000+</div>
-                <div className="text-slate-300">Agents Nationwide</div>
-              </div>
-              <div className="text-center bg-white/10 rounded-xl p-6">
-                <div className="text-4xl font-bold text-blue-400 mb-2">1,500+</div>
-                <div className="text-slate-300">Offices Across US</div>
-              </div>
-              <div className="text-center bg-white/10 rounded-xl p-6">
-                <div className="text-4xl font-bold text-blue-400 mb-2">#1</div>
-                <div className="text-slate-300">Brand Trust Rating</div>
-              </div>
-            </div>
-            <p className="text-center text-slate-300 mt-8">
-              Moving to Dallas? Phoenix? Chicago? We connect you with top-rated BHHS agents
-              in your new city at no extra cost.
-            </p>
-          </section>
 
           {/* How We Help */}
           <section className="mb-16 max-w-5xl mx-auto">
@@ -154,9 +125,9 @@ export default function RelocationPage() {
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
-                      <strong className="text-slate-900">BHHS Agent Referrals</strong>
+                      <strong className="text-slate-900">Agent Referrals</strong>
                       <p className="text-slate-600 text-sm">
-                        We connect you with top-producing BHHS agents in your destination city—
+                        We connect you with top-producing agents in your destination city—
                         professionals we trust to take care of you.
                       </p>
                     </div>
@@ -307,7 +278,7 @@ export default function RelocationPage() {
             </h2>
             <p className="text-slate-600 text-center mb-8 max-w-3xl mx-auto">
               Whether you're relocating for tech jobs in the Bay Area, corporate opportunities in Texas,
-              or sunshine in Florida, Dr. Jan connects you with top BHHS agents in your new city.
+              or sunshine in Florida, Dr. Jan connects you with top agents in your new city.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -348,7 +319,7 @@ export default function RelocationPage() {
                 <div className="bg-white border border-slate-200 rounded-xl p-6 flex-grow">
                   <h3 className="font-bold text-slate-900 mb-2">Destination Agent Connection</h3>
                   <p className="text-slate-600">
-                    Dr. Jan introduces you to a top-producing BHHS agent in your new city. They're briefed
+                    Dr. Jan introduces you to a top-producing agent in your new city. They're briefed
                     on your timeline, budget, and preferences before your first conversation.
                   </p>
                 </div>
@@ -429,7 +400,7 @@ export default function RelocationPage() {
             </h2>
             <div className="bg-green-50 border border-green-200 rounded-xl p-8">
               <p className="text-slate-700 mb-4">
-                If you're moving TO Las Vegas from another city, Dr. Jan welcomes referrals from BHHS
+                If you're moving TO Las Vegas from another city, Dr. Jan welcomes referrals from
                 agents nationwide. She provides:
               </p>
               <div className="grid md:grid-cols-2 gap-4">
@@ -474,12 +445,11 @@ export default function RelocationPage() {
               <blockquote className="text-lg italic mb-4">
                 "Relocation sales are complex because you're juggling two markets, two timelines,
                 and often a demanding new job. I take the Las Vegas side completely off your plate
-                so you can focus on your career. And because I'm part of{" "}
-                <strong>Berkshire Hathaway HomeServices</strong>, I can connect you with a trusted
+                so you can focus on your career. And I can connect you with a trusted
                 agent in your new city—someone who'll treat you like a VIP, not just a referral."
               </blockquote>
               <cite className="text-slate-300 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

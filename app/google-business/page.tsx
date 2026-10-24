@@ -66,7 +66,7 @@ export default function GoogleBusinessPage() {
         <IronMountainPageHero
           path="/google-business"
           title={siteConfig.name}
-          subtitle={`${googleBusinessProfile.agentName}, ${googleBusinessProfile.primaryCategory} · License ${businessInfo.license}`}
+          subtitle={`${googleBusinessProfile.agentName}, ${googleBusinessProfile.primaryCategory}`}
         >
           <GbpActionLinks />
         </IronMountainPageHero>

@@ -10,7 +10,7 @@ export const IRON_MOUNTAIN_RANCH_HUB_PATH = "/neighborhoods/iron-mountain-ranch"
 
 /** First-paragraph copy for the IMR hub — exact phrases buyers search. */
 export const ironMountainRanchHubIntro =
-  "Iron Mountain Ranch, Las Vegas, Nevada is a gated KB Home master-planned community in northwest Clark County (zip codes 89131 and 89143). This page is the hub for Iron Mountain Ranch homes for sale, houses in every gated village, and the Iron Mountain Estates enclave—plus buyer and seller representation from Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties.";
+  "Iron Mountain Ranch, Las Vegas, Nevada is a gated KB Home master-planned community in northwest Clark County (zip codes 89131 and 89143). This page is the hub for Iron Mountain Ranch homes for sale, houses in every gated village, and the Iron Mountain Estates enclave—plus buyer and seller representation from Dr. Jan Duffy, Top 1% Las Vegas REALTOR®.";
 import { communityPlusCode } from "@/lib/plus-codes";
 
 export type SubCommunity = {
@@ -272,7 +272,7 @@ export const ironMountainRanchFaqs = [
   },
   {
     question: "Who is the realtor for Iron Mountain Ranch villages?",
-    answer: `Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties. Contact ${email} or call ${phone} for village-specific MLS searches and showing coordination.`,
+    answer: `Dr. Jan Duffy, REALTOR®, in real estate since 1983. Contact ${email} or call ${phone} for village-specific MLS searches and showing coordination.`,
   },
   {
     question: "What is Iron Mountain Estates?",

@@ -23,7 +23,7 @@ import { agentInfo, officeInfo } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Relocating from California to Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Relocating from California to Las Vegas | Dr. Jan Duffy",
   description: "Moving from California to Las Vegas? Zero state income tax, 40-60% lower home prices, same sunshine. Dr. Jan Duffy helps CA relocators find their perfect Las Vegas home. Call (702) 996-3758.",
   path: "/buyers/california-relocator",
   keywords: ["California to Las Vegas relocation","moving from California to Nevada","California relocator Las Vegas","no state income tax Nevada","Las Vegas homes California buyers","Berkshire Hathaway HomeServices relocation"],
@@ -443,12 +443,12 @@ export default function CaliforniaRelocatorPage() {
                 "I've helped hundreds of California families make the move to Las Vegas. The most
                 common reaction? 'Why didn't we do this sooner?' Between the tax savings, the space,
                 and the lifestyle, most clients can't believe what their California equity buys here.
-                As a <strong>Berkshire Hathaway HomeServices</strong> agent, I coordinate with our
-                California offices to make the transition seamless—you don't have to figure this
+                As a REALTOR® in real estate since 1983, I coordinate with
+                agents in California to make the transition seamless—you don't have to figure this
                 out alone."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -478,7 +478,7 @@ export default function CaliforniaRelocatorPage() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>

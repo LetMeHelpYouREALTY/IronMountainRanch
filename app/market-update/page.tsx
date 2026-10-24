@@ -69,7 +69,7 @@ export default function MarketUpdatePage() {
         <IronMountainPageHero
           path="/market-update"
           title="Iron Mountain Ranch Market Update"
-          subtitle="Northwest Las Vegas and Iron Mountain Ranch village resale pulse from Berkshire Hathaway HomeServices Nevada Properties"
+          subtitle="Northwest Las Vegas and Iron Mountain Ranch village resale pulse from Dr. Jan Duffy"
         >
           <p className="text-sm text-white/75">By Dr. Jan Duffy, REALTOR® · {REGIONAL_MARKET_LAST_UPDATED}</p>
         </IronMountainPageHero>
@@ -207,7 +207,7 @@ export default function MarketUpdatePage() {
                 <p>
                   What I'm watching closely: <strong>new listing activity</strong>. If inventory
                   continues declining while sales remain strong, we could see more competitive
-                  conditions by spring. <strong>Berkshire Hathaway HomeServices</strong> buyers
+                  conditions by spring. buyers
                   should be prepared to move quickly on desirable properties, while sellers should
                   consider listing before the traditional spring rush creates more competition."
                 </p>
@@ -219,7 +219,7 @@ export default function MarketUpdatePage() {
                 <div>
                   <div className="font-bold text-slate-900">Dr. Jan Duffy</div>
                   <div className="text-slate-500 text-sm">
-                    REALTOR® | Berkshire Hathaway HomeServices Nevada Properties
+                    REALTOR® | Top 1% Las Vegas REALTOR®
                   </div>
                 </div>
               </div>
@@ -265,7 +265,7 @@ export default function MarketUpdatePage() {
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Work with an expert.</strong> A Berkshire Hathaway HomeServices agent
+                      <strong>Work with an expert.</strong> An experienced agent
                       can identify properties before they hit the market and negotiate effectively.
                     </span>
                   </li>
@@ -305,7 +305,7 @@ export default function MarketUpdatePage() {
                   <li className="flex items-start">
                     <ArrowRight className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Leverage the BHHS brand.</strong> Berkshire Hathaway HomeServices
+                      <strong>Leverage strong marketing.</strong> Professional
                       marketing reaches qualified buyers locally, nationally, and internationally.
                     </span>
                   </li>
@@ -394,7 +394,7 @@ export default function MarketUpdatePage() {
               </Link>
             </div>
             <p className="mt-6 text-blue-200 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
 

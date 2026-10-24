@@ -9,7 +9,7 @@ export const DEFAULT_AGENT_HEADSHOT_PATH = "/images/agent/dr-jan-duffy.png";
 const headshotMeta = {
   width: 512,
   height: 512,
-  alt: `${agentInfo.name}, ${agentInfo.title} | ${agentInfo.brokerage} — Iron Mountain Ranch Las Vegas`,
+  alt: `${agentInfo.name}, ${agentInfo.title} — Iron Mountain Ranch Las Vegas`,
 } as const;
 
 /**

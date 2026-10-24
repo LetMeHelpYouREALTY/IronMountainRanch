@@ -18,7 +18,7 @@ import type { Metadata } from "next";
 import { buildPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Downsizing in Las Vegas | Berkshire Hathaway HomeServices",
+  title: "Downsizing in Las Vegas | Dr. Jan Duffy",
   description: "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 996-3758.",
   path: "/sellers/downsizing",
   keywords: ["downsizing Las Vegas","sell large home Las Vegas","55 plus communities Las Vegas","empty nester Las Vegas","Berkshire Hathaway HomeServices downsizing"],
@@ -421,11 +421,11 @@ export default function DownsizingPage() {
                 raised families, and now deserve to enjoy life without maintaining a 4,000 square
                 foot house. I help them extract the equity they've earned, find a home that fits
                 their current lifestyle, and often pocket significant cash for travel, grandkids,
-                or just peace of mind. As a <strong>Berkshire Hathaway HomeServices</strong> agent,
+                or just peace of mind. As a REALTOR® in real estate since 1983,
                 I have the experience and compassion this transition requires."
               </blockquote>
               <cite className="text-slate-300 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>

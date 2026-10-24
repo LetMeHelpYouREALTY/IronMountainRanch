@@ -28,7 +28,7 @@ export const defaultFaqs: FAQ[] = [
   {
     question: "What makes Dr. Jan different for Iron Mountain Ranch?",
     answer:
-      "Hyperlocal MLS filtering by village, LMA/HOA fee verification before tours, and northwest Las Vegas comparison data (Centennial Hills, Summerlin, Skye Canyon) from Berkshire Hathaway HomeServices Nevada Properties.",
+      "Hyperlocal MLS filtering by village, LMA/HOA fee verification before tours, and northwest Las Vegas comparison data (Centennial Hills, Summerlin, Skye Canyon) from Dr. Jan Duffy.",
   },
   {
     question: "Can you help with Iron Mountain Estates in 89143?",

@@ -143,7 +143,7 @@ export const FAQ_DOMAIN_OVERRIDES: Record<string, FAQ[]> = {
     {
       question: "Why work with Dr. Jan Duffy for Iron Mountain Ranch?",
       answer:
-        "Dr. Jan Duffy, REALTOR® (S.0197614.LLC) with Berkshire Hathaway HomeServices Nevada Properties, specializes in exclusive gated northwest Las Vegas communities including Iron Mountain Ranch and Silverstone Ranch.",
+        "Dr. Jan Duffy, REALTOR®, in real estate since 1983, specializes in exclusive gated northwest Las Vegas communities including Iron Mountain Ranch and Silverstone Ranch.",
     },
   ],
 

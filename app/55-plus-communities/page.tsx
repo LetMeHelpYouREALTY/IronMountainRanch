@@ -669,15 +669,15 @@ export default function FiftyFiveCommunitiesPage() {
                 "Buying in a 55+ community involves considerations beyond a
                 typical purchase. You need to understand HOA rules, age
                 verification processes, and how the community fits your
-                lifestyle. As a{" "}
-                <strong>Berkshire Hathaway HomeServices</strong> agent
+                lifestyle. As a REALTOR®
+                in real estate since 1983
                 specializing in active adult communities, I guide clients through
                 every step—from touring amenities to reviewing HOA documents. Many
                 clients are relocating from California, and they rely on my local
                 knowledge to make confident decisions."
               </blockquote>
               <cite className="text-slate-900 font-semibold">
-                — Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties
+                — Dr. Jan Duffy, REALTOR®
               </cite>
             </div>
           </section>
@@ -783,8 +783,7 @@ export default function FiftyFiveCommunitiesPage() {
                     Relocation Support
                   </h3>
                   <p className="text-slate-600 text-sm">
-                    Many 55+ buyers relocate from out of state. Our national BHHS
-                    network provides referrals, and Dr. Jan offers virtual tours
+                    Many 55+ buyers relocate from out of state. Dr. Jan offers virtual tours
                     and detailed community information.
                   </p>
                 </div>
@@ -796,7 +795,7 @@ export default function FiftyFiveCommunitiesPage() {
                 <div>
                   <h3 className="font-bold text-slate-900 mb-1">Trusted Brand</h3>
                   <p className="text-slate-600 text-sm">
-                    The Berkshire Hathaway name represents trust and
+                    Dr. Jan Duffy stands for trust and
                     integrity—values that matter when making one of life's biggest
                     decisions.
                   </p>
@@ -852,7 +851,7 @@ export default function FiftyFiveCommunitiesPage() {
               </span>
             </p>
             <p className="mt-4 text-blue-300 text-sm">
-              Berkshire Hathaway HomeServices Nevada Properties
+              Dr. Jan Duffy, REALTOR® · In real estate since 1983
             </p>
           </section>
         </div>
