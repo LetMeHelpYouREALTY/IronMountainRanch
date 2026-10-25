@@ -39,11 +39,12 @@ const contactSchema = {
   },
 };
 
-export default function ContactPage({
-  searchParams,
-}: {
-  searchParams?: { zip?: string };
-}) {
+export default async function ContactPage(
+  props: {
+    searchParams?: Promise<{ zip?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const zipParam = searchParams?.zip;
   const zip = zipParam && isValidZipCode(zipParam) ? zipParam : null;
 
