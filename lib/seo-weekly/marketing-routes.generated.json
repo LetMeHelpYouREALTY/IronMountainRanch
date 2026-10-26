@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T12:16:23.362Z",
+  "generatedAt": "2026-10-26T12:20:27.450Z",
   "count": 72,
   "routes": [
     "/",
@@ -72,6 +72,7 @@
     "/sub-communities/village-6",
     "/sub-communities/village-7",
     "/sub-communities/village-8",
-    "/sub-communities/village-9"
+    "/sub-communities/village-9",
+    "/why-berkshire-hathaway"
   ]
 }
