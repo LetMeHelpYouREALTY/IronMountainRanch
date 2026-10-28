@@ -23,7 +23,7 @@ import CalendlyRoot from "@/components/calendly/CalendlyRoot";
 import { BotIdClient } from "botid/client";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const domain = headers().get("x-domain") || "";
+  const domain = (await headers()).get("x-domain") || "";
   const config = getDomainConfig(domain);
   const siteUrl = getSiteUrl();
   const verification = getGoogleSearchConsoleVerification();

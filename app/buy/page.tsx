@@ -33,11 +33,12 @@ export const metadata: Metadata = buildPageMetadata({
 
 const listingSchema = generateListingServiceSchema();
 
-export default function BuyPage({
-  searchParams,
-}: {
-  searchParams?: { zip?: string };
-}) {
+export default async function BuyPage(
+  props: {
+    searchParams?: Promise<{ zip?: string }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const zipParam = searchParams?.zip;
   const zip = zipParam && isValidZipCode(zipParam) ? zipParam : null;
 

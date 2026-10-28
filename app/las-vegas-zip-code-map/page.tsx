@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
@@ -9,16 +8,7 @@ import { buildPageMetadata } from "@/lib/page-metadata";
 import { agentInfo, siteConfig } from "@/lib/site-config";
 import { absoluteUrl } from "@/lib/site-url";
 import { lasVegasZipData } from "@/lib/las-vegas-zip-data";
-
-const LasVegasZipCodeMap = dynamic(
-  () => import("@/components/maps/LasVegasZipCodeMap"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-[420px] animate-pulse rounded-2xl bg-slate-200" aria-hidden="true" />
-    ),
-  },
-);
+import LasVegasZipCodeMap from "./LasVegasZipCodeMap.client";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Las Vegas Zip Code Map | Iron Mountain Ranch & Northwest Valley",

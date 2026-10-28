@@ -10,7 +10,7 @@ export const size = OG_IMAGE_SIZE;
 export const contentType = OG_IMAGE_CONTENT_TYPE;
 
 export default async function Image() {
-  const domain = headers().get("x-domain") || "";
+  const domain = (await headers()).get("x-domain") || "";
   const config = getDomainConfig(domain);
 
   return buildOgImageResponse({
