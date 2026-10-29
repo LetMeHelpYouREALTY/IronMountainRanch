@@ -150,7 +150,7 @@ export const subCommunities: SubCommunity[] = [
     name: "Village 5",
     mlsSubdivision: "Iron Mountain Ranch-Village 5",
     description:
-      "Family-friendly gated village with convenient 215 Beltway access and popular 2,700+ sq ft KB layouts.",
+      "Gated village with convenient 215 Beltway access and popular 2,700+ sq ft KB layouts.",
     highlights: ["Family floor plans", "Gated", "215 Beltway access"],
   },
   {
@@ -186,7 +186,7 @@ export const subCommunities: SubCommunity[] = [
     mlsSubdivision: "Iron Mountain Ranch-Village 9",
     description:
       "Active resale market with a mix of single- and two-story homes in gated Iron Mountain Ranch—popular with relocating families.",
-    highlights: ["Mixed floor plans", "Gated", "Strong schools access"],
+    highlights: ["Mixed floor plans", "Gated", "Nearby public schools access"],
   },
   {
     slug: "village-10",

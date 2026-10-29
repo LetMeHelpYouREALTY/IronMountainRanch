@@ -160,23 +160,23 @@ export const neighborhoods = [
   {
     name: "Summerlin",
     slug: "summerlin",
-    description: "Master-planned community with parks, trails, and top-rated schools",
+    description: "Master-planned community with parks, trails, and nearby public schools",
     medianPrice: "$625,000",
-    highlights: ["Red Rock views", "150+ parks", "Top schools", "Golf courses"],
+    highlights: ["Red Rock views", "150+ parks", "Nearby public schools", "Golf courses"],
   },
   {
     name: "Centennial Hills",
     slug: "centennial-hills",
     description: "Northwest Las Vegas community with mountain proximity",
     medianPrice: "$495,000",
-    highlights: ["Mountain access", "Parks", "Shopping", "Family-friendly"],
+    highlights: ["Mountain access", "Parks", "Shopping"],
   },
   {
     name: "Skye Canyon",
     slug: "skye-canyon",
     description: "Newer master-planned community in northwest Las Vegas",
     medianPrice: "$550,000",
-    highlights: ["New homes", "Mountain views", "Modern amenities", "Great schools"],
+    highlights: ["New homes", "Mountain views", "Modern amenities", "Nearby public schools"],
   },
 ];
 
@@ -208,7 +208,7 @@ export const services = [
 ];
 
 export const expertQuotes = {
-  market: `"Iron Mountain Ranch offers strong value in northwest Las Vegas — gated living, family-friendly villages, and proximity to Red Rock without Summerlin price tags."`,
+  market: `"Iron Mountain Ranch offers strong value in northwest Las Vegas — gated living villages, and proximity to Red Rock without Summerlin price tags."`,
   buyers: `"My job isn't just to show you houses—it's to make sure you don't overpay, that you understand what you're buying, and that you're protected through every step of the transaction."`,
   sellers: `"Pricing your home correctly from day one is the single most important factor in getting top dollar. Overpriced homes sit, and every day on market costs you money."`,
 };
