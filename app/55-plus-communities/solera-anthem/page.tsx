@@ -56,7 +56,7 @@ export default function SoleraAnthemPage() {
         <IronMountainPageHero
           path="/55-plus-communities/solera-anthem"
           title="Solera at Anthem"
-          subtitle="The close-knit alternative to mega-communities. Guard-gated security in Henderson's safest neighborhood."
+          subtitle="The close-knit alternative to mega-communities. Guard-gated security in Henderson."
         />
         <div className="container mx-auto px-4 py-16">
           {/* Breadcrumb */}
@@ -229,7 +229,7 @@ export default function SoleraAnthemPage() {
           {/* Henderson Location */}
           <section className="mb-16 bg-slate-50 rounded-2xl p-8 md:p-12 max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900 mb-6 text-center">
-              Henderson: America's Safest Large City
+              Henderson: Crime Data You Can Check
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white rounded-xl p-6 border border-slate-200">
@@ -240,7 +240,7 @@ export default function SoleraAnthemPage() {
                       Top Safety Rankings
                     </h3>
                     <p className="text-slate-600 text-sm">
-                      Henderson consistently ranks as one of the safest large
+                      Henderson Police publish a 90-day crime map online within the
                       cities in America. Double security: Henderson's safety plus
                       Solera's guard gate.
                     </p>
@@ -324,7 +324,7 @@ export default function SoleraAnthemPage() {
                 <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
                 <div>
                   <strong className="text-slate-900">
-                    Guard-gated in America's safest city
+                    Guard-gated entry in Henderson
                   </strong>
                   <p className="text-slate-600 text-sm">
                     Double layer of security: Henderson's safety record plus 24/7

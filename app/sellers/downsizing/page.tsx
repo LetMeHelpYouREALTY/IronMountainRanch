@@ -21,7 +21,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: "Downsizing in Las Vegas | Dr. Jan Duffy",
   description: "Ready to simplify? Dr. Jan Duffy helps Las Vegas homeowners extract equity and transition to low-maintenance living. 55+ communities, condos, and more. Call (702) 996-3758.",
   path: "/sellers/downsizing",
-  keywords: ["downsizing Las Vegas","sell large home Las Vegas","55 plus communities Las Vegas","empty nester Las Vegas","Berkshire Hathaway HomeServices downsizing"],
+  keywords: ["downsizing Las Vegas","sell large home Las Vegas","55 plus communities Las Vegas","downsizer Las Vegas","Berkshire Hathaway HomeServices downsizing"],
 });
 
 export default function DownsizingPage() {
@@ -120,7 +120,7 @@ export default function DownsizingPage() {
                 </div>
                 <h3 className="font-bold text-lg text-slate-900 mb-2">Single-Story Homes</h3>
                 <p className="text-slate-600 text-sm mb-4">
-                  Right-sized single-story in established neighborhoods. No stairs,
+                  Right-sized single-story in older neighborhoods. No stairs,
                   smaller yard, lower utility costs. Age-in-place features available.
                 </p>
                 <div className="text-blue-600 font-semibold">$400K - $600K</div>
@@ -167,7 +167,7 @@ export default function DownsizingPage() {
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                    <span>Professional staging that showcases family-friendly features</span>
+                    <span>Professional staging that showcases each room's best use</span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
